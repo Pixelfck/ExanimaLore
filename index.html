@@ -7,6 +7,7 @@
 		<style>
 *, html, body {
 	font-family: sans-serif;
+	color: #000;
 }
 
 h1 {
@@ -73,6 +74,16 @@ p:last-child {
 
 /* ****** */
 
+.no-decoration {
+	text-decoration: none;
+	color: #000;
+}
+
+.no-decoration:hover,
+.no-decoration:focus,
+.no-decoration:active {
+	text-decoration: underline;
+}
 
 .no-entries {
 	text-decoration: line-through;
@@ -128,7 +139,7 @@ tr:target {
 
 <h1>The Lore of Exanima</h2>
 
-<blockquote>Those who would enter the underworld shall not only forfeit their lives, but bring oblivion to all mankind.</blockquote>
+<blockquote>Those who would enter the <a href="#Underworld" class="no-decoration">underworld</a> shall not only forfeit their lives, but bring oblivion to all mankind.</blockquote>
 
 <h2>Table of Contents</h2>
 
