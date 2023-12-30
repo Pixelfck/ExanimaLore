@@ -2,28 +2,35 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Exanima lore</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>The Lore of Exanima</title>
 		<style>
 *, html, body {
 	font-family: sans-serif;
 }
 
 h1 {
+	font-size: 3.5em; 
+	text-align: center;
+	margin-bottom: 0.25em;
+}
+
+h2 {
 	margin-top: 2em;
 }
 
-h1:first-child {
+h2:first-child {
 	margin-top: 0;
 }
 
-h2,
-h3 {
+h3,
+h4 {
 	margin: 1.5em 0 0.25em;
 }
 
-.no-entries {
-	text-decoration: line-through;
-	color: #bbb;
+blockquote {
+	font-style: italic;
+	text-align: center;
 }
 
 table {
@@ -64,11 +71,20 @@ p:last-child {
 	margin-bottom: 0;
 }
 
+/* ****** */
+
+
+.no-entries {
+	text-decoration: line-through;
+	color: #bbb;
+}
+
 .written-document {
 	font-style: italic;
 }
 
-.dialogue-next {
+.dialogue-next,
+.dialogue-continue {
 	text-decoration: none;
 }
 
@@ -110,11 +126,36 @@ tr:target {
 	</head>
 	<body>
 
-<h1>Documents</h1>
+<h1>The Lore of Exanima</h2>
 
-<h2>Level 1</h2>
+<blockquote>Those who would enter the underworld shall not only forfeit their lives, but bring oblivion to all mankind.</blockquote>
 
-<h3>Present</h3>
+<h2>Table of Contents</h2>
+
+<ul class="toc">
+	<li><a href="#Documents">Documents</a>
+		<ul>
+			<li><a href="#Level_1">Level 1</a></li>
+			<li><a href="#Level_2">Level 2</a></li>
+			<li><a href="#Level_2">Level 3</a></li>
+			<li><a href="#Archives">Archives</a></li>
+			<li><a href="#Crossroads">Crossroads</a></li>
+			<li><a href="#Markets">Markets</a></li>
+			<li><a href="#Sewers_below_the_Markets">Sewers below the Markets</a></li>
+			<li><a href="#Gentry">Gentry</a></li>
+			<li><a href="#Golems_and_Foundry">Golems and Foundry</a></li>
+		</ul>
+	</li>
+	<li><a href="#People_and_Places">People and Places</a></li>
+	<li><a href="#Dialogues">Dialogues</a></li>
+</ul>
+
+
+<h2 id="Documents">Documents</h2>
+
+<h3 id="Level_1">Level 1</h3>
+
+<h4>Present</h4>
 
 <table>
 <tr>
@@ -191,7 +232,7 @@ tr:target {
 </table>
 
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -253,9 +294,9 @@ tr:target {
 </table>
 
 
-<h2>Level 2</h2>
+<h3 id="Level_2">Level 2</h3>
 
-<h3>Present</h3>
+<h4>Present</h4>
 
 <table>
 <tr>
@@ -307,7 +348,7 @@ tr:target {
 </table>
 
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -336,9 +377,9 @@ tr:target {
 
 
 
-<h2>Level 3</h2>
+<h3 id="Level_3">Level 3</h3>
 
-<h3>Present</h3>
+<h4>Present</h4>
 
 <table>
 <tr>
@@ -365,7 +406,7 @@ tr:target {
 </table>
 
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -394,9 +435,9 @@ tr:target {
 
 
 
-<h2>Archives</h2>
+<h3 id="Archives">Archives</h3>
 
-<h3>Present</h3>
+<h4>Present</h4>
 
 <table>
 <tr>
@@ -423,7 +464,7 @@ tr:target {
 </table>
 
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -472,9 +513,9 @@ tr:target {
 
 
 
-<h2>Crossroads</h2>
+<h3 id="Crossroads">Crossroads</h3>
 
-<h3>Present</h3>
+<h4>Present</h4>
 
 <table>
 <tr>
@@ -496,7 +537,7 @@ tr:target {
 </table>
 
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -543,14 +584,14 @@ tr:target {
 </table>
 
 
-<h2 class="no-entries">Sewers below the Crossroads</h2>
+<h3 id="Sewers_below_the_Crossroads" class="no-entries">Sewers below the Crossroads</h3>
 
 
-<h2>Markets</h2>
+<h3 id="Markets">Markets</h3>
 
-<h3 class="no-entries">Present</h3>
+<h4 class="no-entries">Present</h4>
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -579,11 +620,11 @@ tr:target {
 
 
 
-<h2>Sewers below the Markets</h2>
+<h3 id="Sewers_below_the_Markets">Sewers below the Markets</h3>
 
-<h3 class="no-entries">Present</h3>
+<h4 class="no-entries">Present</h4>
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -602,9 +643,9 @@ tr:target {
 
 
 
-<h2>Gentry</h2>
+<h3 id="Gentry">Gentry</h3>
 
-<h3>Present</h3>
+<h4>Present</h4>
 
 <table>
 <tr>
@@ -651,7 +692,7 @@ tr:target {
 </table>
 
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -680,9 +721,9 @@ tr:target {
 
 
 
-<h2>Golems &amp; Foundry</h2>
+<h3 id="Golems_and_Foundry">Golems and Foundry</h3>
 
-<h3>Present</h3>
+<h4>Present</h4>
 
 <table>
 <tr>
@@ -704,7 +745,7 @@ tr:target {
 </table>
 
 
-<h3>Past</h3>
+<h4>Past</h4>
 
 <table>
 <tr>
@@ -748,9 +789,9 @@ tr:target {
 
 
 
-<h1>People and Places</h1>
+<h2 id="People_and_Places">People and Places</h2>
 
-<h2>Present</h2>
+<h3>Present</h3>
 
 <table>
 <tr>
@@ -823,7 +864,7 @@ tr:target {
 </table>
 
 
-<h2>Past &amp; Present</h2>
+<h3>Past &amp; Present</h3>
 
 <table>
 <tr>
@@ -842,7 +883,7 @@ tr:target {
 </table>
 
 
-<h2>Past</h2>
+<h3>Past</h3>
 
 <table>
 <tr>
@@ -946,9 +987,9 @@ tr:target {
 
 
 
-<h1>Dialogues</h1>
+<h2 id="Dialogues">Dialogues</h2>
 
-<h2><a href="#Derrin">Derrin</a></h2>
+<h3><a href="#Derrin">Derrin</a></h3>
 
 <div class="dialogueTrigger">Trigger: Enter the room where Derrin is hiding</div>
 <ul id="dialogue001a">
@@ -1013,7 +1054,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue001b">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> How did you get here? Can you get out?
+	<li><a href="#dialogue001a" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> How did you get here? Can you get out?
 		<ul>
 			<li><span class="dialogue-pc">Player</span> I... don't recall.
 				<ul>
@@ -1040,7 +1081,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue001c">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> What about the dead ones?
+	<li><a href="#dialogue001b" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> What about the dead ones?
 		<ul>
 			<li><span class="dialogue-pc">Player</span> I'm more concerned about the necromancer.
 				<ul>
@@ -1077,7 +1118,7 @@ tr:target {
 
 
 <ul id="dialogue001d">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> Take me with you!
+	<li><a href="#dialogue001c" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> Take me with you!
 		<ul>
 			<li><span class="dialogue-pc">Player</span> Yes, we may be able to help each other.
 				<ul>
@@ -1109,7 +1150,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue001e">
-	<li><span class="dialogue-continue dialogue-pc">Player</span> Are you able to fight?
+	<li><a href="#dialogue001d" class="dialogue-continue"></a><span class="dialogue-pc">Player</span> Are you able to fight?
 		<ul>
 			<li><span class="dialogue-npc">Derrin</span> My Da was a soldier. Tried to teach me some, but I wasn't much for it. What about you?
 				<ul>
@@ -1131,7 +1172,7 @@ tr:target {
 
 
 <ul id="dialogue001f">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> We should look around. My Da would say just a good shirt can save your skin.
+	<li><a href="#dialogue001e" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> We should look around. My Da would say just a good shirt can save your skin.
 		<ul>
 			<li><span class="dialogue-pc">Player</span> I suppose. Let me know if you see anything useful. Let's go now. <span class="dialogue-end"></span></li>
 			<li><span class="dialogue-pc">Player</span> I'd rather focus on getting out, but take what you want. <span class="dialogue-end"></span></li>
@@ -1395,7 +1436,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue008b">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> How do you even know what it is?
+	<li><a href="#dialogue008a" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> How do you even know what it is?
 		<ul>
 			<li><span class="dialogue-pc">Player</span> I didn't know they were real, but their possibility is something that is studied.
 				<ul>
@@ -1450,7 +1491,7 @@ tr:target {
 
 
 <ul id="dialogue008c">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> Now I want to know more, can you explain to me?
+	<li><a href="#dialogue008b" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> Now I want to know more, can you explain to me?
 		<ul>
 			<li><span class="dialogue-pc">Player</span> It's complicated, but the outcome is that to function, the portal must exist in different realities. It causes them to
 					converge, just for an instant, just the tiniest part. Through a big but brief series of these convergences, things come to
@@ -1480,7 +1521,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue008d">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> Right. Remind me not to ask you anything again. <span class="dialogue-end"></span></li>
+	<li><a href="#dialogue008c" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> Right. Remind me not to ask you anything again. <span class="dialogue-end"></span></li>
 </ul>
 
 <hr>
@@ -1544,7 +1585,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue010b">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> I am farm hand, but I'm also <a href="@Lord_Ermus">lord Ermus'</a> man. I keep an eye on things and let him know what I see.
+	<li><a href="#dialogue010a" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> I am farm hand, but I'm also <a href="@Lord_Ermus">lord Ermus'</a> man. I keep an eye on things and let him know what I see.
 		<ul>
 			<li><span class="dialogue-pc">Player</span> So you're a spy?
 				<ul>
@@ -1607,7 +1648,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue010c">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> Well, I wanted to help, so I tried to find the bandits.
+	<li><a href="#dialogue010b" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> Well, I wanted to help, so I tried to find the bandits.
 		<ul>
 			<li><span class="dialogue-pc">Player</span> And so they found you, and here you are. <a href="#dialogue010d" class="dialogue-next"></a></li>
 			<li><span class="dialogue-pc">Player</span> I take it this is not your usual purview. <a href="#dialogue010d" class="dialogue-next"></a></li>
@@ -1617,7 +1658,7 @@ tr:target {
 
 
 <ul id="dialogue010d">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> Yeah, not my best idea. But we lost so many, I wanted to do something.
+	<li><a href="#dialogue010c" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> Yeah, not my best idea. But we lost so many, I wanted to do something.
 		<ul>
 			<li><span class="dialogue-pc">Player</span> I suppose you did find them after all.
 				<ul>
@@ -1648,8 +1689,8 @@ tr:target {
 </ul>
 
 <ul id="dialogue010e">
-	<li><span class="dialogue-continue dialogue-pc">Player</span> Fair point. Let's turn our thoughts to getting out of here. <span class="dialogue-end"></span></li>
-	<li><span class="dialogue-continue dialogue-pc">Player</span> Nothing so stupid, I'm sure. But enough of this. <span class="dialogue-end"></span></li>
+	<li><a href="#dialogue010d" class="dialogue-continue"></a><span class="dialogue-pc">Player</span> Fair point. Let's turn our thoughts to getting out of here. <span class="dialogue-end"></span></li>
+	<li><a href="#dialogue010d" class="dialogue-continue"></a><span class="dialogue-pc">Player</span> Nothing so stupid, I'm sure. But enough of this. <span class="dialogue-end"></span></li>
 </ul>
 
 <hr>
@@ -1681,7 +1722,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue012b">
-	<li><span class="dialogue-continue dialogue-npc">Derrin</span> Yeah, it's just similar is all. <span class="dialogue-end"></span></li>
+	<li><a href="#dialogue012a" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> Yeah, it's just similar is all. <span class="dialogue-end"></span></li>
 </ul>
 
 <hr>
