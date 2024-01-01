@@ -67,6 +67,11 @@ td:first-child {
 	white-space: nowrap;
 }
 
+tr[id] td:first-child {
+	position: relative;
+	padding-right: 1.2em;
+}
+
 p:first-child {
 	margin-top: 0;
 }
@@ -86,6 +91,21 @@ p:last-child {
 .no-decoration:focus,
 .no-decoration:active {
 	text-decoration: underline;
+}
+
+.copy-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #4c4c4c;
+	font-size: 1.2em;
+	cursor: pointer;
+}
+
+.copy-icon:hover,
+.copy-icon:focus,
+.copy-icon:active {
+	color: #000;
 }
 
 .no-entries {
@@ -136,11 +156,30 @@ tr:target {
 	content: ":";
 }
 
+.copy-message {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+  margin: 0 auto 5px;
+	transform: translateX(-50%);
+	color: #ddd;
+	background-color: #222;
+	padding: 4px;
+	border-radius: 5px;
+	opacity: 0;
+	transition: opacity 1.0s;
+}
+
+.copy-message--visible {
+	opacity: 1;
+	transition: opacity 0.2s;
+}
+
 		</style>
 	</head>
 	<body>
 
-<h1>The Lore of Exanima</h2>
+<h1>The Lore of Exanima</h1>
 
 <blockquote>Those who would enter the <a href="#Underworld" class="no-decoration">underworld</a> shall not only forfeit their lives, but bring oblivion to all mankind.</blockquote>
 
@@ -177,67 +216,67 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Parchment_001">
 	<td>Parchment</td>
 	<td>Possibly written by <a href="#Thaven">Thaven</a>?</td>
 	<td><p>This appears to be the final page of a letter.</p><p>"... and assist him in whatever way you can. If all else fails then recover any information he has gathered and bring it to me. There is potential in you, succeed here and we will find a place for you.</p><p>Badly scribbled across the back of the page are the following words:</p><p>"There is another way out"</p></td>
 	<td>Unknown's inventory</td>
-</tr><tr id="Parchment001">
+</tr><tr  id="Parchment_002">
 	<td>Parchment</td>
 	<td>Written by <a href="#Tessa">Tessa</a></td>
 	<td><p>Dearest <a href="#Mathis">Mathis</a>,</p><p><a href="#Elara">Elara</a> has disappeared. Many have gone missing of late but bandits in the area are not uncommon. <a href="#Elara">Elara</a> however does not travel, why would they have taken her? I dread to think what they might do to her. I thought of a ransom and so, I am ashamed to admit, I thought of you. But there have been no requests for ransom, just more and more missing. I assume news of these events has not reached <a href="#Kingdom_of_Ardent">Ardent</a>, it has been long since we've seen a <a href="#Proctor">proctor</a>. What am I to do dear cousin? Will you at least advise me?</p><p><a href="#Tessa">Tessa</a></p></td>
 	<td>Wine Cellar, Mathis' corpse</td>
-</tr><tr>
+</tr><tr id="Parchment_003">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>Consignment has arrived, I must find a suitable place and begin work. Finally I can resume living with a vague semblance of decency. I cannot stand this filth any longer, I've been living like an animal.</p></td>
 	<td>Office</td>
-</tr><tr>
+</tr><tr id="Parchment_004">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>They lose the will to live without their bodies. They seem completely bound to their mortal remains. Is it just because of their lesser minds? I have attempted to sustain one with nothing left but th...</p><p>Gods below, what am I doing? It is horrifying. Sometimes it is as if I suddenly wake to realise that I am fuelled by rage, as if I hold these poor souls responsible for what has befallen me.</p></td>
 	<td>Hospital Desk</td>
-</tr><tr id="Deconstructing_Humanity">
-	<td>Book</td>
+</tr><tr id="Book_Deconstructing_Humanity">
+	<td>Deconstructing Humanity by <a href="#Aldair_Hanks">Aldair Hanks</a></td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
-	<td><p>Deconstructing Humanity by <a href="#Aldair_Hanks">Aldair Hanks</a>.</p><p>A medical book on human anatomy. Mostly complex diagrams and surgical terminology. There are underlined passages and circled diagrams in the section that deals with the brain.</p></td>
+	<td><p>A medical book on human anatomy. Mostly complex diagrams and surgical terminology. There are underlined passages and circled diagrams in the section that deals with the brain.</p></td>
 	<td>Hospital Desk</td>
-</tr><tr>
+</tr><tr id="Parchment_005">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I feel a growing resentment for <a href="#Thaven">Thaven</a>. On the one hand I wish to please him, to impress him, but such thoughts then lead me to anger. I once believed there was friendship between us, now I think perhaps it was based on naught but common interests. His disregard for all things other than his single minded purpose has hurt us, it has put us all in difficulty and danger. I was always feared, but I was also respected. To be driven from my own home by peasants!</p></td>
 	<td>Bedroom</td>
-</tr><tr>
+</tr><tr id="Book_The_Forgotten_Power">
 	<td>The Forgotten Power by Anonymous</td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>According to this book humans are powerful, immortal beings that have forgotten their true nature. That, by living your life by a certain moral code, performing certain rituals and eating a certain diet, you can achieve great power and ultimately unlock your dormant immortality.</p></td>
 	<td>Dining Room</td>
-</tr><tr id="Life_of_Linus_Fendrick">
+</tr><tr id="Book_Life_of_Linus_Fendrick">
 	<td>Life of <a href="#Linus_Fendrick">Linus Fendrick</a> by Anonymous</td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>A famous book with an even more famous story surrounding it, often told by mothers to their young children, a cautionary tale on the dark and sinister trappings of thaumaturgy. <a href="#Linus_Fendrick">Fendrick</a> was a gifted thaumaturge who lost his young wife and three children in some gruesome accident. He was thus driven to necromancy in hope of resurrecting them, not the traditional crude raising of the dead, but with will sentience and cognizance. His practices and experiments were most vile in nature. Kidnappings, torture, murder, keeping his family's bodies in a state between life and death for some forty years; his crimes were plentiful and led to nothing save failure and despair.</p></td>
 	<td>Bedroom</td>
-</tr><tr id="Binding_of_the_Dead">
+</tr><tr id="Book_Binding_of_the_Dead">
 	<td>Binding of the Dead</td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>The pages of this book are stuck together and ruined by copious amounts of blood.</p></td>
 	<td>Corlian's Lab</td>
-</tr><tr id="Forgotten">
+</tr><tr id="Book_Forgotten">
 	<td>Forgotten by <a href="#Aime_Koren">Aime Koren</a></td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>A scholarly book about memory and cognizance. What we forget and why we forget it, how we choose to make a history for ourselves regardless of the facts, how we are defined by the wholly unreliable and subjective thing we call memory.</p></td>
 	<td>Corlian's Lab</td>
-</tr><tr>
+</tr><tr id="Parchment_006">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I think my illness has worsened since coming here, I often feel confused, as if battling conflicting thoughts. My temper keeps getting the better of me, an aggressive trait I never knew I posessed. Perhaps it is simply a response to all that has happened. Even so it scares me, I don't recognise myself. I must make a greater effort to retain my composure.</p></td>
 	<td>Hospital Patient Room</td>
-</tr><tr>
+</tr><tr id="Parchment_007">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>So far results are disappointing. I suppose I should have expected as much after the initial dramatic progress. I am seeing some improvement but I feel as though I need a change in direction to really go further. If only poor <a href="#Papin">Papin</a> was still with me, exchanging thoughts with him would benefit me greatly.</p></td>
 	<td>Corlian's Lab</td>
-</tr><tr>
+</tr><tr id="Parchment_008">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p><a href="#Hamon">Hamon</a> has obviously cast aside our agreement. He's sending far too many down here and I've lost all contact with him. What is he trying to do? One of these wretches confessed that he was told to seek treasure. Someone will notice all these missing people. And what if one finds me while I sleep? I no longer feel safe here, I have locked the doors but I should venture further and look for something more secure.</p></td>
@@ -254,54 +293,54 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Book_001">
 	<td>Book</td>
-	<td>Likely written by the original inhabitants</td>
+	<td></td>
 	<td><p>A catalogue exhaustively describing many common and unremarkable plants in great detail. It's hard to imagine why anyone would undertake such a pointless endeavour.</p></td>
 	<td>Herb Storage</td>
-</tr><tr>
+</tr><tr id="Book_002">
 	<td>Book</td>
-	<td>Likely written by the original inhabitants</td>
+	<td></td>
 	<td><p>A long list of people undergoing treatment of often grevious wounds. Many of the injuries appear to be bites and lacerations, presumably resulting from the attacks of some sort of animal.</p></td>
 	<td>Hospital Desk</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_001">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>In response to our surprising failure we've installed <a href="#Naiss">Naiss's</a> ingenious mechanism as a final precaution against intrusion. It can only be operated by those with knowledge of its workings. Simply press all the outer buttons but never two near eachother in sequence before operating it. This will surely keep them out no matter how smart they are.</p></td>
 	<td>Armory Office</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_002">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>Darrin, please inform <a href="#Naiss">Naiss</a> that he's an idiot. Only a handful of the soldiers are able to reliably operate the mechanism without incident. They don't even understand what they're doing wrong, clearly it is not as simple as he'd have us believe. We've had several incidents already and I'm now having to teach precautions to avoid being burned.</p></td>
 	<td>Armory Office</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_003">
+	<td>Old Parchment</td>
 	<td>Unobtainable?</td>
 	<td><p>If you are reading this then I fear I am dead.</p><p>I'm wounded and can not continue to fight... I've secured <a href="#Donestan">Donestan</a> and <a href="#Sandrian">Sandrian</a> in the wine cellar, if you can help, then please help them, it is too late for me.</p></td>
 	<td></td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_004">
+	<td>Old Parchment</td>
 	<td>Unobtainable?</td>
 	<td><p>Dearest <a href="#Rayner">Rayner</a> my favourite quatermaster.</p><p>Please could you have one of your good folk at the stores prepare me a selection of your freshest and finest and have it sent to my quaters as soon as possible. I am entertaining tonight and as always I wish to impress.</p><p>Forever in your gratitude,</p><p><a href="#Captain_Lafele">Captain Lafele</a></p></td>
 	<td></td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_005">
+	<td>Old Parchment</td>
 	<td>Unobtainable?</td>
 	<td><p><a href="#Balan">Balan</a>, you are required to begin moving anys spare and newly built barricades to the entrance of the new supply route and prepare for one of your men to set up a new workstation there where you will eventually join him. <a href="#Captain_Klysen">Captain Klysen</a> has been informed and he and his men will assist you however necessary.</p><p>Regards.</p></td>
 	<td></td>
-</tr><tr>
+</tr><tr id="Book_003">
 	<td>Book</td>
-	<td>Likely written by the original inhabitants</td>
+	<td></td>
 	<td><p>A list of people assigned guard duty here. The same names are repeated, signed and stamped over and over again. Occasionally a name disappears suddenly and is replaced by another, no reason for this is noted.</p></td>
 	<td>Jail Entrance</td>
-</tr><tr>
+</tr><tr id="Book_004">
 	<td>Book</td>
-	<td>Likely written by the original inhabitants</td>
+	<td></td>
 	<td><p>A log of work orders, it seems as though many people were involved in completing them. Most of the names seem strange and many items are described with words you've never seen before.</p></td>
 	<td>Smithy, table opposite to forge</td>
-</tr><tr>
+</tr><tr id="Book_005">
 	<td>Book</td>
-	<td>Likely written by the original inhabitants</td>
+	<td></td>
 	<td><p>A detailed log of various materials being delivered and dispatched. The script and some of the spelling seem very unusual. What you assume must be dates have a format that you can't make sense of.</p></td>
 	<td>Storeroom, table next to a chest</td>
 </tr>
@@ -318,42 +357,42 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Parchment_009">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>Clearly this was once a place of military activity, but who were they fighting? Were we once at war with these people? It would seem we won. How could such events be completely erased from our histories? <a href="#Thaven">Thaven</a> believes that somewhere down here lies the true source of our power. I cannot make sense of any of this, I wish now that I had been less dismissive of <a href="#Thaven">Thaven's</a> theories.</p></td>
 	<td>Corlian's Office, in a desk</td>
-</tr><tr>
+</tr><tr id="Parchment_010">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>That idiot and his thugs are still sending many down here. I must admit I am impressed by his methods, in some ways he is less a fool than he appears. I must take advantage of this and resume my research while I still can. I've yet to find a place where I w-</p></td>
 	<td>Entrance to Corlian's Office</td>
-</tr><tr>
+</tr><tr id="Parchment_011">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>This place begins to intrigue me. <a href="#Thaven">Thaven</a> understands more things than I imagined. What if he is right? It would change everything. How could we be so ignorant? If I had more time I believe I would undertake his mission. I wonder what changes he has brought about by now with these discoveries. These are important times, I would live to see them.</p></td>
 	<td>Corlian's Bedroom</td>
-</tr><tr>
+</tr><tr id="Parchment_012">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I'm sitting in a tavern, something I have not done a long time. Alas it is quite empty and all the drink has spoiled long ago.</p><p>These people cannot have been so different from us. And yet some things are very strange. There are lamps and even fires that never burn out, I do not understand the source of their power. These walls echo with the souls of the long dead but beneath that I sense something else, like a far reaching presence, it is faint but everywhere, and very strange. Could this be the mythical <a href="#The_Guardian_of_the_Underworld">Guardian</a>? Or even <a href="#Thaven">Thaven's</a> <a href="#The_Spellgiver">Spellgiver</a>?</p></td>
 	<td>Tavern</td>
-</tr><tr>
+</tr><tr id="Parchment_013">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I've been avoiding relations with my subjects as it could become a serious impediment to my work. I did not imagine that I would miss human contact so much. <a href="#Papin">Papin</a> could have carried my legacy but I now treasure his company and friendship more than anything. Even so I deeply regret the loss of a lifetime of imparted knowledge and teachings. If I were to succeed poor <a href="#Papin">Papin</a> would never truly have reaped the benefits of his apprenticeship but he accepted this and was always eager and gratef-</p><p>-s too late now, I must not dwell on it any longer.</p></td>
 	<td>Corlian's Lab</td>
-</tr><tr>
+</tr><tr id="Parchment_014">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I discovered a truly miraculous substance. It produces a faint light and a pungent odour, when I touched it a wound on my hand I acquired during my cuttings healed rapidly. It was astounding. I have experimented with it but so far it has proven ineffective against my illness. If only I could find more. It was well hidden, obviously it is something of great value. I thought perhaps the lamps contained this substance but I was unable to break one open, when I finally removed one from the wall it gradually lost its light.</p></td>
 	<td>Corlian's Lab</td>
-</tr><tr>
+</tr><tr id="Book_The_Guardian_of_the_Underworld">
 	<td>The <a href="#The_Guardian_of_the_Underworld">Guardian</a> of the Underworld</td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>This book explores various myths surrounding the <a href="#The_Guardian_of_the_Underworld">Guardian</a> but does so in what seems like a tendentious manner, casting him in a more positive light than he is commonly viewed in. You suspect it is tied to some cult dedicated to the worship of the <a href="#The_Guardian_of_the_Underworld">Guardian</a>.</p><p>The <a href="#The_Guardian_of_the_Underworld">Guardian</a> of the <a href="#Underworld">Underworld</a>, known also as the Keeper of the Dead, is the most prominent figure in our mythology. As with most our myths it differs depending on whom you ask, the <a href="#The_Guardian_of_the_Underworld">Guardian's</a> role in particular is an ambivalent one. There is fear of what he represents and of his dark and dangerous realm but there is also a feeling of deference and a belief that he will watch over our loved ones once they pass away. We inter our dead to consign them to the <a href="#The_Guardian_of_the_Underworld">Guardian's</a> care and we believe that he will grant them a life beyond this one. Behind the intimidating titles and malicious curses the <a href="#The_Guardian_of_the_Underworld">Guardian</a> is also a giver of life. He is said to restore life to those that have fallen in his service, or that some become beholden to him owing to their resurrection. Perhaps the most notable myth is that in a time of dire need the <a href="#The_Guardian_of_the_Underworld">Guardian</a> will raise an army of those given into his care to defend us. What is it then that he guards? Does he simply watch over our dead and his dreadful realm or might it be that he is in fact our protector?</p></td>
 	<td>Corlian's Lab</td>
-</tr><tr>
+</tr><tr id="Book_The_Guardians_Wrath">
 	<td>The <a href="#The_Guardian_of_the_Underworld">Guardian's</a> Wrath</td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>The Earth on which we walk is our mother, she provides for us all that we may need. Our ancestors, in their mad lust for power sought more, they began to dig deep into our Earth, in search of her lifeblood. And so by digging they uncovered the <a href="#Underworld">Underworld</a> and its fearsome <a href="#The_Guardian_of_the_Underworld">Guardian</a>. He sent forth terrible demons to drive them out and hunt them down. Before all could be slain, our ancient kin sealed the entrances to the <a href="#Underworld">Underworld</a> and swore never to return. Thus we are allowed to live upon this Earth, but ever under the watchful eye of the <a href="#The_Guardian_of_the_Underworld">Guardian</a>.</p></td>
@@ -370,17 +409,17 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_006">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>I have been informed that <a href="#The_Conservers">the conservers</a> have spies amongst us. Despite our differences I cannot imagine that they're looking to harm us, or even impede our mission here. I cannot in truth see much reason to prevent them from knowing of our progress, I am inclined to just let them get their information rather than waste resources and encourage doubt and suspicion amongst us.</p></td>
 	<td>Bedroom, inside a chest</td>
-</tr><tr>
+</tr><tr id="Book_006">
 	<td>Book</td>
-	<td>Likely written by the original inhabitants</td>
+	<td></td>
 	<td><p>This log is filled with detailed reports of people violating certain rules. Most of these rules are obviously aimed at preventing the entry of intruders. They are strict and elaborate to the point of seeming a product of paranoia.</p></td>
 	<td>Courtroom Floor</td>
-</tr><tr id="The_Kingdom_Beyond">
+</tr><tr id="Book_The_Kingdom_Beyond">
 	<td>The Kingdom Beyond by <a href="#Alisian_Dayen">Alisian Dayen</a></td>
 	<td></td>
 	<td><p>In a brutal battle a knight named <a href="#Buto">Buto</a> is trapped behind enemy lines. He fights valiantly but is overwhelmed and captured. His captors demand strategic information, but his interrogator is kind to him and tries to win him over to their cause. <a href="#Buto">Buto</a> is loyal to his king and will not give them anything of import. In time however a friendship is established between him and his interrogator. One day the interrogator reveals himself as the very king of <a href="#Buto">Buto's</a> captors and tells him that through their exchanges he has learned much to gain an advantage in the war. He offers <a href="#Buto">Buto</a> his freedom, so that he can return to his king and that one day they might meet again in battle. As <a href="#Buto">Buto</a> leaves his prison he sees the people he would assail in a new light and is disheartened, he knows too that he may be received by his own people as a traitor. And so he asks if he can stay and lead a simple life. The king consents, knowing that he will grow to love and cherish his new home and people, a formidable warrior who will rise to protect them.</p></td>
@@ -401,17 +440,17 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Parchment_015">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>One of my subjects found a most remarkable weapon and escaped, making quick work of anything in his path. I was surprised by his ability to guard his mind against me, I tracked his escape for some time but he then completely vanished from my senses. How did he do that? Who is he?</p></td>
 	<td>Residence, floor</td>
-</tr><tr>
+</tr><tr id="Parchment_016">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I have found a helmet which blocks my power when I wear it. Perhaps more importantly it shielded me from the noise of other minds, that presence that has haunted me since I came here was gone. Shortly after donning it I fell asleep, I am certain it was not its power that did this but the calm that came over me, I had not slept so well in quite some time. I feel certain now that it is this presence that causes unrest and aggressiveness in my subjects, clearly it is malevolent.</p></td>
 	<td>Residence, table</td>
-</tr><tr>
+</tr><tr id="Parchment_017">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>A <a href="#Proctor">proctor</a>! Just as I feared, and yet I grew complacent. She was well prepared, obviously she had some idea of what to expect, it was only luck that she didn't kill me. I cannot stay here, I must hide and prepare defences. I don't know how I will be able to continue my work. The <a href="#Proctor">proctor</a> would have made an excellent subject, a shame I had to kill her so. I will leave her here to impede any who would pursue me.</p></td>
@@ -428,18 +467,18 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_007">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>I am certain that <a href="#Zuiek">Zuiek</a> is importing contraband goods. We have searched his lodgings and the glass workshop on several occasions but we never find anything, not even a hiding place he might use. That old toad has been here longer than any of us and he thinks he can outsmart us. I must be missing something, but what?</p></td>
 	<td>Residence, office desk</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_008">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>Some of the soldiers are trying to intimidate me into giving them certain items. I made the mistake of trying to explain why we limit their use, clearly they do not agree and now they dislike me more. Should I inform the captain? I see no choice that will not lead me to more trouble.</p></td>
 	<td>Bedroom, in a desk</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_009">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p><a href="#Zuiek">Zuiek</a>,</p><p>As you know I have placed a very special order with you. Given the significant payment I have given you I expect prompt delivery, why have I yet to hear from you?</p></td>
 	<td>Glassworker's Bedroom, in the chest of drawers</td>
@@ -459,17 +498,17 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Parchment_018">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a>.</td>
 	<td><p>What terrible place is this? A thunderous voice shouts unintelligibly in my mind, as though trying to command me with wordless urgency. It's as though it wants to both urge me and sooth me, I am terrified that I may succumb to its will. This strange helm is my only respite, but it leaves me vulnerable.</p><p>There is also a constant wailing of ancient restless spirits, has this presence been keeping them from finding peace?</p></td>
 	<td>Portal Entrance</td>
-</tr><tr>
+</tr><tr id="Parchment_019">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I fear I don't have long left. I have abandoned my efforts to escape death. It was foolish, and yet I have accomplished so much. I must try to send word to <a href="#Thaven">Thaven</a>, he will see the importance of my work, even though he is concerned with other matters.</p><p>I believed <a href="#Thaven">Thaven's</a> pursuits to be as hollow as my own, a stubborn refusal to accept bitter truths. After what I've seen here anything seems possible. I will spend the rest of my days discovering what I can, I can still be of help.</p></td>
 	<td>Council Office</td>
-</tr><tr>
+</tr><tr id="Parchment_020">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a>, but then who is the raised dead trapped in the room where this parchment is found?</td>
 	<td><p>I have never been so terrified. I was attacked by a huge dreadful creature. A demon perhaps? I tried to control it, but though its mind felt completely unguarded, it was oblivious to my intrusion. I was only able to confuse it briefly and get away, I am defenceless against this thing. I dare not venture out again.</p><p>These dead guards, perhaps I could call them to action. I don't imagine they could do much against such a monster, but the distraction might cover my escape.</p></td>
@@ -486,38 +525,38 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_010">
+	<td>Old Parchment</td>
 	<td>Written by <a href="#Terschenn">Terschenn</a></td>
 	<td><p>Venerable <a href="#Aderon">Aderon</a>,</p><p>I understand that you are conflicted, but I must ask that you keep the voicing of your misgivings to within the council. You cannot hope to stop this now, you will only cause disquiet and potentially worse. Please, remember the responsibility that comes with your position.</p><p><a href="#Terschenn">Terschenn</a></p></td>
 	<td>Council Office, Desk</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_011">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>Our glorious hero is little more than a killer. Now that his deadly work is done he cares nothing for the consequences. Murder our gods so that we may be free. And lost. I will not forget who saved us from oblivion. We have been warned, far worse is coming and our demise is now inevitable.</p></td>
 	<td>Archive</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_012">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p><a href="#Dassin">Dassin</a>, keep a watchful eye over the scribes and the archivists, especially the archivists. There have been many reports of things being taken and hidden away. We must be thorough.</p></td>
 	<td>Archive , Guard's Cabinet</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_013">
+	<td>Old Parchment</td>
 	<td>Likely written by one of the scribes or the archivists</td>
 	<td><p>Burn, burn it all! A lifetime watching over things that I must now quietly consign to the fires. For what? The teachings of a monstrous traitor? The sorry truth is that no one is willing now to admit they were wrong, too much was invested, it couldn't be for nothing. And so we go forth and burn the path behind us, let blind hope be our guide.</p></td>
 	<td>Archive Cabinet</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_014">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>When I took this oath I told myself my life no longer mattered. Now that courage, that sense of purpose, is fading fast. I look to the others for strength, but I find the same doubt in their eyes. They mocked us and now I see the truth of it. This is senseless.</p></td>
 	<td>Lootable from a skeleton holding a mace and buckler near the bottomless pit.</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_015">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>Venerable <a href="#Kaeylen">Kaeylen</a>,</p><p>Forgive me if I speak so directly, but I won't hold my tongue given what I'm witness to. It cannot be what you intended, they are taking and burning everything! We will be left completely in the dark of our past, our mistakes, the threats that we've yet to face. No good can come of this, and those who bring it about seek only to rule absolute through the power of ignorance.</p><p>I implore you to see the fault in this and put an end to it. This is not how we embark on a new path, we head towards nothing but our ultimate demise.</p><p>Your humble servant,</p><p><a href="#Aderon">Aderon</a></p></td>
 	<td>Office, next to Meeting Chamber</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_016">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p><a href="#Orenn">Orenn</a>,</p><p>I commend you for intercepting this correspondence, you have been of great service.</p><p>It pains me to see him so misguided, his only fault is to believe too strongly in the quality of our spirit. This delusion of his and his very conviction is too dangerous, we cannot risk the harm he would do if he were to infect others with his ideas.</p><p>My heart is heavy with the burden of it, but I mast ask that y-</p></td>
 	<td>Office, next to Meeting Chamber</td>
@@ -537,12 +576,12 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Parchment_021">
 	<td>Parchment</td>
 	<td>Written by <a href="#Thaven">Thaven</a>.</td>
 	<td><p>Dearest <a href="#Corlian_Blackwell">Corlian</a>,</p><p>It is good to hear from you my old friend. I heard what had befallen you, but I knew you would not be so easily thwarted.</p><p>I am terribly sorry about <a href="#Papin">Papin</a>, I cannot imagine what a loss it is for you. I am sending someone to help you. I know you well, and I believe you will be greatly attuned.</p><p>Oh, the things we are discovering! I find myself struggling to keep to my purpose. It seems my theories were correct, but there is so much more to learn, so much I would never have guessed. I cannot wait to hear what a man with your insight has uncovered.</p><p>Be well my friend, I hope to see you soon.</p><p><a href="#Thaven">Thaven</a></p></td>
 	<td>Tavern</td>
-</tr><tr>
+</tr><tr id="Parchment_022">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a>.</td>
 	<td><p>I've finally received a reply from <a href="#Thaven">Thaven</a>, and I regret that I wrote to him. We all know what he did, we all know what he's capable of. I can't trust him, if he's sending someone to me, I fear it will not be with good intentions.</p></td>
@@ -559,37 +598,37 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_017">
+	<td>Old Parchment</td>
 	<td>Likely written by <a href="#Torris">Torris</a></td>
 	<td><p>Who needs <a href="#The_Guardian_of_the_Underworld">The Guardian</a> when you have the great <a href="#Torris">Torris</a>? What do I expect? To be hailed as a hero? If they knew what I attempted, they'd have my head.</p></td>
 	<td>Doctor's Office - in a box.</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_018">
+	<td>Old Parchment</td>
 	<td>Likely written by <a href="#Torris">Torris</a></td>
 	<td><p>That silly nurse touching everything! She accidentally opened my secret study. All I could think to do is send her away in a hurry. I think she may have gotten entirely the wrong idea.</p></td>
 	<td>Doctor's Office - Desk</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_019">
+	<td>Old Parchment</td>
 	<td>Likely written by <a href="#Torris">Torris</a></td>
 	<td><p>I have no more time, and find I cannot leave without knowing. I will give my life, nothing else matters to me now.</p><p>I was not able to acquire a stronger source of power, so I must be quick. Should I disappear forever behind this wall, then perhaps at least I will be remembered as the good physician, and not the madman.</p></td>
 	<td>Doctor's Secret Study - Cabinet</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_020">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>The situation is getting worse, now everyone seems to be amassing weapons and other combat gear. They fear that there will be violence, and want to be prepared. These items are being traded everywhere in secret, including some of our own equipment, which is greatly concerning. If someone were to impersonate the law they could cause some serious damage, and no doubt I'd be held responsible.</p></td>
 	<td>Captain of the Guard's Office.</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_021">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>With breaths held we tread<br>You and me, hand in hand<br>Our gazes locked ahead<br>Upon this endless land</p><p>Where rivers flow<br>Under open skies<br>And slow they grow<br>But trees reach high<br>The beasts run wild<br>We'll hunt, and after<br>We'll make a child<br>To raise with laughter</p></td>
 	<td>Theater - in actor's makeup desk</td>
-</tr><tr>
+</tr><tr id="Book_007">
 	<td>Book</td>
 	<td></td>
 	<td><p>A book containing a great many recipes for mixtures, salves, and unguents. They seem to be all targeted at curing conditions that you've never heard of.</p></td>
 	<td>Alchemist's lab - on table</td>
-</tr><tr>
+</tr><tr id="Journal_001">
 	<td>Journal</td>
 	<td>Possibly written by <a href="#Nephil">Nephil</a></td>
 	<td><p>As we are now invaded, I have asked my assistant to bring me what bodies of the creatures he can. I believe that through dissection I may be able to discover some weakness, some way we might combat them more effectively.</p><p>I have made a very strange discovery, through an upsetting accident. I found a kind of gland, filled with a highly adhesive fluid. It made contact with my hand, and within a short period of time the skin on my arm has changed. It has become tough, almost scaly. I am hoping the effect will wear off with time.</p><p>It has been several days and my skin has not improved. I've consulted the physician <a href="#Theris">Theris</a>, we've come to the conclusion that it must be an altering agent, changing the structure and function of living tissues it contacts.</p><p><a href="#Theris">Theris</a> wants to know more, and we've decided to test small doses on those in his care who do not have long to live. I will persuade <a href="#Elko">Elko</a> to go below and fetch more, where many of the creatures can now be found.</p><p>The glands seem to have many varied effects! In some subjects we noticed nothing but mild disfiguration, sometimes with mild adverse effects, but in other we've noticed such things as an increase in strength, or a capacity or more rapid movements. The changes are small, so we cannot be certain, more tests are needed.</p><p>We've now had two serious accidents and we must stop. We noticed some fleeting changes in behaviour, but now we've had a second subject lose all reason and suddenly act as a trapped animal.</p></td>
@@ -613,18 +652,18 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_022">
+	<td>Old Parchment</td>
 	<td>Written by <a href="#Athelin">Athelin</a></td>
-	<td><p>I'm sorry <a href="#Stenris">Stenris</a>, but I'm going to leave the company.</p><p>This is not what we do. We challenged the mind, we asked the questions! Look at us now, acting out badly written lies, pretending nothing's wrong. I know you are being pressured, and probably under threat, but it is too much to bear. I used to be proud of what we do, but now all I feel as I stand on our stage is shame. I won't do it anymore.</p><p>I will seek other ways to reach people, perhaps I'll join the fight. I hope that you can find peace when this is all over.</p><p>Your friend who begs you will forgive him,</p><p><a href="#Athelin">Athelin</a></p></td>
+	<td><p class="written-document">I'm sorry <a href="#Stenris">Stenris</a>, but I'm going to leave the company.</p><p class="written-document">This is not what we do. We challenged the mind, we asked the questions! Look at us now, acting out badly written lies, pretending nothing's wrong. I know you are being pressured, and probably under threat, but it is too much to bear. I used to be proud of what we do, but now all I feel as I stand on our stage is shame. I won't do it anymore.</p><p class="written-document">I will seek other ways to reach people, perhaps I'll join the fight. I hope that you can find peace when this is all over.</p><p class="written-document">Your friend who begs you will forgive him,</p><p class="written-document"><a href="#Athelin">Athelin</a></p></td>
 	<td>Performer's backstage, Desk</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_023">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p><a href="#Methis">Methis</a> gave me and some others these rods. He says they're useless on their own, and he made us each swear to keep our rod and its crystal safe. If we're to find ourselves danger and with no escape, then we should gather all in the same place, surround it with the rods and wait for help. He's not said much more, but we trust him well. I'll do my part.</p></td>
 	<td>Workshop</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_024">
+	<td>Old Parchment</td>
 	<td>Written by <a href="#Elenis">Elenis</a></td>
 	<td class="written-document"><p>Dear <a href="#Themin">Themin</a>,</p><p>I hope this letter finds you well and whole. I have heard of your foolhardy endeavours. Always a champion of the common people.</p><p>I am due to leave with the next group in five days. I would have sought you out, but with everything that's happening I had to settle for this letter. I hope to see you again soon, please do not risk everything for this dying city.</p><p>I would have left word either way, but I'm afraid I must also warn you of a great danger. Amatine claims to have someone who can truly wake the sentries, and he intends to do it. You must stop him, no one else has the authority. If he is not stopped we will have another great threat upon us.</p><p>Yours,</p><p><a href="#Elenis">Elenis</a></p></td>
 	<td>Tavern, <a href="#Themin">Themin's</a> skeleton</td>
@@ -646,7 +685,7 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Journal_002">
 	<td>Journal</td>
 	<td>Possibly written by <a href="#Elko">Elko</a></td>
 	<td><p>This journal is filled with diagrams of what look like strange organs, and some others you don't understand. It seems various fluids were being tested on fleshy tissues, most of the names are very unusual. On the last written page, there seem to be the author's dying words:</p><p>I think I will die here. I can hear them at the door, scratching. I cannot escape.</p><p><a href="#Nephil">Nephil</a>, know that your concoction was entirely ineffective in deterring the monsters. I think we've got it all wrong, something else is driving them. I do not blame you, it was an honor to work with you, and I knew the risk I was taking.</p><p>Please take care of <a href="#Esthra">Esthra</a>.</p></td>
@@ -667,40 +706,40 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Torn_Page_001">
 	<td>Torn Page</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a>.<br><br>Pronouns change depending on UNKNOWN's sex.</td>
 	<td><p><a href="#Thaven">Thaven's</a> lackey has reached me. He/She is not a bad sort, and a strong mind too. I do not sense nefarious intent, <a href="#Thaven">Thaven's</a> offer of help at least seems true. It is strange to find some companionship after all this strife, the death of <a href="#Papin">Papin</a> and my own life slipping away spurred me into a compulsion to do something before the end, I never stopped to consider my actions. I hurt so many, and buried my guilt along with my grief.</p></td>
 	<td></td>
-</tr><tr>
+</tr><tr id="Parchment_023">
 	<td>Parchment</td>
 	<td>Written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I have encountered multiple times dead that were not raised by me. At first I thought I was forgetful, then I feared a necromancer with a talent to match my own was near. I wondered even if the fanciful myths of a <a href="#The_Guardian_of_the_Underworld">Guardian</a> who rules the dead could hold some truth. Now I am beset by a frightful notion, what if the dead, once awoken so, call to each other? Could it be a thing that spreads as does a plague? What if this is an art not merely forgotten and shunned by those of sensitive natures, but willfully concealed and forbidden for what it might do if left unchecked? Have I set something terrible in motion?</p><p>I wish it were not so, but I feel it is true. Is this to be my own fate as well? I will not let it be, I must find a way to escape this mortal shell, even if into oblivion. Perhaps if I truly succeed, I can undo some of the damage I've wrought.</p></td>
 	<td>Corlian's Midway Room</td>
-</tr><tr>
+</tr><tr id="Book_The_Ways_of_the_Thaumaturge_Part_1">
 	<td>The Ways of the Thaumaturge - Part 1</td>
 	<td>Possibly written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>A book that introduces many concepts on the working of the thaumaturgic mind and presents various notions that seem at times in conflict and of little substance. Your impression is that the author was well informed, but did not truly understand what was divulged.</p><p>Thaumaturges are known to dwell in lonely towers and other remote residences. A common misconception is that it is to conduct their strange work away from prying eyes, but the truth is less sinister and less obvious. The mind of a thaumaturge is an intangible thing that extends far beyond their physical presence, it is as a great tree of connections to the world around them. When the lesser minds of multitudes move through this time and time again, they slowly chip away at its branches, weakening the thaumaturge as they do so. This is why they withdraw from company and seek isolation, so that their power is not drained away.</p><p>A notable exception to this are the great healers, they who live selflessly among those which they might lend aid. The uncomfortable substance of their success is that as they care for those whom from illness pass to death, they form a bond, and from that bond, in the moment of passing, they take something to sustain them. This is little known and little discussed, as it could be seen in the wrong light and cast suspicion on these devoted servants of the community.</p></td>
 	<td>Corlian's Midway Room</td>
-</tr><tr>
+</tr><tr id="Parchment_024">
 	<td>Parchment</td>
 	<td>Written by <a href="#Corlian_Blackwell">Corlian</a>.<br><br>Pronouns change depending on UNKNOWN's sex.</td>
-	<td><p>The time has come, my body is failing. I am certain now that <a href="#Thaven">Thaven</a> must be stopped, but I cannot trust his agent to understand, and so I must complete one more dreadful act. I will try to use him/her as a vessel even as I die. It is not what I sought, but I believe it will work. I fear it won't be long before my mind and his/her are locked in battle that neither may survive. I must make haste to reach the surface, find sympathetic ears among <a href="The_Order_of_Thaumaturges">the Order</a> and warn against the actions of <a href="#Thaven">Thaven</a>, and my own.</p></td>
+	<td><p>The time has come, my body is failing. I am certain now that <a href="#Thaven">Thaven</a> must be stopped, but I cannot trust his agent to understand, and so I must complete one more dreadful act. I will try to use him/her as a vessel even as I die. It is not what I sought, but I believe it will work. I fear it won't be long before my mind and his/her are locked in battle that neither may survive. I must make haste to reach the surface, find sympathetic ears among <a href="#The_Order_of_Thaumaturges">the Order</a> and warn against the actions of <a href="#Thaven">Thaven</a>, and my own.</p></td>
 	<td>Bedside desk next to Corlian's Deathbed</td>
-</tr><tr>
+</tr><tr id="Parchment_025">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a>.</td>
 	<td><p>There are others here, I sensed them. They are not of <a href="#Hamon">Hamon's</a> group, or my subjects and they did not come the same way as I did. I tracked them for some time and then they quickly vanished from my perception. This is just as it was for the one who escaped, and I know he moved through that portal. This must mean there is another somewhere, perhaps it is a more direct way to return to the surface.</p></td>
 	<td>Corlian's Deathbed Room</td>
-</tr><tr id="Journal003">
+</tr><tr id="Journal_003">
 	<td>Journal</td>
 	<td>Reading this with the Revelation skill will give you the Mind Thaumatugy Raise Dead</td>
-	<td><p>The memoirs and research of a necromances named <a href="#Corlian_Blackwell">Corlian of Blackwell</a>. He dedicated his later life to investigating the possibility of an existence beyond one tied to a physical and mortal form. This is known to some as transcendence, and believed to be the ultimate but elusive goal of <a href="The_Order_of_Thaumaturges">the Order of Thaumaturges</a>.</p><p><a href="#Corlian_Blackwell">Corlian's</a> research grew in fervour as he became afflicted by an illness from which he would not recover, leading him to acts and experiments that were ruthless in nature. Despite his grim efforts, and many discoveries made, his goal seemed yet distant even as death drew near.</p><p>The most significant milestone in <a href="#Corlian_Blackwell">Corlian's</a> work was the raising of the dead that would remain animated even without aid from the necromancer. <a href="#Corlian_Blackwell">Corlian</a> saw little use in this, but took it as proof of his theories and an important step towards greater things. He describes this discovery in detail here, someone with an aptitude for such things may be able to replicate it.</p></td>
+	<td><p>The memoirs and research of a necromances named <a href="#Corlian_Blackwell">Corlian of Blackwell</a>. He dedicated his later life to investigating the possibility of an existence beyond one tied to a physical and mortal form. This is known to some as transcendence, and believed to be the ultimate but elusive goal of <a href="#The_Order_of_Thaumaturges">the Order of Thaumaturges</a>.</p><p><a href="#Corlian_Blackwell">Corlian's</a> research grew in fervour as he became afflicted by an illness from which he would not recover, leading him to acts and experiments that were ruthless in nature. Despite his grim efforts, and many discoveries made, his goal seemed yet distant even as death drew near.</p><p>The most significant milestone in <a href="#Corlian_Blackwell">Corlian's</a> work was the raising of the dead that would remain animated even without aid from the necromancer. <a href="#Corlian_Blackwell">Corlian</a> saw little use in this, but took it as proof of his theories and an important step towards greater things. He describes this discovery in detail here, someone with an aptitude for such things may be able to replicate it.</p></td>
 	<td>Corlian's Deathbed Room</td>
-</tr><tr>
+</tr><tr id="Book_The_Ways_of_the_Thaumaturge_Part_2">
 	<td>The Ways of the Thaumaturge - Part 2</td>
 	<td>Possibly written by <a href="#Corlian_Blackwell">Corlian</a></td>
-	<td><p>The 2nd part of a book discussing the workings of the minds of thaumaturges. This volume focuses on the strong connections formed between elevated minds and the traditions surrounding them.</p><p>An important figure in the life of a thaumaturge is their apprentice, though this relationship isn't always what it might seem. The minds of two thaumaturges can become highly attuned and learn to live and work in harmony. In unison they can be stronger, and when the time comes for the mentor to leave this world behind, their mind will not simply dissipate and be lost entirely, but continue to live in part through their apprentice. Thaumaturges consider their power a great gift that must not be lost, but passed on, treasured and nurtured.</p><p>The tradition of apprenticeship in <a href="The_Order_of_Thaumaturges">the Order of Thaumaturges</a> does not only concern the preservation of knowledge and power, but serves also to temper and check the spirits of those who would wield it. It is not only aptitude that is passed on, but the wisdom and temperament of the master. It is not unheard of that apprentices were ultimately deemed to be unfit for such talents and their apprenticeship abandoned.</p><p>It appears a final chapter was removed from this book, and in its place there is a brief warning against the dangers of bonds formed with beasts, of how these corrupt the mind of a thaumaturge, reducing them to savage beasts themselves.</p></td>
+	<td><p>The 2nd part of a book discussing the workings of the minds of thaumaturges. This volume focuses on the strong connections formed between elevated minds and the traditions surrounding them.</p><p>An important figure in the life of a thaumaturge is their apprentice, though this relationship isn't always what it might seem. The minds of two thaumaturges can become highly attuned and learn to live and work in harmony. In unison they can be stronger, and when the time comes for the mentor to leave this world behind, their mind will not simply dissipate and be lost entirely, but continue to live in part through their apprentice. Thaumaturges consider their power a great gift that must not be lost, but passed on, treasured and nurtured.</p><p>The tradition of apprenticeship in <a href="#The_Order_of_Thaumaturges">the Order of Thaumaturges</a> does not only concern the preservation of knowledge and power, but serves also to temper and check the spirits of those who would wield it. It is not only aptitude that is passed on, but the wisdom and temperament of the master. It is not unheard of that apprentices were ultimately deemed to be unfit for such talents and their apprenticeship abandoned.</p><p>It appears a final chapter was removed from this book, and in its place there is a brief warning against the dangers of bonds formed with beasts, of how these corrupt the mind of a thaumaturge, reducing them to savage beasts themselves.</p></td>
 	<td>Corlian's Deathbed Room</td>
 </tr>
 </table>
@@ -714,18 +753,18 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_025">
+	<td>Old Parchment</td>
 	<td>Found past a locked door near to the entrace from Level 6</td>
 	<td><p>My work is near complete, I believe it will serve, but for this first vessel to come alive and be told to do as you wish I will need one more thing, a greater source of power. I believe in time I could find another way, but I know time is short and you already grow impatient. I am also concerned that rumors of what we attempt are spreading, and that some might be considering my involvement. If I am discovered I cannot hope to defend my actions.</p><p>Your humble and anonymous servant</p></td>
 	<td>Inside a desk inside the Golem Crafting Hideaway</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_026">
+	<td>Old Parchment</td>
 	<td>Written by <a href="#Noran">Noran</a></td>
 	<td><p>Dearest <a href="#Lisiria">Lisiria</a>,</p><p>I hope this letter finds you at all. The messengers have stopped, but I've been told that for the right price I might get a letter to you. How are things in <a href="#Scorpe">Scorpe</a>? Here they are burning all writings indiscriminately, they make no exceptions, and take other things too. I set aside some books, telling them they could do no harm, but they would not listen and threatened violence. They took your letters too. When I think of all the books they burn I am filled with rage, but when I thought of them burning your letters I shed tears.</p><p>When this is finally over I will look for you. it will be difficult and it may take time, but I will find you, do not lose hope my love.</p><p>Yours lovingly,</p><p><a href="#Noran">Noran</a></p></td>
 	<td>Inside a desk in a room</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_027">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p><a href="#Sashya">Sashya</a> said I am the most devoted wife she ever did meet. I give give give, and he takes takes takes, she told me. I laughed and tolder her to hush, but I must admit the conversation left me with an uneasy feeling. It reminded me of the same old question I've been asking all these years. Why does he spend so much time alone in his blasted study? What does he do in there? Suspicion overcomes me at times. He is so evasive when questioned about it. I know he has secrets there, I just know it. I suppress my curiosity, as a dutiful wife must, but I do so wish he wouldn't keep things from me! I suppose I must accept I shall never know my husband fully, perhaps all men are this way...</p></td>
 	<td>Inside a cabinet partly buried in a caved in room</td>
@@ -745,12 +784,12 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
+</tr><tr id="Parchment_026">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>I feel almost certain that <a href="#The_Spellgiver">Spellgiver</a> and <a href="#The_Corruptor">Corruptor</a> are one and the same, condemned for atrocities, corrupting mortal souls. If this is true then <a href="#Thaven">Thaven's</a> quest is folly.</p><p>We did well to refuse our past and abandon such dark practices. I would hope that <a href="#Thaven">Thaven</a> too might reach this conclusion, but I fear otherwise, and that he must be stopped. I now regret having sent word to him, he cannot save me anyway.</p></td>
 	<td>Office Shelf</td>
-</tr><tr>
+</tr><tr id="Parchment_027">
 	<td>Parchment</td>
 	<td>Likely written by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>These golems have proven an impassable barrier for me, I must turn back. I was shocked and dismayed to see them animate. At first I thought them to be lifeless constructs, a product of magics that I cannot fathom, and yet I sense something from them. Being versed in necromancy as I am, I fear these may be the result of something horrible, far worse than the practices of my art.</p><p>What if all that I see here is explained by the harvesting of souls as a source of power? Minds reduced and locked in the eternal torment of serving some mundane purpose. The notion is frightful.</p></td>
@@ -767,32 +806,32 @@ tr:target {
 	<th>Remarks</th>
 	<th>Content</th>
 	<th>Location</th>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_028">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>Many now come to our doors. I suppose they wish to be prepared for what's ahead. It is good to see fresh blood, but I am concerned by the implications of their selfish purpose. That is not what we're here for.</p></td>
 	<td>Armoury cabinet</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_029">
+	<td>Old Parchment</td>
 	<td>Possibly written by <a href="#Aderon">Aderon</a> (?)</td>
 	<td><p>It will be good to leave here, start anew. I feel torn between two worlds, and responsible for things that are beyond me. I have blindly deferred to the judgement of others, and just as blindly enforced their will. I find that I have no opinion of my own, I see no atrocities committed, no teachings imparted, just empty words and stubborn egos. How can we judge such things? Yes, I am eager to leave it all behind.</p></td>
 	<td>Three ribbon area office</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_030">
+	<td>Old Parchment</td>
 	<td></td>
 	<td><p>I woke to terrible screams. Who could sleep through that? <a href="#Edrian">Edrian</a>, my neighbour, was never found. All that's left of him is the blood in his bathroom. They say they are now amongst us. How could this happen? There are rumors that they were let through deliberately, but I cannot believe that.</p></td>
 	<td>Armoury cabinet</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_031">
+	<td>Old Parchment</td>
 	<td>Written by the mask wearing ancient undead</td>
 	<td><p>A group must have stayed in hiding, and once we were almost all gone they raided the armouries. I assume they killed an officer to gain access. Many were killed, but our attempts to stop them were ultimately futile. I was backed into this room and they blocked the door. They did not see I was carrying this mask.</p></td>
 	<td>Two Ribbon area, jammed foor room</td>
-</tr><tr>
-	<td>Old parchment</td>
+</tr><tr id="Old_Parchment_032">
+	<td>Old Parchment</td>
 	<td>Written by the mask wearing ancient undead</td>
 	<td><p>It has been some time now, I don't know how long. I don't think anyone will come for me. Are the other all dead? This mask will sustain me for some time, but I fear it will only prolong my suffering.</p></td>
 	<td>Two Ribbon area, jammed foor room</td>
-</tr><tr>
+</tr><tr id="Book_008">
 	<td>Book</td>
 	<td></td>
 	<td><p>This appears to have been an alchemical treatise holding many recipes for the transmutation of materials and producing magical effects. A great many of its pages seem to have been torn out in a terrible hurry. What is left written in words that are mostly beyond your comprehension.</p></td>
@@ -1602,7 +1641,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue010b">
-	<li><a href="#dialogue010a" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> I am farm hand, but I'm also <a href="@Lord_Ermus">lord Ermus'</a> man. I keep an eye on things and let him know what I see.
+	<li><a href="#dialogue010a" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> I am farm hand, but I'm also <a href="#@Lord_Ermus">lord Ermus'</a> man. I keep an eye on things and let him know what I see.
 		<ul>
 			<li><span class="dialogue-pc">Player</span> So you're a spy?
 				<ul>
@@ -1610,10 +1649,10 @@ tr:target {
 						<ul>
 							<li><span class="dialogue-pc">Player</span> So who are you really? I'm not sure I understand.
 								<ul>
-									<li><span class="dialogue-npc">Derrin</span> It's simple really. I worked in <a href="@Lord_Ermus">Ermus'</a> father's orchards when I was little. <a href="@Lord_Ermus">Ermus</a> and I became friends. We still are, we
+									<li><span class="dialogue-npc">Derrin</span> It's simple really. I worked in <a href="#@Lord_Ermus">Ermus'</a> father's orchards when I was little. <a href="#@Lord_Ermus">Ermus</a> and I became friends. We still are, we
 											have long talks. I tell him things, he teaches me things.
 										<ul>
-											<li><span class="dialogue-pc">Player</span> Interesting. <a href="@Lord_Ermus">Lord Ermus</a> sounds like a singular man.
+											<li><span class="dialogue-pc">Player</span> Interesting. <a href="#@Lord_Ermus">Lord Ermus</a> sounds like a singular man.
 												<ul>
 													<li><span class="dialogue-npc">Derrin</span> Yes, I guess he is. I'm glad for it.
 														<ul>
@@ -1629,9 +1668,9 @@ tr:target {
 							</li>
 							<li><span class="dialogue-pc">Player</span> That sounds like a lonely and difficult life.
 								<ul>
-									<li><span class="dialogue-npc">Derrin</span> I have friends! And my Ma. Okay, Well, <a href="@Lord_Ermus">Ermus</a> is the friend I care about, that's why I do it.
+									<li><span class="dialogue-npc">Derrin</span> I have friends! And my Ma. Okay, Well, <a href="#@Lord_Ermus">Ermus</a> is the friend I care about, that's why I do it.
 										<ul>
-											<li><span class="dialogue-pc">Player</span> You and <a href="@Lord_Ermus">Lord Ermus</a> are friends? That seems odd.
+											<li><span class="dialogue-pc">Player</span> You and <a href="#@Lord_Ermus">Lord Ermus</a> are friends? That seems odd.
 												<ul>
 													<li><span class="dialogue-npc">Derrin</span> I worked in his Father's orchards as a lad, and we became friends. We still meet, in secret. I tell him what he
 															doesn't see in his lands, he teaches me things, gives me books.
@@ -1749,6 +1788,83 @@ tr:target {
 	<li><span class="dialogue-npc">Derrin</span> Oh, I don't like this. Please let's leave this place. <span class="dialogue-end"></span></li>
 </ul>
 
+
+<script>
+CopyID = (function () {
+	function CopyID() {
+	  // empty
+	}
+	
+	Object.assign(CopyID.prototype, {
+		init: function () {
+			if (!navigator.clipboard) {
+				return;
+			}
+			
+			this.addCopyIcon();
+			this.addEvenListeners();
+    },
+		
+		addCopyIcon: function() {
+			document.querySelectorAll('tr[id] td:first-child').forEach((td) => {
+				const copyIcon = document.createElement('div');
+				copyIcon.classList.add('copy-icon');
+				copyIcon.innerHTML = '⎘';
+				
+				td.appendChild(copyIcon);
+			});
+			
+			const copyMessage = document.createElement('div');
+			copyMessage.classList.add('copy-message');
+			copyMessage.innerHTML = 'URL copied to clipboard!';
+			document.body.appendChild(copyMessage);
+		},
+		
+		addEvenListeners: function() {	
+			document.querySelectorAll('.copy-icon').forEach((td) => {
+				td.addEventListener('click', (event) => this.onClick(event));
+			});
+		},
+		
+    onClick: function(event) {
+			this.copyIdToClipboard(event.target.closest('tr'));
+		},
+		
+		copyIdToClipboard: function(tr) {
+			if (!tr.id) {
+				return;
+			}
+			
+			let url = document.location.href;
+			if (document.location.hash) {
+				url = url.substring(0, url.length - document.location.hash.length);
+			}
+			url += '#' + tr.id
+			
+			navigator.clipboard.writeText(url).then(() => {
+				this.showCopyMessage();
+			});
+		},
+		
+		showCopyMessage: function() {
+			const copyMessage = document.querySelector('.copy-message');
+			copyMessage.classList.add('copy-message--visible');
+			window.setTimeout(this.hideCopyMessage, 1250);
+		},
+		
+		hideCopyMessage: function() {
+			const copyMessage = document.querySelector('.copy-message');
+			copyMessage.classList.remove('copy-message--visible');
+		},
+	});
+	
+	return CopyID;
+})();
+
+document.addEventListener('DOMContentLoaded', function() {
+	(new CopyID()).init();
+});
+</script>
 
 	</body>
 </html>
