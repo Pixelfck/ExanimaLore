@@ -8,9 +8,16 @@
 *, html, body {
 	font-family: sans-serif;
 }
-	
+
+:root {
+	--primary-bg-color: #000000;
+	--primary-text-color: #a9a8a5;
+	--separator-color: #52514a;
+}
+
 body {
-	color: #000;
+	background-color: var(--primary-bg-color);
+	color: var(--primary-text-color);
 }
 
 h1 {
@@ -32,35 +39,38 @@ h4 {
 	margin: 1.5em 0 0.25em;
 }
 
+a {
+	color: #ffcc4d;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #ffff00;
+	text-decoration: underline;
+}
+
 blockquote {
 	font-style: italic;
 	text-align: center;
 }
 
+section {
+	margin-bottom: 3em;
+}
+
 table {
 	width: 100%;
 	border-spacing: 0;
-  border-collapse: separate;
-	border: 1px solid #4c4c4c;
-	border-top-color: #b2b2b2;
-	border-left-color: #b2b2b2;
+	border-collapse: separate;
+	border: 1px solid var(--separator-color);
 }
 
 th,
 td {
 	text-align: left;
-	border: 1px solid #4c4c4c;
-	border-right-color: #b2b2b2;
-	border-bottom-color: #b2b2b2;
+	border: 1px solid var(--separator-color);
 	padding: 3px;
-}
-
-tr:nth-child(odd) {
-	background-color:#eee;
-}
-
-tr:nth-child(even) {
-	background-color:#fff;
 }
 
 td:first-child {
@@ -80,11 +90,15 @@ p:last-child {
 	margin-bottom: 0;
 }
 
+hr {
+	border-color: var(--separator-color);
+}
+
 /* ****** */
 
 .no-decoration {
 	text-decoration: none;
-	color: #000;
+	color: var(--primary-text-color);
 }
 
 .no-decoration:hover,
@@ -105,7 +119,7 @@ p:last-child {
 .copy-icon:hover,
 .copy-icon:focus,
 .copy-icon:active {
-	color: #000;
+	color: var(--primary-text-color);
 }
 
 .no-entries {
@@ -128,10 +142,27 @@ p:last-child {
 	font-weight: bold;
 }
 
-:target,
-tr:target {
-   background-color: #f7f777;
-	 scroll-margin-top: 104px;
+:target {
+	--targeted-bg-color: #1a1a1a;
+	background-color: var(--targeted-bg-color);
+	scroll-margin-top: 104px;
+}
+
+section:target {
+	animation-name: highlight-blink;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes highlight-blink {
+	from {
+		background-color: var(--targeted-bg-color);
+	}
+	
+	to {
+		background-color: var(--primary-bg-color);
+	}
 }
 
 .dialogue-continue:before {
@@ -160,11 +191,12 @@ tr:target {
 	position: fixed;
 	bottom: 0;
 	left: 50%;
-  margin: 0 auto 5px;
+	margin: 0 auto 5px;
 	transform: translateX(-50%);
-	color: #ddd;
-	background-color: #222;
+	color: var(--primary-text-color);
+	background-color: #000000;
 	padding: 4px;
+	border: 2px solid var(--separator-color);
 	border-radius: 5px;
 	opacity: 0;
 	transition: opacity 1.0s;
@@ -195,7 +227,7 @@ tr:target {
 		<ul>
 			<li><a href="#Level_1">Level 1</a></li>
 			<li><a href="#Level_2">Level 2</a></li>
-			<li><a href="#Level_2">Level 3</a></li>
+			<li><a href="#Level_3">Level 3</a></li>
 			<li><a href="#Archives">Archives</a></li>
 			<li><a href="#Crossroads">Crossroads</a></li>
 			<li><a href="#Markets">Markets</a></li>
@@ -208,10 +240,11 @@ tr:target {
 	<li><a href="#Dialogues">Dialogues</a></li>
 </ul>
 
+<section id="Documents">
+<h2>Documents</h2>
 
-<h2 id="Documents">Documents</h2>
-
-<h3 id="Level_1">Level 1</h3>
+<section id="Level_1">
+<h3>Level 1</h3>
 
 <h4>Present</h4>
 
@@ -242,7 +275,7 @@ tr:target {
 	<td><p>They lose the will to live without their bodies. They seem completely bound to their mortal remains. Is it just because of their lesser minds? I have attempted to sustain one with nothing left but th...</p><p>Gods below, what am I doing? It is horrifying. Sometimes it is as if I suddenly wake to realise that I am fuelled by rage, as if I hold these poor souls responsible for what has befallen me.</p></td>
 	<td>Hospital Desk</td>
 </tr><tr id="Book_Deconstructing_Humanity">
-	<td>Deconstructing Humanity by <a href="#Aldair_Hanks">Aldair Hanks</a></td>
+	<td>Deconstructing Humanity <br> by <a href="#Aldair_Hanks">Aldair Hanks</a></td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>A medical book on human anatomy. Mostly complex diagrams and surgical terminology. There are underlined passages and circled diagrams in the section that deals with the brain.</p></td>
 	<td>Hospital Desk</td>
@@ -252,12 +285,12 @@ tr:target {
 	<td><p>I feel a growing resentment for <a href="#Thaven">Thaven</a>. On the one hand I wish to please him, to impress him, but such thoughts then lead me to anger. I once believed there was friendship between us, now I think perhaps it was based on naught but common interests. His disregard for all things other than his single minded purpose has hurt us, it has put us all in difficulty and danger. I was always feared, but I was also respected. To be driven from my own home by peasants!</p></td>
 	<td>Bedroom</td>
 </tr><tr id="Book_The_Forgotten_Power">
-	<td>The Forgotten Power by Anonymous</td>
+	<td>The Forgotten Power <br> by Anonymous</td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>According to this book humans are powerful, immortal beings that have forgotten their true nature. That, by living your life by a certain moral code, performing certain rituals and eating a certain diet, you can achieve great power and ultimately unlock your dormant immortality.</p></td>
 	<td>Dining Room</td>
 </tr><tr id="Book_Life_of_Linus_Fendrick">
-	<td>Life of <a href="#Linus_Fendrick">Linus Fendrick</a> by Anonymous</td>
+	<td>Life of <a href="#Linus_Fendrick">Linus Fendrick</a> <br> by Anonymous</td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>A famous book with an even more famous story surrounding it, often told by mothers to their young children, a cautionary tale on the dark and sinister trappings of thaumaturgy. <a href="#Linus_Fendrick">Fendrick</a> was a gifted thaumaturge who lost his young wife and three children in some gruesome accident. He was thus driven to necromancy in hope of resurrecting them, not the traditional crude raising of the dead, but with will sentience and cognizance. His practices and experiments were most vile in nature. Kidnappings, torture, murder, keeping his family's bodies in a state between life and death for some forty years; his crimes were plentiful and led to nothing save failure and despair.</p></td>
 	<td>Bedroom</td>
@@ -267,7 +300,7 @@ tr:target {
 	<td><p>The pages of this book are stuck together and ruined by copious amounts of blood.</p></td>
 	<td>Corlian's Lab</td>
 </tr><tr id="Book_Forgotten">
-	<td>Forgotten by <a href="#Aime_Koren">Aime Koren</a></td>
+	<td>Forgotten <br> by <a href="#Aime_Koren">Aime Koren</a></td>
 	<td>Likely brought by <a href="#Corlian_Blackwell">Corlian</a></td>
 	<td><p>A scholarly book about memory and cognizance. What we forget and why we forget it, how we choose to make a history for ourselves regardless of the facts, how we are defined by the wholly unreliable and subjective thing we call memory.</p></td>
 	<td>Corlian's Lab</td>
@@ -350,9 +383,11 @@ tr:target {
 	<td>Storeroom, table next to a chest</td>
 </tr>
 </table>
+</section>
 
 
-<h3 id="Level_2">Level 2</h3>
+<section id="Level_2">
+<h3>Level 2</h3>
 
 <h4>Present</h4>
 
@@ -425,17 +460,17 @@ tr:target {
 	<td><p>This log is filled with detailed reports of people violating certain rules. Most of these rules are obviously aimed at preventing the entry of intruders. They are strict and elaborate to the point of seeming a product of paranoia.</p></td>
 	<td>Courtroom Floor</td>
 </tr><tr id="Book_The_Kingdom_Beyond">
-	<td>The Kingdom Beyond by <a href="#Alisian_Dayen">Alisian Dayen</a></td>
+	<td>The Kingdom Beyond <br> by <a href="#Alisian_Dayen">Alisian Dayen</a></td>
 	<td></td>
 	<td><p>In a brutal battle a knight named <a href="#Buto">Buto</a> is trapped behind enemy lines. He fights valiantly but is overwhelmed and captured. His captors demand strategic information, but his interrogator is kind to him and tries to win him over to their cause. <a href="#Buto">Buto</a> is loyal to his king and will not give them anything of import. In time however a friendship is established between him and his interrogator. One day the interrogator reveals himself as the very king of <a href="#Buto">Buto's</a> captors and tells him that through their exchanges he has learned much to gain an advantage in the war. He offers <a href="#Buto">Buto</a> his freedom, so that he can return to his king and that one day they might meet again in battle. As <a href="#Buto">Buto</a> leaves his prison he sees the people he would assail in a new light and is disheartened, he knows too that he may be received by his own people as a traitor. And so he asks if he can stay and lead a simple life. The king consents, knowing that he will grow to love and cherish his new home and people, a formidable warrior who will rise to protect them.</p></td>
 	<td>Barracks, North-East section, inside a chest</td>
 </tr>
 </table>
+</section>
 
 
-
-
-<h3 id="Level_3">Level 3</h3>
+<section id="Level_3">
+<h3>Level 3</h3>
 
 <h4>Present</h4>
 
@@ -489,11 +524,11 @@ tr:target {
 	<td>Glassworker's Bedroom, in the chest of drawers</td>
 </tr>
 </table>
+</section>
 
 
-
-
-<h3 id="Archives">Archives</h3>
+<section id="Archives">
+<h3>Archives</h3>
 
 <h4>Present</h4>
 
@@ -567,11 +602,11 @@ tr:target {
 	<td>Office, next to Meeting Chamber</td>
 </tr>
 </table>
+</section>
 
 
-
-
-<h3 id="Crossroads">Crossroads</h3>
+<section id="Crossroads">
+<h3>Crossroads</h3>
 
 <h4>Present</h4>
 
@@ -643,9 +678,11 @@ tr:target {
 
 
 <h3 id="Sewers_below_the_Crossroads" class="no-entries">Sewers below the Crossroads</h3>
+</section>
 
 
-<h3 id="Markets">Markets</h3>
+<section id="Markets">
+<h3>Markets</h3>
 
 <h4 class="no-entries">Present</h4>
 
@@ -674,11 +711,11 @@ tr:target {
 	<td>Tavern, <a href="#Themin">Themin's</a> skeleton</td>
 </tr>
 </table>
+</section>
 
 
-
-
-<h3 id="Sewers_below_the_Markets">Sewers below the Markets</h3>
+<section id="Sewers_below_the_Markets">
+<h3>Sewers below the Markets</h3>
 
 <h4 class="no-entries">Present</h4>
 
@@ -697,11 +734,11 @@ tr:target {
 	<td>Found below the palm of a dead skeleton hunched over a table.</td>
 </tr>
 </table>
+</section>
 
 
-
-
-<h3 id="Gentry">Gentry</h3>
+<section id="Gentry">
+<h3>Gentry</h3>
 
 <h4>Present</h4>
 
@@ -775,11 +812,11 @@ tr:target {
 	<td>Inside a cabinet partly buried in a caved in room</td>
 </tr>
 </table>
+</section>
 
 
-
-
-<h3 id="Golems_and_Foundry">Golems and Foundry</h3>
+<section id="Golems_and_Foundry">
+<h3>Golems and Foundry</h3>
 
 <h4>Present</h4>
 
@@ -843,11 +880,11 @@ tr:target {
 	<td>Golem foundry, north-east workroom</td>
 </tr>
 </table>
+</section>
+</section>
 
-
-
-
-<h2 id="People_and_Places">People and Places</h2>
+<section id="People_and_Places">
+<h2>People and Places</h2>
 
 <h3>Present</h3>
 
@@ -1045,10 +1082,10 @@ tr:target {
 	<td><p>A glassworker who was known to have handled the import of contraband goods into the upper floors of the the dungeon.</p></td>
 </tr>
 </table>
+</section>
 
-
-
-<h2 id="Dialogues">Dialogues</h2>
+<section id="Dialogues">
+<h2>Dialogues</h2>
 
 <h3><a href="#Derrin">Derrin</a></h3>
 
@@ -1646,7 +1683,7 @@ tr:target {
 </ul>
 
 <ul id="dialogue010b">
-	<li><a href="#dialogue010a" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> I am farm hand, but I'm also <a href="#@Lord_Ermus">lord Ermus'</a> man. I keep an eye on things and let him know what I see.
+	<li><a href="#dialogue010a" class="dialogue-continue"></a><span class="dialogue-npc">Derrin</span> I am farm hand, but I'm also <a href="#Lord_Ermus">lord Ermus'</a> man. I keep an eye on things and let him know what I see.
 		<ul>
 			<li><span class="dialogue-pc">Player</span> So you're a spy?
 				<ul>
@@ -1654,10 +1691,10 @@ tr:target {
 						<ul>
 							<li><span class="dialogue-pc">Player</span> So who are you really? I'm not sure I understand.
 								<ul>
-									<li><span class="dialogue-npc">Derrin</span> It's simple really. I worked in <a href="#@Lord_Ermus">Ermus'</a> father's orchards when I was little. <a href="#@Lord_Ermus">Ermus</a> and I became friends. We still are, we
+									<li><span class="dialogue-npc">Derrin</span> It's simple really. I worked in <a href="#Lord_Ermus">Ermus'</a> father's orchards when I was little. <a href="#Lord_Ermus">Ermus</a> and I became friends. We still are, we
 											have long talks. I tell him things, he teaches me things.
 										<ul>
-											<li><span class="dialogue-pc">Player</span> Interesting. <a href="#@Lord_Ermus">Lord Ermus</a> sounds like a singular man.
+											<li><span class="dialogue-pc">Player</span> Interesting. <a href="#Lord_Ermus">Lord Ermus</a> sounds like a singular man.
 												<ul>
 													<li><span class="dialogue-npc">Derrin</span> Yes, I guess he is. I'm glad for it.
 														<ul>
@@ -1673,9 +1710,9 @@ tr:target {
 							</li>
 							<li><span class="dialogue-pc">Player</span> That sounds like a lonely and difficult life.
 								<ul>
-									<li><span class="dialogue-npc">Derrin</span> I have friends! And my Ma. Okay, Well, <a href="#@Lord_Ermus">Ermus</a> is the friend I care about, that's why I do it.
+									<li><span class="dialogue-npc">Derrin</span> I have friends! And my Ma. Okay, Well, <a href="#Lord_Ermus">Ermus</a> is the friend I care about, that's why I do it.
 										<ul>
-											<li><span class="dialogue-pc">Player</span> You and <a href="#@Lord_Ermus">Lord Ermus</a> are friends? That seems odd.
+											<li><span class="dialogue-pc">Player</span> You and <a href="#Lord_Ermus">Lord Ermus</a> are friends? That seems odd.
 												<ul>
 													<li><span class="dialogue-npc">Derrin</span> I worked in his Father's orchards as a lad, and we became friends. We still meet, in secret. I tell him what he
 															doesn't see in his lands, he teaches me things, gives me books.
@@ -1792,6 +1829,7 @@ tr:target {
 <ul>
 	<li><span class="dialogue-npc">Derrin</span> Oh, I don't like this. Please let's leave this place. <span class="dialogue-end"></span></li>
 </ul>
+</section>
 
 <div class="footer">Source: <a href="https://github.com/pixelfck/ExanimaLore/">github.com/pixelfck/ExanimaLore/</a>. Pull requests are welcome.</div>
 
