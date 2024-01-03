@@ -9,11 +9,23 @@ CopyID = (function () {
 				return;
 			}
 			
-			this.addCopyIcon();
-			this.addEvenListeners();
+			this.loadCopyIdStylesheet();
     },
 		
-		addCopyIcon: function() {
+		loadCopyIdStylesheet: function() {
+			const stylesheet = document.createElement('link');
+			stylesheet.rel = 'stylesheet';
+			stylesheet.href = 'resources/copyId.css';
+			stylesheet.addEventListener('load', () => {
+				this.addCopyIcons();
+				this.addEvenListeners();
+			}, {once: true});
+			
+			const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
+			document.getElementsByTagName('head')[0].insertBefore(stylesheet, linkTags[linkTags.length - 1]);
+		},
+		
+		addCopyIcons: function() {
 			document.querySelectorAll('tr[id] td:first-child').forEach((td) => {
 				const copyIcon = document.createElement('div');
 				copyIcon.classList.add('copy-icon');
