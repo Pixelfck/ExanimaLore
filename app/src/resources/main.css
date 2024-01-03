@@ -233,9 +233,12 @@ hr {
 		width: calc(100% - var(--border-image-padding) * 2);
 	}
 	
+	.fancy-border tr:first-child th {
+		padding-top: 20px;
+	}
+	
 	.fancy-border tr:first-child th,
 	.fancy-border tr:first-child td {
-		padding-top: 20px;
 		padding-bottom: 16px;
 		border-top: none;
 	}
@@ -264,8 +267,7 @@ hr {
 	
 	.fancy-border tr:last-child th,
 	.fancy-border tr:last-child td {
-		padding-top: 16px;
-		padding-bottom: 20px;
+		padding-bottom: 8px;
 		border-bottom: none;
 	}
 	
