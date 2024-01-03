@@ -1,3 +1,5 @@
+/*================ Root Declarations ================*/
+
 :root {
 	--color-bg: #000000;
 	--color-bg--target: #3f3213;
@@ -16,6 +18,20 @@
 	
 	--color-dialogue--end: #b80000;
 }
+
+/*================ Keyframes ================*/
+
+@keyframes highlight-blink {
+	from {
+		background-color: var(--color-bg--target);
+	}
+	
+	to {
+		background-color: var(--color-bg);
+	}
+}
+
+/*================ Tags ================*/
 
 *, html, body {
 	font-family: sans-serif;
@@ -123,7 +139,8 @@ hr {
 	border-color: var(--color-border);
 }
 
-/* ****** */
+/*================ Classes ================*/
+
 .exanima-logo {
 	margin: -35px auto -45px;
 }
@@ -154,7 +171,7 @@ hr {
 	font-weight: bold;
 }
 
-:target,
+ul:target,
 tr:target {
 	background-color: var(--color-bg--target);
 	scroll-margin-top: 104px;
@@ -165,16 +182,6 @@ section:target {
 	animation-duration: 1s;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
-}
-
-@keyframes highlight-blink {
-	from {
-		background-color: var(--color-bg--target);
-	}
-	
-	to {
-		background-color: var(--color-bg);
-	}
 }
 
 .dialogue-continue:before {
