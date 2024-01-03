@@ -242,12 +242,12 @@ hr {
 	
 	.fancy-border tr:first-child th:first-child,
 	.fancy-border tr:first-child td:first-child {
-		border-top-left-radius: 55px;
+		border-top-left-radius: 47px;
 	}
 	
 	.fancy-border tr:first-child th:last-child,
 	.fancy-border tr:first-child td:last-child {
-		border-top-right-radius: 55px;
+		border-top-right-radius: 47px;
 	}
 	
 	.fancy-border th:last-child,
@@ -271,12 +271,12 @@ hr {
 	
 	.fancy-border tr:last-child th:first-child,
 	.fancy-border tr:last-child td:first-child {
-		border-bottom-left-radius: 55px;
+		border-bottom-left-radius: 47px;
 	}
 	
 	.fancy-border tr:last-child th:last-child,
 	.fancy-border tr:last-child td:last-child {
-		border-bottom-right-radius: 55px;
+		border-bottom-right-radius: 47px;
 	}
 }
 
