@@ -240,6 +240,16 @@ hr {
 		border-top: none;
 	}
 	
+	.fancy-border tr:first-child th:first-child,
+	.fancy-border tr:first-child td:first-child {
+		border-top-left-radius: 55px;
+	}
+	
+	.fancy-border tr:first-child th:last-child,
+	.fancy-border tr:first-child td:last-child {
+		border-top-right-radius: 55px;
+	}
+	
 	.fancy-border th:last-child,
 	.fancy-border td:last-child {
 		padding-right: 20px;
@@ -257,6 +267,16 @@ hr {
 		padding-top: 16px;
 		padding-bottom: 20px;
 		border-bottom: none;
+	}
+	
+	.fancy-border tr:last-child th:first-child,
+	.fancy-border tr:last-child td:first-child {
+		border-bottom-left-radius: 55px;
+	}
+	
+	.fancy-border tr:last-child th:last-child,
+	.fancy-border tr:last-child td:last-child {
+		border-bottom-right-radius: 55px;
 	}
 }
 
