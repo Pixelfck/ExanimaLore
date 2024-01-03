@@ -12,7 +12,16 @@
 :root {
 	--primary-bg-color: #000000;
 	--primary-text-color: #a9a8a5;
-	--separator-color: #52514a;
+	
+	--separator-color: #191919;
+	--separator-color-highlight: #0c0c0c;
+	
+	--color-link: #cca43d;
+	--color-link-highlight: #ffcd4d;
+	
+	--color-text-subdued: #4c4c4c;
+	--targeted-bg-color: #1a1a1a;
+	--color-dialogue-end: #b80000;
 }
 
 body {
@@ -40,14 +49,14 @@ h4 {
 }
 
 a {
-	color: #ffcc4d;
+	color: var(--color-link);
 	text-decoration: none;
 }
 
 a:hover,
-a:focus {
-	color: #ffff00;
-	text-decoration: underline;
+a:focus,
+a:active {
+	color: var(--color-link-highlight);
 }
 
 blockquote {
@@ -111,7 +120,7 @@ hr {
 	position: absolute;
 	top: 0;
 	right: 0;
-	color: #4c4c4c;
+	color: var(--color-text-subdued);
 	font-size: 1.2em;
 	cursor: pointer;
 }
@@ -124,7 +133,7 @@ hr {
 
 .no-entries {
 	text-decoration: line-through;
-	color: #bbb;
+	color: var(--color-text-subdued);
 }
 
 .written-document {
@@ -138,12 +147,12 @@ hr {
 
 .dialogue-next:after {
 	content: "⤵";
-	color: blue;
+	color: var(--color-link);
 	font-weight: bold;
 }
 
-:target {
-	--targeted-bg-color: #1a1a1a;
+:target,
+tr:target {
 	background-color: var(--targeted-bg-color);
 	scroll-margin-top: 104px;
 }
@@ -167,12 +176,12 @@ section:target {
 
 .dialogue-continue:before {
 	content: "⤷ ";
-	color: blue;
+	color: var(--color-link);
 	font-weight: bold;
 }
 
 .dialogue-end:after {
-	color: red;
+	color: var(--color-dialogue-end);
 	content: "✖";
 	font-size: 0.85em;
 }
@@ -193,8 +202,8 @@ section:target {
 	left: 50%;
 	margin: 0 auto 5px;
 	transform: translateX(-50%);
-	color: var(--primary-text-color);
-	background-color: #000000;
+	color: var(--primary-bg-color);
+	background-color: var(--primary-text-color);
 	padding: 4px;
 	border: 2px solid var(--separator-color);
 	border-radius: 5px;
