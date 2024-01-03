@@ -134,12 +134,6 @@ hr {
 	color: var(--color-text);
 }
 
-.no-decoration:hover,
-.no-decoration:focus,
-.no-decoration:active {
-	text-decoration: underline;
-}
-
 .no-entries {
 	text-decoration: line-through;
 	color: var(--color-text--subdued);
