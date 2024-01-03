@@ -20,6 +20,9 @@
 	--color-link-highlight: #ffcd4d;
 	--color-link-visited: #a37458;
 	
+	--color-table-row--odd: var(--primary-bg-color);
+	--color-table-row--even: #0a0a0a;
+	
 	--color-text-subdued: #4c4c4c;
 	--targeted-bg-color: #1a1a1a;
 	--color-dialogue-end: #b80000;
@@ -78,6 +81,25 @@ table {
 	border-spacing: 0;
 	border-collapse: separate;
 	border: 1px solid var(--separator-color);
+	border-top-color: var(--separator-color-highlight);
+	border-left-color: var(--separator-color-highlight);
+}
+
+th,
+td {
+	text-align: left;
+	border: 1px solid var(--separator-color);
+	border-right-color: var(--separator-color-highlight);
+	border-bottom-color: var(--separator-color-highlight);
+	padding: 3px;
+}
+
+tr:nth-child(odd) {
+	background-color: var(--color-table-row--odd);
+}
+
+tr:nth-child(even) {
+	background-color:  var(--color-table-row--even);
 }
 
 th,
