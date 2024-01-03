@@ -1,0 +1,7 @@
+# PHPStorm settings
+/.idea/
+
+# All temporary files
+*.html~'
+*.css~'
+*.js~'
