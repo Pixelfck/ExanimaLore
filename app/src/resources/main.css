@@ -166,7 +166,7 @@ tr[id] td:first-child {
 		border-bottom: 1px solid var(--color-border);
 	}
 
-	td:before {
+	td::before {
 		position: absolute;
 		top: 2px;
 		left: 2px;
@@ -175,10 +175,10 @@ tr[id] td:first-child {
 		white-space: nowrap;
 	}
 	
-	td:nth-of-type(1):before { content: var(--column-01-header); }
-	td:nth-of-type(2):before { content: var(--column-02-header); }
-	td:nth-of-type(3):before { content: var(--column-03-header); }
-	td:nth-of-type(4):before { content: var(--column-04-header); }
+	td:nth-of-type(1)::before { content: var(--column-01-header); }
+	td:nth-of-type(2)::before { content: var(--column-02-header); }
+	td:nth-of-type(3)::before { content: var(--column-03-header); }
+	td:nth-of-type(4)::before { content: var(--column-04-header); }
 	
 	li {
 		min-width: 400px;
@@ -251,7 +251,7 @@ hr {
 	text-decoration: none;
 }
 
-.dialogue-next:after {
+.dialogue-next::after {
 	content: "⤵";
 	color: var(--color-link);
 	font-weight: bold;
@@ -270,13 +270,13 @@ section:target {
 	animation-fill-mode: forwards;
 }
 
-.dialogue-continue:before {
+.dialogue-continue::before {
 	content: "⤷ ";
 	color: var(--color-link);
 	font-weight: bold;
 }
 
-.dialogue-end:after {
+.dialogue-end::after {
 	color: var(--color-dialogue--end);
 	content: "✖";
 	font-size: 0.85em;
@@ -287,8 +287,8 @@ section:target {
 	font-weight: bold;
 }
 
-.dialogue-pc:after,
-.dialogue-npc:after {
+.dialogue-pc::after,
+.dialogue-npc::after {
 	content: ":";
 }
 
