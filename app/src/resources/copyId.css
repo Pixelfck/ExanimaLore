@@ -1,18 +1,19 @@
 /*================ Classes ================*/
 
-.copy-icon {
+.svg-icon--copy {
+	display: block;
 	position: absolute;
 	top: 0;
 	right: 0;
-	color: var(--color-text--subdued);
-	font-size: 1.2em;
+	background-color: var(--color-text--subdued);
+	mask-image: url(icon-copy.svg);
 	cursor: pointer;
 }
 
-.copy-icon:hover,
-.copy-icon:focus,
-.copy-icon:active {
-	color: var(--color-text);
+.svg-icon--copy:hover,
+.svg-icon--copy:focus,
+.svg-icon--copy:active {
+	background-color: var(--color-text);
 }
 
 .copy-message {
