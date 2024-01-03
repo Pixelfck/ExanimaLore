@@ -141,6 +141,15 @@ hr {
 
 /*================ Classes ================*/
 
+.svg-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: contain;
+}
+
 .exanima-logo {
 	margin: -35px auto -45px;
 }

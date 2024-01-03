@@ -27,11 +27,10 @@ CopyID = (function () {
 		
 		addCopyIcons: function() {
 			document.querySelectorAll('tr[id] td:first-child').forEach((td) => {
-				const copyIcon = document.createElement('div');
-				copyIcon.classList.add('copy-icon');
-				copyIcon.innerHTML = '⎘';
+				const svgIconCopy = document.createElement('div');
+				svgIconCopy.classList.add('svg-icon', 'svg-icon--copy');
 				
-				td.appendChild(copyIcon);
+				td.appendChild(svgIconCopy);
 			});
 			
 			const copyMessage = document.createElement('div');
@@ -41,7 +40,7 @@ CopyID = (function () {
 		},
 		
 		addEvenListeners: function() {
-			document.querySelectorAll('.copy-icon').forEach((td) => {
+			document.querySelectorAll('.svg-icon--copy').forEach((td) => {
 				td.addEventListener('click', (event) => this.onClick(event));
 			});
 		},
