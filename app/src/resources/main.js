@@ -81,21 +81,21 @@ CopyID = (function () {
 })();
 
 function addDiagIcons() {
-	document.getElementsByClassName('dialogue-continue').forEach((a) => {
+	document.querySelectorAll('.dialogue-continue').forEach((a) => {
 		const svgIconDiagContinue = document.createElement('div');
 		svgIconDiagContinue.classList.add('svg-icon', 'svg-icon--diagContinue');
 		
 		a.appendChild(svgIconDiagContinue);
 	});
 	
-	document.getElementsByClassName('dialogue-next').forEach((a) => {
+	document.querySelectorAll('.dialogue-next').forEach((a) => {
 		const svgIconDiagNext = document.createElement('div');
 		svgIconDiagNext.classList.add('svg-icon', 'svg-icon--diagNext');
 		
 		a.appendChild(svgIconDiagNext);
 	});
 
-	document.getElementsByClassName('dialogue-end').forEach((span) => {
+	document.querySelectorAll('.dialogue-end').forEach((span) => {
 		const svgIconDiagEnd = document.createElement('div');
 		svgIconDiagEnd.classList.add('svg-icon', 'svg-icon--diagEnd');
 		
