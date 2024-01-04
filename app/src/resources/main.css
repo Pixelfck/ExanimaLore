@@ -193,7 +193,7 @@ hr {
 /*================ Classes ================*/
 
 @media only screen and (max-width: 919px) {
-	.visually-hidden--small {
+	.visually-hidden--mobile {
 		position: absolute !important;
 		overflow: hidden;
 		clip: rect(0 0 0 0);
@@ -280,6 +280,10 @@ hr {
 	.fancy-border tr:last-child td:last-child {
 		border-bottom-right-radius: 47px;
 	}
+	
+	.first-column-centered--desktop td:first-child {
+		text-align: center;
+	}
 }
 
 .no-decoration,
@@ -297,17 +301,7 @@ hr {
 	font-style: italic;
 }
 
-.dialogue-next,
-.dialogue-continue {
-	text-decoration: none;
-}
-
-.dialogue-next::after {
-	content: "⤵";
-	color: var(--color-link);
-	font-weight: bold;
-}
-
+/* hash targets */
 ul:target,
 tr:target {
 	background-color: var(--color-bg--target);
@@ -319,6 +313,126 @@ section:target {
 	animation-duration: 1s;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
+}
+
+/* image sprite */
+.sprite {
+	--scale: 0.6;
+	display: block;
+	width: var(--width);
+	height: var(--height);
+	margin: 3px auto calc(var(--height) * -1 + var(--scale) * var(--height) + 8px);
+	object-fit: none;
+	transform-origin: top center;
+	transform: scale(var(--scale));
+}
+
+@media only screen and (max-width: 919px) {
+	.sprite {
+		display: none;
+	}
+}
+
+.sprite--book-01 {
+	object-position: 0 0;
+  --width: 178px;
+  --height: 176px;
+}
+.sprite--book-02 {
+	object-position: 0 -176px;
+  --width: 178px;
+  --height: 175px;
+}
+.sprite--life-of-linus-fendrick,
+.sprite--the-guardians-wrath,
+.sprite--the-ways-of-the-thaumaturge {
+	object-position: 0 -351px;
+  --width: 165px;
+  --height: 163px;
+}
+.sprite--deconstructing-humanity {
+	object-position: 0 -513px;
+  --width: 166px;
+  --height: 162px;
+}
+.sprite--book-03 {
+	object-position: -178px 0;
+  --width: 164px;
+  --height: 167px;
+}
+.sprite--forgotten {
+	object-position: -178px -167px;
+  --width: 162px;
+  --height: 160px;
+}
+.sprite--book-04 {
+	object-position: -178px -327px;
+  --width: 156px;
+  --height: 172px;
+}
+.sprite--ghosts,
+.sprite--the-guardian-of-the-underworld {
+	object-position: -178px -499px;
+  --width: 153px;
+  --height: 163px;
+}
+.sprite--journal {
+	object-position: -342px 0;
+  --width: 160px;
+  --height: 137px;
+}
+.sprite--book-05 {
+	object-position: -342px -137px;
+  --width: 152px;
+  --height: 174px;
+}
+.sprite--book-06 {
+	object-position: -342px -311px;
+  --width: 151px;
+  --height: 177px;
+}
+.sprite--book-07 {
+	object-position: -342px -488px;
+  --width: 151px;
+  --height: 177px;
+}
+.sprite--binding-of-the-dead {
+	object-position: -502px 0;
+  --width: 151px;
+  --height: 147px;
+}
+.sprite--the-forgotten-powers {
+	object-position: -502px -147px;
+  --width: 145px;
+  --height: 154px;
+}
+.sprite--book-08 {
+	object-position: -502px -301px;
+  --width: 143px;
+  --height: 173px;
+}
+.sprite--old-parchment {
+	object-position: -502px -474px;
+  --width: 151px;
+  --height: 77px;
+}
+.sprite--parchment {
+	object-position: -502px -551px;
+  --width: 125px;
+  --height: 102px;
+}
+
+
+/* dialogue */
+.dialogue-next,
+.dialogue-continue {
+	text-decoration: none;
+}
+
+.dialogue-next::after {
+	content: "⤵";
+	color: var(--color-link);
+	font-weight: bold;
 }
 
 .dialogue-continue::before {
