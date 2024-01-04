@@ -1,24 +1,21 @@
 .svg-icon--diagContinue {
-	height: 1em;
-	width: 1em;
 	background-color: var(--color-link);
 	mask-image: url("iconDiagContinue.svg");
+	-webkit-mask-image: url("iconDiagContinue.svg");
 	cursor: pointer;
 }
 
 .svg-icon--diagNext {
-	height: 1em;
-	width: 1em;
 	background-color: var(--color-link);
 	mask-image: url("iconDiagNext.svg");
+	-webkit-mask-image: url("iconDiagNext.svg");
 	cursor: pointer;
 }
 
 .svg-icon--diagEnd {
-	height: 1em;
-	width: 1em;
 	background-color: var(--color-dialogue--end);
 	mask-image: url("iconDiagEnd.svg");
+	-webkit-mask-image: url("iconDiagEnd.svg");
 }
 
 .svg-icon--diagContinue:hover,
