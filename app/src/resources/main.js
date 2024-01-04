@@ -22,7 +22,7 @@ CopyID = (function () {
 			}, {once: true});
 			
 			const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
-			document.getElementsByTagName('head')[0].insertBefore(stylesheet, linkTags[linkTags.length - 1]);
+			linkTags[linkTags.length - 1].after(stylesheet);
 		},
 		
 		addCopyIcons: function() {
