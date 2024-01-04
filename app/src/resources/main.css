@@ -302,12 +302,6 @@ hr {
 	text-decoration: none;
 }
 
-.dialogue-next::after {
-	content: "⤵";
-	color: var(--color-link);
-	font-weight: bold;
-}
-
 ul:target,
 tr:target {
 	background-color: var(--color-bg--target);
@@ -319,18 +313,6 @@ section:target {
 	animation-duration: 1s;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
-}
-
-.dialogue-continue::before {
-	content: "⤷ ";
-	color: var(--color-link);
-	font-weight: bold;
-}
-
-.dialogue-end::after {
-	color: var(--color-dialogue--end);
-	content: "✖";
-	font-size: 0.85em;
 }
 
 .dialogue-pc,
