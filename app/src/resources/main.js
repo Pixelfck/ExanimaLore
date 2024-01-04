@@ -18,7 +18,7 @@ CopyID = (function () {
 			stylesheet.href = 'resources/copyId.css';
 			stylesheet.addEventListener('load', () => {
 				this.addCopyIcons();
-				this.addEvenListeners();
+				this.addEventListeners();
 			}, {once: true});
 			
 			const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
@@ -39,13 +39,13 @@ CopyID = (function () {
 			document.body.appendChild(copyMessage);
 		},
 		
-		addEvenListeners: function() {
+		addEventListeners: function() {
 			document.querySelectorAll('.svg-icon--copy').forEach((td) => {
 				td.addEventListener('click', (event) => this.onClick(event));
 			});
 		},
 		
-    onClick: function(event) {
+		onClick: function(event) {
 			this.copyIdToClipboard(event.target.closest('tr'));
 		},
 		
@@ -80,6 +80,42 @@ CopyID = (function () {
 	return CopyID;
 })();
 
+function addDiagIcons() {
+	document.getElementsByClassName('dialogue-continue').forEach((a) => {
+		const svgIconDiagContinue = document.createElement('div');
+		svgIconDiagContinue.classList.add('svg-icon', 'svg-icon--diagContinue');
+		
+		a.appendChild(svgIconDiagContinue);
+	});
+	
+	document.getElementsByClassName('dialogue-next').forEach((a) => {
+		const svgIconDiagNext = document.createElement('div');
+		svgIconDiagNext.classList.add('svg-icon', 'svg-icon--diagNext');
+		
+		a.appendChild(svgIconDiagNext);
+	});
+
+	document.getElementsByClassName('dialogue-end').forEach((span) => {
+		const svgIconDiagEnd = document.createElement('div');
+		svgIconDiagEnd.classList.add('svg-icon', 'svg-icon--diagEnd');
+		
+		span.appendChild(svgIconDiagEnd);
+	});
+};
+
+function loadIconsStylesheet() {
+	const stylesheet = document.createElement('link');
+	stylesheet.rel = 'stylesheet';
+	stylesheet.href = 'resources/icons.css';
+	stylesheet.addEventListener('load', () => {
+		addDiagIcons();
+	}, {once: true});
+			
+	const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
+	document.getElementsByTagName('head')[0].insertBefore(stylesheet, linkTags[linkTags.length - 1]);
+};
+
 document.addEventListener('DOMContentLoaded', function() {
 	(new CopyID()).init();
+	loadIconsStylesheet();
 });
