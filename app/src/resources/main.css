@@ -211,8 +211,8 @@ hr {
 
 .svg-icon {
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
 	mask-repeat: no-repeat;
 	mask-position: center;
 	mask-size: contain;
