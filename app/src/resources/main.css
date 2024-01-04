@@ -325,6 +325,7 @@ section:target {
 	object-fit: none;
 	transform-origin: top center;
 	transform: scale(var(--scale));
+	pointer-events: none;
 }
 
 @media only screen and (max-width: 919px) {
