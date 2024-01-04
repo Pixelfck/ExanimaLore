@@ -18,7 +18,7 @@ CopyID = (function () {
 			stylesheet.href = 'resources/copyId.css';
 			stylesheet.addEventListener('load', () => {
 				this.addCopyIcons();
-				this.addEvenListeners();
+				this.addEventListeners();
 			}, {once: true});
 			
 			const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
@@ -39,7 +39,7 @@ CopyID = (function () {
 			document.body.appendChild(copyMessage);
 		},
 		
-		addEvenListeners: function() {
+		addEventListeners: function() {
 			document.querySelectorAll('.svg-icon--copy').forEach((td) => {
 				td.addEventListener('click', (event) => this.onClick(event));
 			});
