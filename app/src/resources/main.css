@@ -214,8 +214,11 @@ hr {
   width: 1em;
   height: 1em;
 	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
 	mask-position: center;
+	-webkit-mask-position: center;
 	mask-size: contain;
+	-webkit-mask-size: contain;
 }
 
 .exanima-logo {
