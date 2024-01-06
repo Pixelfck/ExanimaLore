@@ -292,13 +292,18 @@ hr {
 	color: var(--color-text);
 }
 
-.no-entries {
+.no-entries,
+.removed-from-game td {
 	text-decoration: line-through;
 	color: var(--color-text--subdued);
 }
 
-.written-document {
+.quoted-writing {
 	font-style: italic;
+}
+
+.centered {
+	text-align: center;
 }
 
 /* hash targets */
