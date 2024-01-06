@@ -6,8 +6,8 @@
 	top: 0;
 	right: 0;
 	background-color: var(--color-text--subdued);
-	mask-image: url(iconCopy.svg);
 	-webkit-mask-image: url(iconCopy.svg);
+	mask-image: url(iconCopy.svg);
 	cursor: pointer;
 }
 
