@@ -191,6 +191,20 @@ hr {
 }
 
 /*================ Classes ================*/
+.visually-hidden {
+	position: absolute !important;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 
 @media only screen and (max-width: 919px) {
 	.visually-hidden--mobile {
@@ -211,10 +225,13 @@ hr {
 
 .svg-icon {
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
+	-webkit-mask-repeat: no-repeat;
 	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
 	mask-position: center;
+	-webkit-mask-size: contain;
 	mask-size: contain;
 }
 
@@ -430,27 +447,47 @@ section:target {
 
 
 /* dialogue */
-.dialogue-next,
-.dialogue-continue {
-	text-decoration: none;
+.svg-icon--next {
+	margin: 0 0 -6px -3px;
+	background-color: var(--color-link);
+	-webkit-mask-image: url(iconNext.svg);
+	mask-image: url(iconNext.svg);
 }
 
-.dialogue-next::after {
-	content: "⤵";
-	color: var(--color-link);
-	font-weight: bold;
+.svg-icon--next:hover,
+.svg-icon--next:focus,
+.svg-icon--next:active {
+	background-color: var(--color-link--highlight);
 }
 
-.dialogue-continue::before {
-	content: "⤷ ";
-	color: var(--color-link);
-	font-weight: bold;
+.svg-icon--next:visited {
+	background-color: var(--color-link--visited);
 }
 
-.dialogue-end::after {
-	color: var(--color-dialogue--end);
-	content: "✖";
-	font-size: 0.85em;
+.svg-icon--continued {
+	margin: 0 3px 0 -3px;
+	background-color: var(--color-link);
+	-webkit-mask-image: url(iconContinued.svg);
+	mask-image: url(iconContinued.svg);
+}
+
+.svg-icon--continued:hover,
+.svg-icon--continued:focus,
+.svg-icon--continued:active {
+	background-color: var(--color-link--highlight);
+}
+
+.svg-icon--continued:visited {
+	background-color: var(--color-link--visited);
+}
+
+.svg-icon--end {
+  width: 0.8em;
+  height: 0.8em;
+	margin: 0 0 -2px -1px;
+	background-color: var(--color-dialogue--end);
+	-webkit-mask-image: url(iconEnd.svg);
+	mask-image: url(iconEnd.svg);
 }
 
 .dialogue-pc,
