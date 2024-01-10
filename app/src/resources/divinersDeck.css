@@ -45,7 +45,7 @@ html, body {
 	height: 800px;
 	backface-visibility: hidden;
 	
-	animation-duration: 1.35s;
+	animation-duration: 1.55s;
 	animation-timing-function: linear;
 	animation-fill-mode: forwards;
 	animation-delay: 0.5s;
