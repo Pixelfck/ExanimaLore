@@ -1,0 +1,73 @@
+
+/*================ Keyframes ================*/
+
+:root {
+	--card-animation-step--000:    0deg;
+	
+	--card-animation-step--020:    0deg;
+	--card-animation-step--032:    0deg;
+	
+	--card-animation-step--088: -180deg;
+	--card-animation-step--100: -180deg;
+}
+
+@keyframes card-flip--back {
+	0%   { transform: translateY(-100vh) rotate(0deg)  rotateY(var(--card-animation-step--000)); }
+	
+	20%  { transform: translateY(0)      rotate(0deg)  rotateY(var(--card-animation-step--020)); }
+	32%  { transform: translateY(0)      rotate(-4deg) rotateY(var(--card-animation-step--032)); }
+  88%  { transform: translateY(0)      rotate(-4deg) rotateY(var(--card-animation-step--088)); }
+  100% { transform: translateY(0)      rotate(0deg)  rotateY(var(--card-animation-step--100)); }
+}
+@keyframes card-flip--front {
+	0%   { transform: translateY(-100vh) rotate(0deg)  rotateY(calc(180deg + var(--card-animation-step--000))); }
+	
+	20%  { transform: translateY(0)      rotate(0deg)  rotateY(calc(180deg + var(--card-animation-step--020))); }
+	32%  { transform: translateY(0)      rotate(-4deg) rotateY(calc(180deg + var(--card-animation-step--032))); }
+  88%  { transform: translateY(0)      rotate(-4deg) rotateY(calc(180deg + var(--card-animation-step--088))); }
+  100% { transform: translateY(0)      rotate(0deg)  rotateY(calc(180deg + var(--card-animation-step--100))); }
+}
+
+/*================ Diviner's Deck ================*/
+
+.card-wrapper,
+.card-front,
+.card-back {
+	position: relative;
+	width: 480px;
+	height: 800px;
+	margin: 20px 200px;
+	perspective: 1200px;
+}
+
+.card-wrapper,
+.card-front,
+.card-back,
+.card-front img,
+.card-back img {
+	border-radius: 20px;
+}
+
+.card-front,
+.card-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: 0 15px 30px rgba(0, 0, 0, .25);
+	backface-visibility: hidden;
+	
+	animation-duration: 2s;
+	animation-timing-function: cubic-bezier(0.55, 0.045, 0.515, 1); /*0.645, 0.045, 0.355, 1 | 0.455, 0.03, 0.515, 0.955*/
+	animation-fill-mode: forwards;
+	animation-delay: 0.5s;
+}
+
+.card-back {
+	transform: translateY(-100vh);
+	animation-name: card-flip--back;
+}
+
+.card-front {
+	transform: translateY(-100vh) rotateY(180deg);
+	animation-name: card-flip--front;
+}
