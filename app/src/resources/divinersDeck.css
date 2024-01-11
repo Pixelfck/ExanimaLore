@@ -1,20 +1,23 @@
 
 /*================ Keyframes ================*/
-
 @keyframes card-flip--front {
-	0%   { transform: translateY(-100vh) rotate(0deg)   rotateY(-180deg); }
-	30%  { transform: translateY(0)      rotate(0deg)   rotateY(-180deg); }
-	50%  { transform: translateY(0)      rotate(0deg)   rotateY(-180deg); }
-	75%  { transform: translateY(0)      rotate(-20deg) rotateY(-90deg); }
-  100% { transform: translateY(0)      rotate(0deg)   rotateY(0deg); }
+	0%   { transform: translateY(-100vh) rotate(0deg)   rotateY(-180deg); animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
+	35%  { transform: translateY(0)      rotate(0deg)   rotateY(-180deg); animation-timing-function: linear; }
+	
+	44%  { transform: translateY(0)      rotate(0deg)   rotateY(-180deg); animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+	74%  { transform: translateY(0)      rotate(-18deg) rotateY(-90deg);  animation-timing-function: linear; }
+  97%  { transform: translateY(0)      rotate(0deg)   rotateY(0deg);    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  100% { transform: translateY(0)      rotate(0deg)   rotateY(0deg);    animation-timing-function: linear; }
 }
 
 @keyframes card-flip--back {
-	0%   { transform: translateY(-100vh) rotate(0deg)   rotateY(0deg); }
-	30%  { transform: translateY(0)      rotate(0deg)   rotateY(0deg); }
-	50%  { transform: translateY(0)      rotate(0deg)   rotateY(0deg); }
-	75%  { transform: translateY(0)      rotate(-20deg) rotateY(90deg); }
-  100% { transform: translateY(0)      rotate(0deg)   rotateY(180deg); }
+	0%   { transform: translateY(-100vh) rotate(0deg)   rotateY(0deg);   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); }
+	35%  { transform: translateY(0)      rotate(0deg)   rotateY(0deg);   animation-timing-function: linear; }
+	
+	44%  { transform: translateY(0)      rotate(0deg)   rotateY(0deg);   animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+	74%  { transform: translateY(0)      rotate(-18deg) rotateY(90deg);  animation-timing-function: linear; }
+  97%  { transform: translateY(0)      rotate(0deg)   rotateY(180deg); animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  100% { transform: translateY(0)      rotate(0deg)   rotateY(180deg); animation-timing-function: linear; }
 }
 
 /*================ Diviner's Deck ================*/
@@ -45,8 +48,7 @@ html, body {
 	height: 800px;
 	backface-visibility: hidden;
 	
-	animation-duration: 1.55s;
-	animation-timing-function: linear;
+	animation-duration: 1.65s;
 	animation-fill-mode: forwards;
 	animation-delay: 0.5s;
 }
@@ -63,6 +65,7 @@ html, body {
 
 .card-front img,
 .card-back img {
+	margin: 0 -3px;
 	border-radius: 20px;
 	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
 }
