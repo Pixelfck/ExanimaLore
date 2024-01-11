@@ -538,8 +538,6 @@ section:target {
 	margin: 0 -3px;
 	border-radius: 20px;
 	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-	max-width: calc(100vw - 10px);
-	height: auto;
 }
 
 
