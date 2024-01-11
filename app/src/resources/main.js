@@ -1,4 +1,4 @@
-CopyID = (function () {
+const CopyID = (function () {
 	function CopyID() {
 	  // empty
 	}
@@ -80,6 +80,83 @@ CopyID = (function () {
 	return CopyID;
 })();
 
+const DivinersDeck = (function () {
+	function DivinersDeck() {
+	  // empty
+	}
+	
+	Object.assign(DivinersDeck.prototype, {
+		init: function () {
+			document.querySelectorAll('.divinersDeckCard a').forEach((cardImg) =>{
+				cardImg.addEventListener('click', (event) => this.onCardClick(event));
+			});
+    },
+    
+    onCardClick: function(event) {
+			event.preventDefault();
+			
+			let cardFrontImg;
+			let cardBackImg = document.getElementById('DivinersDeckCardBackSide');
+			if (cardBackImg === event.target) {
+				cardFrontImg = cardBackImg.cloneNode(false);
+				cardBackImg = this.getRandomCardFront();
+			} else {
+				cardFrontImg = event.target.cloneNode(false);
+				cardBackImg = cardBackImg.cloneNode(false);
+			}
+			
+			const cardBack = document.createElement('div');
+			cardBack.classList.add('card-back');
+			cardBack.appendChild(cardBackImg);
+			
+			const cardFront = document.createElement('div');
+			cardFront.classList.add('card-front');
+			cardFront.appendChild(cardFrontImg);
+			
+			const cardWrapper = document.createElement('div');
+			cardWrapper.classList.add('card-wrapper');
+			cardWrapper.appendChild(cardBack);
+			cardWrapper.appendChild(cardFront);
+			
+			const overlayCloseBtn = document.createElement('div');
+			overlayCloseBtn.classList.add('overlay--closeBtn');
+			overlayCloseBtn.innerText = '×';
+			
+			const overlay = document.createElement('div');
+			overlay.classList.add('overlay');
+			overlay.addEventListener('click', (event) => this.onOverlayClick(event));
+			overlay.appendChild(overlayCloseBtn);
+			overlay.appendChild(cardWrapper);
+			
+			document.body.appendChild(overlay);
+		},
+		
+    onOverlayClick: function(event) {
+    	document.body.removeChild(document.querySelector('.overlay'));
+		},
+		
+		getRandomCardFront: function() {
+			const cardImages = document.querySelectorAll('.divinersDeckCard img');
+			
+			return cardImages[this.getRandomIntInclusive(1, cardImages.length - 1)].cloneNode(false);
+		},
+		
+		getRandomIntInclusive: function (min, max) {
+			const randomBuffer = new Uint32Array(1);
+			window.crypto.getRandomValues(randomBuffer);
+			
+			const randomNumber = randomBuffer[0] / (0xffffffff + 1); // Convert from a random integer to a floating point number, within the range 0 to 1 inclusive
+			
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(randomNumber * (max - min + 1)) + min;
+		},
+	});
+	
+	return DivinersDeck;
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
 	(new CopyID()).init();
+	(new DivinersDeck()).init();
 });
