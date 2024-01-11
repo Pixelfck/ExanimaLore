@@ -1,6 +1,6 @@
 # The Lore of Exanima
 
-Those who would enter the underworld shall not only forfeit their lives, but bring oblivion to all mankind.
+*Those who would enter the underworld shall not only forfeit their lives, but bring oblivion to all mankind.*
 
 ## Introduction
 
