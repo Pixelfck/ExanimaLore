@@ -151,7 +151,27 @@ const DivinersDeck = (function () {
 	return DivinersDeck;
 })();
 
+const ScrollToTop = (function () {
+	function ScrollToTop() {
+	  // empty
+	}
+	
+	Object.assign(ScrollToTop.prototype, {
+		init: function () {
+			document.querySelector('.scrollToTopLink').addEventListener('click', (event) => this.onClick(event));
+    },
+    
+    onClick: function(event) {
+			event.preventDefault();
+    	window.scrollTo({top: 0, behavior: 'smooth'});
+		},
+	});
+	
+	return ScrollToTop;
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
 	(new CopyID()).init();
 	(new DivinersDeck()).init();
+	(new ScrollToTop()).init();
 });
