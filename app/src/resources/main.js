@@ -95,23 +95,17 @@ const DivinersDeck = (function () {
     onCardClick: function(event) {
 			event.preventDefault();
 			
-			let cardFrontImg;
-			let cardBackImg = document.getElementById('DivinersDeckCardBackSide');
-			if (cardBackImg === event.target) {
-				cardFrontImg = cardBackImg.cloneNode(false);
-				cardBackImg = this.getRandomCardFront();
+			let cardFront;
+			let cardBack = document.getElementById('DivinersDeckCardBackSide');
+			if (cardBack === event.target) {
+				cardFront = cardBack.cloneNode(false);
+				cardBack = this.getRandomCardFront();
 			} else {
-				cardFrontImg = event.target.cloneNode(false);
-				cardBackImg = cardBackImg.cloneNode(false);
+				cardFront = event.target.cloneNode(false);
+				cardBack = cardBack.cloneNode(false);
 			}
-			
-			const cardBack = document.createElement('div');
-			cardBack.classList.add('card-back');
-			cardBack.appendChild(cardBackImg);
-			
-			const cardFront = document.createElement('div');
 			cardFront.classList.add('card-front');
-			cardFront.appendChild(cardFrontImg);
+			cardBack.classList.add('card-back');
 			
 			const cardWrapper = document.createElement('div');
 			cardWrapper.classList.add('card-wrapper');

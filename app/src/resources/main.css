@@ -22,29 +22,30 @@
 /*================ Keyframes ================*/
 
 @keyframes highlight-blink {
-	from { background-color: var(--color-bg--target);	}
-	to { background-color: var(--color-bg); }
+	from { background-color: var(--color-bg--target); }
+	to   { background-color: var(--color-bg); }
 }
 
 @keyframes card-flip--front {
-	0%   { transform: translateY(-100vh) rotate(0deg)   rotateY(-180deg); animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
-	35%  { transform: translateY(0)      rotate(0deg)   rotateY(-180deg); animation-timing-function: linear; }
+	0%   { transform: translate(-50%, -100vh) rotate(0deg) rotateY(-180deg); animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
+	35%  { transform: translate(-50%, -50%) rotate(0deg) rotateY(-180deg); animation-timing-function: linear; }
 	
-	44%  { transform: translateY(0)      rotate(0deg)   rotateY(-180deg); animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
-	74%  { transform: translateY(0)      rotate(-18deg) rotateY(-90deg);  animation-timing-function: linear; }
-  97%  { transform: translateY(0)      rotate(0deg)   rotateY(0deg);    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-  100% { transform: translateY(0)      rotate(0deg)   rotateY(0deg);    animation-timing-function: linear; }
+	44%  { transform: translate(-50%, -50%) rotate(0deg) rotateY(-180deg); animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+	74%  { transform: translate(-50%, -50%) rotate(-18deg) rotateY(-90deg); animation-timing-function: linear; }
+	97%  { transform: translate(-50%, -50%) rotate(0deg) rotateY(0deg); animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+	100% { transform: translate(-50%, -50%) rotate(0deg) rotateY(0deg); animation-timing-function: linear; }
 }
 
 @keyframes card-flip--back {
-	0%   { transform: translateY(-100vh) rotate(0deg)   rotateY(0deg);   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); }
-	35%  { transform: translateY(0)      rotate(0deg)   rotateY(0deg);   animation-timing-function: linear; }
+	0%   { transform: translate(-50%, -100vh) rotate(0deg) rotateY(0deg); animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); }
+	35%  { transform: translate(-50%, -50%) rotate(0deg) rotateY(0deg); animation-timing-function: linear; }
 	
-	44%  { transform: translateY(0)      rotate(0deg)   rotateY(0deg);   animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
-	74%  { transform: translateY(0)      rotate(-18deg) rotateY(90deg);  animation-timing-function: linear; }
-  97%  { transform: translateY(0)      rotate(0deg)   rotateY(180deg); animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-  100% { transform: translateY(0)      rotate(0deg)   rotateY(180deg); animation-timing-function: linear; }
+	44%  { transform: translate(-50%, -50%) rotate(0deg) rotateY(0deg); animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+	74%  { transform: translate(-50%, -50%) rotate(-18deg) rotateY(90deg); animation-timing-function: linear; }
+	97%  { transform: translate(-50%, -50%) rotate(0deg) rotateY(180deg); animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+	100% { transform: translate(-50%, -50%) rotate(0deg) rotateY(180deg); animation-timing-function: linear; }
 }
+
 /*================ Tags ================*/
 
 *, html, body {
@@ -172,7 +173,7 @@ tr[id] td:first-child {
 		border-top: 1px solid var(--color-border--highlight);
 		border-bottom: 1px solid var(--color-border);
 	}
-
+	
 	td::before {
 		position: absolute;
 		top: 2px;
@@ -238,9 +239,9 @@ hr {
 }
 
 .svg-icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
 	-webkit-mask-repeat: no-repeat;
 	mask-repeat: no-repeat;
 	-webkit-mask-position: center;
@@ -372,103 +373,119 @@ section:target {
 
 .sprite--book-01 {
 	object-position: 0 0;
-  --width: 178px;
-  --height: 176px;
+	--width: 178px;
+	--height: 176px;
 }
+
 .sprite--book-02 {
 	object-position: 0 -176px;
-  --width: 178px;
-  --height: 175px;
+	--width: 178px;
+	--height: 175px;
 }
+
 .sprite--life-of-linus-fendrick,
 .sprite--the-guardians-wrath,
 .sprite--the-ways-of-the-thaumaturge {
 	object-position: 0 -351px;
-  --width: 165px;
-  --height: 163px;
+	--width: 165px;
+	--height: 163px;
 }
+
 .sprite--deconstructing-humanity {
 	object-position: 0 -513px;
-  --width: 166px;
-  --height: 162px;
+	--width: 166px;
+	--height: 162px;
 }
+
 .sprite--book-03 {
 	object-position: -178px 0;
-  --width: 164px;
-  --height: 167px;
+	--width: 164px;
+	--height: 167px;
 }
+
 .sprite--forgotten {
 	object-position: -178px -167px;
-  --width: 162px;
-  --height: 160px;
+	--width: 162px;
+	--height: 160px;
 }
+
 .sprite--book-04 {
 	object-position: -178px -327px;
-  --width: 156px;
-  --height: 172px;
+	--width: 156px;
+	--height: 172px;
 }
+
 .sprite--ghosts,
 .sprite--the-guardian-of-the-underworld {
 	object-position: -178px -499px;
-  --width: 153px;
-  --height: 163px;
+	--width: 153px;
+	--height: 163px;
 }
+
 .sprite--journal {
 	object-position: -342px 0;
-  --width: 160px;
-  --height: 137px;
+	--width: 160px;
+	--height: 137px;
 }
+
 .sprite--book-05 {
 	object-position: -342px -137px;
-  --width: 152px;
-  --height: 174px;
+	--width: 152px;
+	--height: 174px;
 }
+
 .sprite--book-06 {
 	object-position: -342px -311px;
-  --width: 151px;
-  --height: 177px;
+	--width: 151px;
+	--height: 177px;
 }
+
 .sprite--book-07 {
 	object-position: -342px -488px;
-  --width: 151px;
-  --height: 177px;
+	--width: 151px;
+	--height: 177px;
 }
+
 .sprite--binding-of-the-dead {
 	object-position: -502px 0;
-  --width: 151px;
-  --height: 147px;
+	--width: 151px;
+	--height: 147px;
 }
+
 .sprite--the-forgotten-powers {
 	object-position: -502px -147px;
-  --width: 145px;
-  --height: 154px;
+	--width: 145px;
+	--height: 154px;
 }
+
 .sprite--book-08 {
 	object-position: -502px -301px;
-  --width: 143px;
-  --height: 173px;
+	--width: 143px;
+	--height: 173px;
 }
+
 .sprite--old-parchment {
 	object-position: -502px -474px;
-  --width: 151px;
-  --height: 77px;
+	--width: 151px;
+	--height: 77px;
 }
+
 .sprite--parchment {
 	object-position: -502px -551px;
-  --width: 125px;
-  --height: 102px;
+	--width: 125px;
+	--height: 102px;
 }
 
 /* diviner's deck */
 .divinersDeckCards {
-  display: grid;
-  padding: 0 1em;
-  grid-auto-flow: row;
+	display: grid;
+	padding: 0 1em;
+	grid-auto-flow: row;
 	grid-template-columns: repeat(auto-fill, 190px);
-  grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
-  justify-content: space-around;
+	grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
+	grid-column-gap: 30px;
+	grid-row-gap: 30px;
+	justify-content: space-around;
 }
 
 .divinersDeckCard {
@@ -480,17 +497,17 @@ section:target {
 .divinersDeckCard img {
 	display: block;
 	width: 100%;
-  height: calc(100% - 1em - 8px);
-  margin-bottom: 4px;
-  object-fit: contain;
+	height: calc(100% - 1em - 8px);
+	margin-bottom: 4px;
+	object-fit: contain;
 }
 
 .overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -510,36 +527,37 @@ section:target {
 	height: 800px;
 }
 
+@media only screen and (max-width: 919px) {
+	.card-wrapper {
+		top: calc(50% - 392px);
+	}
+}
+
 .card-front,
 .card-back {
 	position: absolute;
-	left: 0;
+	top: 50%;
+	left: 50%;
 	width: 480px;
-	height: 800px;
+	height: auto;
+	max-width: calc(100vw - 1em);
 	backface-visibility: hidden;
-	
+	border-radius: 20px;
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
 	animation-duration: 1.65s;
 	animation-fill-mode: forwards;
 	animation-delay: 0.1s;
 }
 
 .card-back {
-	transform: translateY(-100vh) rotateY(-180deg);
+	transform: translate(-50%, -100vh) rotateY(-180deg);
 	animation-name: card-flip--back;
 }
 
 .card-front {
-	transform: translateY(-100vh);
+	transform: translate(-50%, -100vh);
 	animation-name: card-flip--front;
 }
-
-.card-front img,
-.card-back img {
-	margin: 0 -3px;
-	border-radius: 20px;
-	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-}
-
 
 /* dialogue */
 .svg-icon--next {
@@ -577,8 +595,8 @@ section:target {
 }
 
 .svg-icon--end {
-  width: 0.8em;
-  height: 0.8em;
+	width: 0.8em;
+	height: 0.8em;
 	margin: 0 0 -2px -1px;
 	background-color: var(--color-dialogue--end);
 	-webkit-mask-image: url(iconEnd.svg);
