@@ -2,6 +2,7 @@
 
 :root {
 	--color-bg: #000000;
+	--color-bg--light: #0a0a0a;
 	--color-bg--target: #3f3213;
 	
 	--color-text: #a9a8a5;
@@ -13,8 +14,6 @@
 	
 	--color-border: #191919;
 	--color-border--highlight: #0c0c0c;
-	--color-table-row--odd: var(--color-bg);
-	--color-table-row--even: #0a0a0a;
 	
 	--color-dialogue--end: #b80000;
 }
@@ -49,12 +48,34 @@
 /*================ Tags ================*/
 
 *, html, body {
+	margin: 0;
+  box-sizing: border-box;
 	font-family: sans-serif;
 }
 
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
+	position: relative;
+	min-height: 100vh;
 	background-color: var(--color-bg);
 	color: var(--color-text);
+}
+
+header {
+	margin: 26px 8px 22px;
+}
+
+section {
+	margin: 0 8px 3em;
+}
+
+section section {
+	margin: 0 0 3em;
 }
 
 h1 {
@@ -64,7 +85,7 @@ h1 {
 }
 
 h2 {
-	margin-top: 2em;
+	margin: 2em 0 0.9em;
 }
 
 h2:first-child {
@@ -115,10 +136,6 @@ blockquote {
 	text-align: center;
 }
 
-section {
-	margin-bottom: 3em;
-}
-
 table {
 	width: 100%;
 	border-spacing: 0;
@@ -138,11 +155,11 @@ td {
 }
 
 tr:nth-child(odd) {
-	background-color: var(--color-table-row--odd);
+	background-color: var(--color-bg);
 }
 
 tr:nth-child(even) {
-	background-color: var(--color-table-row--even);
+	background-color: var(--color-bg--light);
 }
 
 td:first-child {
@@ -193,6 +210,10 @@ tr[id] td:first-child {
 	}
 }
 
+p {
+	margin: 16px 0;
+}
+
 p:first-child {
 	margin-top: 0;
 }
@@ -203,6 +224,14 @@ p:last-child {
 
 hr {
 	border-color: var(--color-border);
+}
+
+ul {
+	margin: 16px 0;
+}
+
+ul ul {
+	margin: 0;
 }
 
 /*================ Classes ================*/
