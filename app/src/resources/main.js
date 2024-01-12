@@ -118,9 +118,14 @@ const DivinersDeck = (function () {
 			cardWrapper.appendChild(cardBack);
 			cardWrapper.appendChild(cardFront);
 			
+			const overlayCloseBtnAria = document.createElement('span');
+			overlayCloseBtnAria.classList.add('visually-hidden');
+			overlayCloseBtnAria.innerText = 'close';
+			
 			const overlayCloseBtn = document.createElement('div');
 			overlayCloseBtn.classList.add('overlay--closeBtn');
 			overlayCloseBtn.innerText = '×';
+			overlayCloseBtn.appendChild(overlayCloseBtnAria);
 			
 			const overlay = document.createElement('div');
 			overlay.classList.add('overlay');
