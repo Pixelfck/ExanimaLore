@@ -15,7 +15,7 @@ const CopyID = (function () {
 		loadCopyIdStylesheet: function() {
 			const stylesheet = document.createElement('link');
 			stylesheet.rel = 'stylesheet';
-			stylesheet.href = 'resources/copyId.css';
+			stylesheet.href = 'resources/copyId.min.css';
 			stylesheet.addEventListener('load', () => {
 				this.addCopyIcons();
 				this.addEventListeners();
