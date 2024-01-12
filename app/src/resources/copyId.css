@@ -30,6 +30,7 @@
 	border-radius: 5px;
 	opacity: 0;
 	transition: opacity 1.0s;
+  pointer-events: none;
 }
 
 .copy-message--visible {
