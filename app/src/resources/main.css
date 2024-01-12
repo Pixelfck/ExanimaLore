@@ -12,8 +12,8 @@
 	--color-link--highlight: #ffcd4d;
 	--color-link--visited: #8c702a;
 	
-	--color-border: #191919;
-	--color-border--highlight: #0c0c0c;
+	--color-border: #0c0c0c;
+	--color-border--highlight: #191919;
 	
 	--color-dialogue--end: #b80000;
 }
@@ -75,7 +75,7 @@ main {
 
 .footer {
 	padding: 1em;
-	border-top: 1px solid var(--color-border);
+	border-top: 1px solid var(--color-border--highlight);
 	background-color: var(--color-bg--light);
 	color: var(--color-text--subdued);
 	text-align: center;
@@ -152,17 +152,17 @@ table {
 	width: 100%;
 	border-spacing: 0;
 	border-collapse: separate;
-	border: 1px solid var(--color-border);
-	border-top-color: var(--color-border--highlight);
-	border-left-color: var(--color-border--highlight);
+	border: 1px solid var(--color-border--highlight);
+	border-top-color: var(--color-border);
+	border-left-color: var(--color-border);
 }
 
 th,
 td {
 	text-align: left;
-	border: 1px solid var(--color-border);
-	border-right-color: var(--color-border--highlight);
-	border-bottom-color: var(--color-border--highlight);
+	border: 1px solid var(--color-border--highlight);
+	border-right-color: var(--color-border);
+	border-bottom-color: var(--color-border);
 	padding: 3px;
 }
 
@@ -198,9 +198,9 @@ tr[id] td:first-child {
 		position: relative;
 		min-height: 1em;
 		padding: calc(8px + 0.7em) 3px 3px 10px;
-		border: 1px solid var(--color-border);
-		border-top: 1px solid var(--color-border--highlight);
-		border-bottom: 1px solid var(--color-border);
+		border: 1px solid var(--color-border--highlight);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border--highlight);
 	}
 	
 	td::before {
@@ -235,7 +235,7 @@ p:last-child {
 }
 
 hr {
-	border-color: var(--color-border);
+	border-color: var(--color-border--highlight);
 }
 
 ul {
@@ -247,6 +247,35 @@ ul ul {
 }
 
 /*================ Classes ================*/
+
+.tooltip {
+	position: relative;
+  margin-right: -2px;
+	padding: 0 2px 6px 2px;
+	color: var(--color-link);
+	font-size: 0.75em;
+}
+
+.tooltip-text {
+	display: none;
+	position: absolute;
+	width: 150px;
+	top: 0;
+	left: 0;
+	margin: 4px 0 0 10px;
+	padding: 4px;
+	border: 1px solid var(--color-border--highlight);
+	border-radius: 5px;
+	border-top-left-radius: 0;
+	background-color: var(--color-bg--light);
+	color: var(--color-text);
+}
+
+.tooltip:hover .tooltip-text,
+.tooltip:active .tooltip-text {
+	display: block;
+}
+
 @media only screen and (max-width: 919px) {
 	.visually-hidden--mobile {
 		position: absolute !important;
@@ -297,7 +326,7 @@ ul ul {
 	top: calc(100vh - 45px - 1em);
 	width: 44px;
 	height: 44px;
-	border: 1px solid var(--color-border);
+	border: 1px solid var(--color-border--highlight);
 	border-radius: 50%;
 	background-color: var(--color-bg--light);
   justify-content: center;
@@ -309,7 +338,7 @@ ul ul {
 .scrollToTopLink:focus,
 .scrollToTopLink:active {
 	border: 1px solid var(--color-text--subdued);
-	background-color: var(--color-border);
+	background-color: var(--color-border--highlight);
 }
 
 .scrollToTopArrow {
