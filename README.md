@@ -12,5 +12,5 @@ Pull requests are welcome.
 
 ## Licence information
 
-* All game content described in this project is © BARE METTLE ENTERTAINMENT, ALL RIGHTS RESERVED;
+* All game content described in this project is © BARE METTLE ENTERTAINMENT LTD. ALL RIGHTS RESERVED;
 * All non-game content is licensed under the EUROPEAN UNION PUBLIC LICENCE v. 1.2.
