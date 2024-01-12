@@ -60,7 +60,6 @@
 }
 
 body {
-	position: relative;
 	min-height: 100vh;
 	background-color: var(--color-bg);
 	color: var(--color-text);
@@ -68,6 +67,19 @@ body {
 
 header {
 	margin: 26px 8px 22px;
+}
+
+main {
+	position: relative;
+}
+
+.footer {
+	padding: 1em;
+	border-top: 1px solid var(--color-border);
+	background-color: var(--color-bg--light);
+	color: var(--color-text--subdued);
+	text-align: center;
+	font-size: 0.8em;
 }
 
 section {
@@ -272,7 +284,7 @@ ul ul {
 
 .backToTop {
   position: absolute;
-  top: calc(100vh + 4em);
+  top: calc(100vh - 200px - 1em);
   bottom: 0;
   right: 1em;
   pointer-events: none;
@@ -654,10 +666,4 @@ section:target {
 .dialogue-pc::after,
 .dialogue-npc::after {
 	content: ":";
-}
-
-.footer {
-	margin-bottom: -4px;
-	text-align: right;
-	font-size: 0.8em;
 }
