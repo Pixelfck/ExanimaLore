@@ -270,6 +270,35 @@ ul ul {
 	height: auto;
 }
 
+.backToTop {
+  position: absolute;
+  top: calc(100vh + 4em);
+  bottom: 0;
+  right: 1em;
+  pointer-events: none;
+}
+
+.backToTopLink,
+.backToTopLink:visited {
+	display: block;
+  position: sticky;
+	top: calc(100vh - 45px - 1em);
+	width: 45px;
+	height: 45px;
+
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	background-color: var(--color-bg--light);;
+  pointer-events: all;
+}
+
+.backToTopLink:hover,
+.backToTopLink:focus,
+.backToTopLink:active {
+	border: 1px solid var(--color-bg--light);;
+	background-color: var(--color-border);
+}
+
 @media only screen and (min-width: 920px) {
 	.fancy-border {
 		--border-image-padding: 3px;
