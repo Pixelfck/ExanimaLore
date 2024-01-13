@@ -1,3 +1,8 @@
+/**
+ * Side loaded styles for the CopyId functionality.
+ * Note: since the required CopyId javascript functionality might not be supported, these styles are only side loaded when required.
+ */
+
 /*================ Classes ================*/
 
 .svg-icon--copy {
