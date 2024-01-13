@@ -135,7 +135,12 @@ const DivinersDeck = (function () {
 		},
 		
     onOverlayClick: function(event) {
-    	document.body.removeChild(document.querySelector('.overlay'));
+    	const overlay = document.querySelector('.overlay');
+    	const cardWrapper = document.querySelector('.card-wrapper');
+    	
+			overlay.addEventListener('transitionend', () => document.body.removeChild(overlay), {passive: true, once: true});
+			overlay.style.opacity = 0;
+			cardWrapper.style.opacity = 0;
 		},
 		
 		getRandomCardFront: function() {

@@ -610,6 +610,7 @@ section:target {
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.75);
+	transition: opacity 0.75s ease-in;
 }
 
 .overlay--closeBtn {
@@ -626,6 +627,7 @@ section:target {
 	left: calc(50% - 240px);
 	width: 480px;
 	height: 800px;
+	transition: opacity 0.375s ease-in;
 }
 
 @media only screen and (max-width: 919px) {
