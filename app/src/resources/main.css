@@ -22,7 +22,7 @@
 
 @keyframes highlight-blink {
 	from { background-color: var(--color-bg--target); }
-	to   { background-color: var(--color-bg); }
+	to   {}
 }
 
 @keyframes card-flip--front {
@@ -446,11 +446,13 @@ tr:target {
 	scroll-margin-top: 104px;
 }
 
-section:target {
+section.anim-highlight-blink,
+section.anim-highlight-blink th,
+section.anim-highlight-blink td {
+	scroll-margin-top: 3em;
 	animation-name: highlight-blink;
 	animation-duration: 1s;
 	animation-timing-function: ease-in;
-	animation-fill-mode: forwards;
 }
 
 /* in-game objects image sprite */
