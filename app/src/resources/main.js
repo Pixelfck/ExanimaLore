@@ -1,3 +1,7 @@
+/**
+ * Copy an anchor location to the clip board.
+ * @type {CopyID}
+ */
 const CopyID = (function () {
 	function CopyID() {
 	  // empty
@@ -80,6 +84,10 @@ const CopyID = (function () {
 	return CopyID;
 })();
 
+/**
+ * Slide into view and flip the cards in the Díviner's Deck
+ * @type {DivinersDeck}
+ */
 const DivinersDeck = (function () {
 	function DivinersDeck() {
 	  // empty
@@ -151,6 +159,10 @@ const DivinersDeck = (function () {
 	return DivinersDeck;
 })();
 
+/**
+ * Scroll to top *without* adding the anchor to the URL, as a javascript supported improvement over the no-script base functionality
+ * @type {ScrollToTop}
+ */
 const ScrollToTop = (function () {
 	function ScrollToTop() {
 	  // empty
