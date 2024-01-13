@@ -164,6 +164,44 @@ const DivinersDeck = (function () {
 	return DivinersDeck;
 })();
 
+const SectionHighlight = (function () {
+	function SectionHighlight() {
+		// empty
+	};
+	
+	Object.assign(SectionHighlight.prototype, {
+		init: function () {
+			const sections = document.querySelectorAll("section[id]");
+			const attrSelectors = [];
+			sections.forEach((section) => attrSelectors.push('[href="#' + section.id + '"]'));
+			
+			const links = document.querySelectorAll("a:is(" + attrSelectors.join(",") + ")");
+			links.forEach((link) => link.addEventListener("click", this.addAnimClass));
+		},
+		
+		addAnimClass: function (event) {
+			const section = document.getElementById(event.target.getAttribute("href").slice(1));
+			if (!section.classList.contains("anim-highlight-blink")) {
+				section.classList.add("anim-highlight-blink");
+				section.addEventListener("animationend", cleanup);
+				section.addEventListener("animationcancel", cleanup);
+			};
+		},
+		
+		cleanup: function (event) {
+			if(event.animationName === "highlight-blink") {
+				event.target.classList.remove("anim-highlight-blink");
+				event.target.removeEventListener("animationend", cleanup);
+				event.target.removeEventListener("animationcancel", cleanup);
+			};
+		}
+	});
+	
+	const cleanup = SectionHighlight.prototype.cleanup;
+	
+	return SectionHighlight;
+})();
+
 /**
  * Scroll to top *without* adding the anchor to the URL, as a javascript supported improvement over the no-script base functionality
  * @type {ScrollToTop}
@@ -190,5 +228,6 @@ const ScrollToTop = (function () {
 document.addEventListener('DOMContentLoaded', function() {
 	(new CopyID()).init();
 	(new DivinersDeck()).init();
+	(new SectionHighlight()).init();
 	(new ScrollToTop()).init();
 });
