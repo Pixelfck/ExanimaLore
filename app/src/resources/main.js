@@ -90,7 +90,7 @@ const CopyID = (function () {
  */
 const DivinersDeck = (function () {
 	function DivinersDeck() {
-	  // empty
+	  this.timerId = null;
 	}
 	
 	Object.assign(DivinersDeck.prototype, {
@@ -138,9 +138,19 @@ const DivinersDeck = (function () {
     	const overlay = document.querySelector('.overlay');
     	const cardWrapper = document.querySelector('.card-wrapper');
     	
-			overlay.addEventListener('transitionend', () => document.body.removeChild(overlay), {passive: true, once: true});
+    	this.timerId = window.setTimeout(this.removeOverlay, 2000); // set fallback timer
+			overlay.addEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
 			overlay.style.opacity = 0;
 			cardWrapper.style.opacity = 0;
+		},
+		
+		removeOverlay: function() {
+			const overlay = document.querySelector('.overlay');
+			
+			window.clearTimeout(this.timerId);
+			overlay.removeEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
+			
+			document.body.removeChild(overlay);
 		},
 		
 		getRandomCardFront: function() {
