@@ -190,7 +190,8 @@ const ScrollToTop = (function () {
     
     onClick: function(event) {
 			event.preventDefault();
-    	window.scrollTo({top: 0, behavior: 'smooth'});
+			history.pushState('', document.title, window.location.pathname + window.location.search);
+    	document.documentElement.scrollTo({top: 0, behavior: 'smooth'});
 		},
 	});
 	
