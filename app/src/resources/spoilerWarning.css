@@ -16,6 +16,7 @@
   top: calc(48% - 190px);
   left: calc(50% - 350px);
   width: 700px;
+  max-width: calc(100vw - 1em);
   height: 380px;
   transition: opacity .375s ease-in;
   justify-content: center;
