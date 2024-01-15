@@ -99,6 +99,8 @@ const DivinersDeck = (function () {
     },
     
     onHashChange: function () {
+      if (!document.location.hash) return;
+      
       const cardImg = this.getTargetCardImage(document.location.hash);
       
       if (cardImg) {
