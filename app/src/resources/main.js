@@ -22,7 +22,6 @@ const CopyID = (function () {
 			stylesheet.href = 'resources/copyId.min.css';
 			stylesheet.addEventListener('load', () => {
 				this.addCopyIcons();
-				this.addEventListeners();
 			}, {once: true});
 			
 			const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
@@ -30,11 +29,12 @@ const CopyID = (function () {
 		},
 		
 		addCopyIcons: function() {
-			document.querySelectorAll('tr[id] td:first-child').forEach((td) => {
+			document.querySelectorAll('tr[id] td:first-child, .diviners-deck-card[id] div').forEach((element) => {
 				const svgIconCopy = document.createElement('div');
 				svgIconCopy.classList.add('svg-icon', 'svg-icon--copy');
+				svgIconCopy.addEventListener('click', (event) => this.onClick(event));
 				
-				td.appendChild(svgIconCopy);
+				element.appendChild(svgIconCopy);
 			});
 			
 			const copyMessage = document.createElement('div');
@@ -43,18 +43,12 @@ const CopyID = (function () {
 			document.body.appendChild(copyMessage);
 		},
 		
-		addEventListeners: function() {
-			document.querySelectorAll('.svg-icon--copy').forEach((td) => {
-				td.addEventListener('click', (event) => this.onClick(event));
-			});
-		},
-		
     onClick: function(event) {
-			this.copyIdToClipboard(event.target.closest('tr'));
+			this.copyIdToClipboard(event.target.closest('[id]'));
 		},
 		
-		copyIdToClipboard: function(tr) {
-			if (!tr.id) {
+		copyIdToClipboard: function(element) {
+			if (!element.id) {
 				return;
 			}
 			
@@ -62,7 +56,7 @@ const CopyID = (function () {
 			if (document.location.hash) {
 				url = url.substring(0, url.length - document.location.hash.length);
 			}
-			url += '#' + tr.id
+			url += '#' + element.id
 			
 			navigator.clipboard.writeText(url).then(() => {
 				this.showCopyMessage();
