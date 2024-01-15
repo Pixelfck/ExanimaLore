@@ -84,26 +84,51 @@ const CopyID = (function () {
  */
 const DivinersDeck = (function () {
 	function DivinersDeck() {
-	  this.timerId = null;
+	  // empty
 	}
 	
 	Object.assign(DivinersDeck.prototype, {
 		init: function () {
-			document.querySelectorAll('.divinersDeckCard a').forEach((cardImg) =>{
+			window.addEventListener('hashchange', () => this.onHashChange());
+			
+			document.querySelectorAll('.diviners-deck-card a').forEach((cardImg) => {
 				cardImg.addEventListener('click', (event) => this.onCardClick(event));
 			});
+			
+			this.onHashChange(); // check if we need to popup a cart upon page load
     },
     
+    onHashChange: function() {
+    	const cardImg = this.getTargetCardImage(document.location.hash);
+    	
+    	if (cardImg) {
+				this.popupCart(cardImg);
+			}
+		},
+		
     onCardClick: function(event) {
 			event.preventDefault();
 			
+			this.popupCart(event.target);
+		},
+		
+    onOverlayClick: function(event) {
+    	const overlay = document.querySelector('.overlay');
+    	const cardWrapper = document.querySelector('.card-wrapper');
+    	
+			overlay.addEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
+			overlay.style.opacity = 0;
+			cardWrapper.style.opacity = 0;
+		},
+		
+		popupCart: function(cardImg) {
 			let cardFront;
 			let cardBack = document.getElementById('DivinersDeckCardBackSide');
-			if (cardBack === event.target) {
+			if (cardBack === cardImg) {
 				cardFront = cardBack.cloneNode(false);
 				cardBack = this.getRandomCardFront();
 			} else {
-				cardFront = event.target.cloneNode(false);
+				cardFront = cardImg.cloneNode(false);
 				cardBack = cardBack.cloneNode(false);
 			}
 			cardFront.classList.add('card-front');
@@ -128,27 +153,21 @@ const DivinersDeck = (function () {
 			document.body.appendChild(overlay);
 		},
 		
-    onOverlayClick: function(event) {
-    	const overlay = document.querySelector('.overlay');
-    	const cardWrapper = document.querySelector('.card-wrapper');
-    	
-    	this.timerId = window.setTimeout(this.removeOverlay, 2000); // set fallback timer
-			overlay.addEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
-			overlay.style.opacity = 0;
-			cardWrapper.style.opacity = 0;
+		removeOverlay: function() {
+			document.body.removeChild(document.querySelector('.overlay'));
 		},
 		
-		removeOverlay: function() {
-			const overlay = document.querySelector('.overlay');
+		getTargetCardImage: function(urlHash) {
+			const target = document.querySelector(urlHash);
+    	if (target.classList.contains('diviners-deck-card')) {
+				return cardImg = target.querySelector('img');
+			}
 			
-			window.clearTimeout(this.timerId);
-			overlay.removeEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
-			
-			document.body.removeChild(overlay);
+			return null;
 		},
 		
 		getRandomCardFront: function() {
-			const cardImages = document.querySelectorAll('.divinersDeckCard img');
+			const cardImages = document.querySelectorAll('.diviners-deck-card img');
 			
 			return cardImages[this.getRandomIntInclusive(1, cardImages.length - 1)].cloneNode(false);
 		},
