@@ -114,7 +114,7 @@ const DivinersDeck = (function () {
       this.popupCart(event.target);
     },
     
-    onOverlayClick: function (event) {
+    onOverlayClick: function () {
       const overlay = document.querySelector('.overlay');
       const cardWrapper = document.querySelector('.card-wrapper');
       
@@ -142,7 +142,7 @@ const DivinersDeck = (function () {
       cardWrapper.appendChild(cardFront);
       
       const overlayCloseBtn = document.createElement('div');
-      overlayCloseBtn.classList.add('overlay--closeBtn');
+      overlayCloseBtn.classList.add('overlay--close-btn');
       overlayCloseBtn.ariaLabel = 'close';
       overlayCloseBtn.innerText = '×';
       
@@ -213,8 +213,96 @@ const ScrollToTop = (function () {
   return ScrollToTop;
 })();
 
+/**
+ * Show spoiler warning popup, and don't show again for 3 months
+ * @type {ScrollToTop}
+ */
+const SpoilerWarning = (function () {
+
+  const settings = {
+    cookieName: 'spoilerWarning',
+    cookieMaxAge: 7889238, // 3 months in seconds
+  };
+
+  function SpoilerWarning() {
+    // empty
+  }
+  
+  Object.assign(SpoilerWarning.prototype, {
+    init: function () {
+      const cookie = this.getCookie(settings.cookieName);
+      if (!cookie) {
+       this.loadSpoilerWarningStylesheet();
+      }
+    },
+    
+    loadSpoilerWarningStylesheet: function () {
+      const stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = 'resources/spoilerWarning.min.css';
+      stylesheet.addEventListener('load', () => this.showWarning(), {once: true});
+      
+      const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
+      linkTags[linkTags.length - 1].after(stylesheet);
+    },
+    
+    showWarning: function() {
+      const warningTitle = document.createElement('h1');
+      warningTitle.classList.add('spoiler-warning--title');
+      warningTitle.innerText = 'Here be spoilers!';
+      
+      const warningBtn = document.createElement('button');
+      warningBtn.classList.add('spoiler-warning--btn');
+      warningBtn.innerText = 'OK, I understand';
+      warningBtn.addEventListener('click', () => this.onBtnClick(), {passive: true, once: true});
+      
+      const warning = document.createElement('div');
+      warning.classList.add('spoiler-warning');
+      warning.appendChild(warningTitle);
+      warning.innerHTML += '<p>Exploration and stumbling upon things is an important part of Exanima.</p><p>This document spoils that fun.</p>';
+      warning.appendChild(warningBtn);
+      
+      const warningWrapper = document.createElement('div');
+      warningWrapper.classList.add('spoiler-warning--wrapper', 'fancy-border');
+      warningWrapper.appendChild(warning);
+      
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay', 'overlay--blur');
+      overlay.appendChild(warningWrapper);
+      
+      document.body.appendChild(overlay);
+    },
+    
+    closeOverlay: function() {
+      const overlay = document.querySelector('.overlay');
+      const warningWrapper = document.querySelector('.spoiler-warning--wrapper');
+      
+      overlay.addEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
+      overlay.style.opacity = 0;
+      warningWrapper.opacity = 0;
+    },
+    
+    onBtnClick: function () {
+      this.setCookie(settings.cookieName, 'warningDismissed', settings.cookieMaxAge);
+      document.body.removeChild(document.querySelector('.overlay'));
+    },
+    
+    getCookie: function(cookieName) {
+			const cookieString = RegExp(cookieName + "=[^;]+").exec(document.cookie);
+			return !!cookieString ? decodeURIComponent(cookieString.toString().replace(/^[^=]+./, '')) : null;
+    },
+    
+    setCookie: function(cookieName, value, cookieMaxAge) {
+      document.cookie = cookieName + '=' + value + '; path=/; max-age=' + cookieMaxAge; // set session cookie
+    },
+  });
+  
+  return SpoilerWarning;
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
   (new CopyID()).init();
   (new DivinersDeck()).init();
   (new ScrollToTop()).init();
+  (new SpoilerWarning()).init();
 });
