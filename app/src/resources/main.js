@@ -114,11 +114,11 @@ const DivinersDeck = (function () {
       this.popupCart(event.target);
     },
     
-    onOverlayClick: function () {
-      const overlay = document.querySelector('.overlay');
+    onOverlayClick: function (event) {
+      const overlay = event.target.classList.contains('.overlay') ? event.target : event.target.closest('.overlay');
       const cardWrapper = document.querySelector('.card-wrapper');
       
-      overlay.addEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
+      overlay.addEventListener('transitionend', () => document.body.removeChild(overlay), {passive: true, once: true});
       overlay.style.opacity = 0;
       cardWrapper.style.opacity = 0;
     },
@@ -153,10 +153,6 @@ const DivinersDeck = (function () {
       overlay.appendChild(cardWrapper);
       
       document.body.appendChild(overlay);
-    },
-    
-    removeOverlay: function () {
-      document.body.removeChild(document.querySelector('.overlay'));
     },
     
     getTargetCardImage: function (urlHash) {
@@ -254,7 +250,7 @@ const SpoilerWarning = (function () {
       const warningBtn = document.createElement('button');
       warningBtn.classList.add('spoiler-warning--btn');
       warningBtn.innerText = 'OK, I understand';
-      warningBtn.addEventListener('click', () => this.onBtnClick(), {passive: true, once: true});
+      warningBtn.addEventListener('click', (event) => this.onBtnClick(event), {passive: true, once: true});
       
       const warning = document.createElement('div');
       warning.classList.add('spoiler-warning');
@@ -273,18 +269,18 @@ const SpoilerWarning = (function () {
       document.body.appendChild(overlay);
     },
     
-    closeOverlay: function() {
-      const overlay = document.querySelector('.overlay');
+    closeOverlay: function(event) {
+      const overlay = event.target.classList.contains('.overlay') ? event.target : event.target.closest('.overlay');
       const warningWrapper = document.querySelector('.spoiler-warning--wrapper');
       
-      overlay.addEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
+      overlay.addEventListener('transitionend', () => document.body.removeChild(overlay), {passive: true, once: true});
       overlay.style.opacity = 0;
       warningWrapper.opacity = 0;
     },
     
-    onBtnClick: function () {
+    onBtnClick: function (event) {
       this.setCookie(settings.cookieName, 'warningDismissed', settings.cookieMaxAge);
-      document.body.removeChild(document.querySelector('.overlay'));
+      this.closeOverlay(event);
     },
     
     getCookie: function(cookieName) {
