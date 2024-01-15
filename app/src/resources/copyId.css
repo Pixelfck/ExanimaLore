@@ -5,7 +5,7 @@
 
 /*================ Classes ================*/
 
-.svg-icon--copy {
+.svg-icon.svg-icon--copy {
 	display: block;
 	position: absolute;
 	top: 0;
@@ -16,9 +16,9 @@
 	cursor: pointer;
 }
 
-.svg-icon--copy:hover,
-.svg-icon--copy:focus,
-.svg-icon--copy:active {
+.svg-icon.svg-icon--copy:hover,
+.svg-icon.svg-icon--copy:focus,
+.svg-icon.svg-icon--copy:active {
 	background-color: var(--color-text);
 }
 
