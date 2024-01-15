@@ -185,7 +185,7 @@ const ScrollToTop = (function () {
 	
 	Object.assign(ScrollToTop.prototype, {
 		init: function () {
-			document.querySelector('.scrollToTopLink').addEventListener('click', (event) => this.onClick(event));
+			document.querySelector('.scroll-to-top-link').addEventListener('click', (event) => this.onClick(event));
     },
     
     onClick: function(event) {

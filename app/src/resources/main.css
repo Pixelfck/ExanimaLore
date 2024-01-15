@@ -312,7 +312,7 @@ ul ul {
 	height: auto;
 }
 
-.scrollToTop {
+.scroll-to-top {
   position: absolute;
   top: calc(100vh - 1em);
   bottom: 100px;
@@ -320,8 +320,8 @@ ul ul {
   pointer-events: none;
 }
 
-.scrollToTopLink,
-.scrollToTopLink:visited {
+.scroll-to-top-link,
+.scroll-to-top-link:visited {
 	display: flex;
   position: sticky;
 	top: calc(100vh - 45px - 1em);
@@ -335,14 +335,14 @@ ul ul {
   pointer-events: all;
 }
 
-.scrollToTopLink:hover,
-.scrollToTopLink:focus,
-.scrollToTopLink:active {
+.scroll-to-top-link:hover,
+.scroll-to-top-link:focus,
+.scroll-to-top-link:active {
 	border: 1px solid var(--color-text--subdued);
 	background-color: var(--color-border--highlight);
 }
 
-.scrollToTopArrow {
+.scroll-to-top-arrow {
 	width: 19px;
 	height: 19px;
 	margin: 3px 0 -3px;
@@ -352,9 +352,9 @@ ul ul {
 	transform:rotate(45deg);
 }
 
-.scrollToTopLink:hover .scrollToTopArrow,
-.scrollToTopLink:focus .scrollToTopArrow,
-.scrollToTopLink:active .scrollToTopArrow {
+.scroll-to-top-link:hover .scroll-to-top-arrow,
+.scroll-to-top-link:focus .scroll-to-top-arrow,
+.scroll-to-top-link:active .scroll-to-top-arrow {
 	border-color: var(--color-text);
 }
 
