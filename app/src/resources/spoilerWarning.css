@@ -14,7 +14,8 @@
   position: absolute;
   display: flex;
   top: calc(48% - 190px);
-  left: calc(50% - 350px);
+  left: calc(50%);
+  transform: translateX(-50%);
   width: 700px;
   max-width: calc(100vw - 1em);
   height: 380px;
@@ -36,6 +37,16 @@
   text-align: center;
   background-color: var(--color-bg);
   border-radius: 47px;
+}
+
+@media only screen and (max-width: 919px) {
+  .spoiler-warning--wrapper {
+    border: 1px solid var(--color-border--highlight);
+  }
+  
+  .spoiler-warning {
+    border-radius: 10px;
+  }
 }
 
 .spoiler-warning--btn {
