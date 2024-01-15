@@ -7,6 +7,7 @@
   
   --color-text: #a9a8a5;
   --color-text--subdued: #4c4c4c;
+  --color-text--bright: #cccbc8;
   
   --color-link: #cca43d;
   --color-link--highlight: #ffcd4d;
@@ -625,10 +626,10 @@ section:target {
   transition: opacity 0.75s ease-in;
 }
 
-.overlay--closeBtn {
+.overlay--close-btn {
   position: absolute;
   top: 2px;
-  right: 4px;
+  right: 24px;
   font-size: 30px;
   cursor: pointer;
 }
@@ -643,6 +644,10 @@ section:target {
 }
 
 @media only screen and (max-width: 919px) {
+  .overlay--close-btn {
+    right: 4px;
+  }
+  
   .card-wrapper {
     top: calc(50% - 392px);
   }
