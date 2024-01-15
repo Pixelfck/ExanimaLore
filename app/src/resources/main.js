@@ -3,79 +3,79 @@
  * @type {CopyID}
  */
 const CopyID = (function () {
-	function CopyID() {
-	  // empty
-	}
-	
-	Object.assign(CopyID.prototype, {
-		init: function () {
-			if (!navigator.clipboard) {
-				return;
-			}
-			
-			this.loadCopyIdStylesheet();
+  function CopyID() {
+    // empty
+  }
+  
+  Object.assign(CopyID.prototype, {
+    init: function () {
+      if (!navigator.clipboard) {
+        return;
+      }
+      
+      this.loadCopyIdStylesheet();
     },
-		
-		loadCopyIdStylesheet: function() {
-			const stylesheet = document.createElement('link');
-			stylesheet.rel = 'stylesheet';
-			stylesheet.href = 'resources/copyId.min.css';
-			stylesheet.addEventListener('load', () => {
-				this.addCopyIcons();
-			}, {once: true});
-			
-			const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
-			linkTags[linkTags.length - 1].after(stylesheet);
-		},
-		
-		addCopyIcons: function() {
-			document.querySelectorAll('tr[id] td:first-child, .diviners-deck-card[id] div').forEach((element) => {
-				const svgIconCopy = document.createElement('div');
-				svgIconCopy.classList.add('svg-icon', 'svg-icon--copy');
-				svgIconCopy.addEventListener('click', (event) => this.onClick(event));
-				
-				element.appendChild(svgIconCopy);
-			});
-			
-			const copyMessage = document.createElement('div');
-			copyMessage.classList.add('copy-message');
-			copyMessage.innerHTML = 'URL copied to clipboard.';
-			document.body.appendChild(copyMessage);
-		},
-		
-    onClick: function(event) {
-			this.copyIdToClipboard(event.target.closest('[id]'));
-		},
-		
-		copyIdToClipboard: function(element) {
-			if (!element.id) {
-				return;
-			}
-			
-			let url = document.location.href;
-			if (document.location.hash) {
-				url = url.substring(0, url.length - document.location.hash.length);
-			}
-			url += '#' + element.id
-			
-			navigator.clipboard.writeText(url).then(() => {
-				this.showCopyMessage();
-			});
-		},
-		
-		showCopyMessage: function() {
-			const copyMessage = document.querySelector('.copy-message');
-			copyMessage.classList.add('copy-message--visible');
-			window.setTimeout(this.hideCopyMessage, 1250);
-		},
-		
-		hideCopyMessage: function() {
-			const copyMessage = document.querySelector('.copy-message');
-			copyMessage.classList.remove('copy-message--visible');
-		},
-	});
-	
-	return CopyID;
+    
+    loadCopyIdStylesheet: function () {
+      const stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = 'resources/copyId.min.css';
+      stylesheet.addEventListener('load', () => {
+        this.addCopyIcons();
+      }, {once: true});
+      
+      const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
+      linkTags[linkTags.length - 1].after(stylesheet);
+    },
+    
+    addCopyIcons: function () {
+      document.querySelectorAll('tr[id] td:first-child, .diviners-deck-card[id] div').forEach((element) => {
+        const svgIconCopy = document.createElement('div');
+        svgIconCopy.classList.add('svg-icon', 'svg-icon--copy');
+        svgIconCopy.addEventListener('click', (event) => this.onClick(event));
+        
+        element.appendChild(svgIconCopy);
+      });
+      
+      const copyMessage = document.createElement('div');
+      copyMessage.classList.add('copy-message');
+      copyMessage.innerHTML = 'URL copied to clipboard.';
+      document.body.appendChild(copyMessage);
+    },
+    
+    onClick: function (event) {
+      this.copyIdToClipboard(event.target.closest('[id]'));
+    },
+    
+    copyIdToClipboard: function (element) {
+      if (!element.id) {
+        return;
+      }
+      
+      let url = document.location.href;
+      if (document.location.hash) {
+        url = url.substring(0, url.length - document.location.hash.length);
+      }
+      url += '#' + element.id
+      
+      navigator.clipboard.writeText(url).then(() => {
+        this.showCopyMessage();
+      });
+    },
+    
+    showCopyMessage: function () {
+      const copyMessage = document.querySelector('.copy-message');
+      copyMessage.classList.add('copy-message--visible');
+      window.setTimeout(this.hideCopyMessage, 1250);
+    },
+    
+    hideCopyMessage: function () {
+      const copyMessage = document.querySelector('.copy-message');
+      copyMessage.classList.remove('copy-message--visible');
+    },
+  });
+  
+  return CopyID;
 })();
 
 /**
@@ -83,108 +83,108 @@ const CopyID = (function () {
  * @type {DivinersDeck}
  */
 const DivinersDeck = (function () {
-	function DivinersDeck() {
-	  // empty
-	}
-	
-	Object.assign(DivinersDeck.prototype, {
-		init: function () {
-			window.addEventListener('hashchange', () => this.onHashChange());
-			
-			document.querySelectorAll('.diviners-deck-card a').forEach((cardImg) => {
-				cardImg.addEventListener('click', (event) => this.onCardClick(event));
-			});
-			
-			this.onHashChange(); // check if we need to popup a cart upon page load
+  function DivinersDeck() {
+    // empty
+  }
+  
+  Object.assign(DivinersDeck.prototype, {
+    init: function () {
+      window.addEventListener('hashchange', () => this.onHashChange());
+      
+      document.querySelectorAll('.diviners-deck-card a').forEach((cardImg) => {
+        cardImg.addEventListener('click', (event) => this.onCardClick(event));
+      });
+      
+      this.onHashChange(); // check if we need to popup a cart upon page load
     },
     
-    onHashChange: function() {
-    	const cardImg = this.getTargetCardImage(document.location.hash);
-    	
-    	if (cardImg) {
-				this.popupCart(cardImg);
-			}
-		},
-		
-    onCardClick: function(event) {
-			event.preventDefault();
-			
-			this.popupCart(event.target);
-		},
-		
-    onOverlayClick: function(event) {
-    	const overlay = document.querySelector('.overlay');
-    	const cardWrapper = document.querySelector('.card-wrapper');
-    	
-			overlay.addEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
-			overlay.style.opacity = 0;
-			cardWrapper.style.opacity = 0;
-		},
-		
-		popupCart: function(cardImg) {
-			let cardFront;
-			let cardBack = document.getElementById('DivinersDeckCardBackSide');
-			if (cardBack === cardImg) {
-				cardFront = cardBack.cloneNode(false);
-				cardBack = this.getRandomCardFront();
-			} else {
-				cardFront = cardImg.cloneNode(false);
-				cardBack = cardBack.cloneNode(false);
-			}
-			cardFront.classList.add('card-front');
-			cardBack.classList.add('card-back');
-			
-			const cardWrapper = document.createElement('div');
-			cardWrapper.classList.add('card-wrapper');
-			cardWrapper.appendChild(cardBack);
-			cardWrapper.appendChild(cardFront);
-			
-			const overlayCloseBtn = document.createElement('div');
-			overlayCloseBtn.classList.add('overlay--closeBtn');
-			overlayCloseBtn.ariaLabel = 'close';
-			overlayCloseBtn.innerText = '×';
-			
-			const overlay = document.createElement('div');
-			overlay.classList.add('overlay');
-			overlay.addEventListener('click', (event) => this.onOverlayClick(event));
-			overlay.appendChild(overlayCloseBtn);
-			overlay.appendChild(cardWrapper);
-			
-			document.body.appendChild(overlay);
-		},
-		
-		removeOverlay: function() {
-			document.body.removeChild(document.querySelector('.overlay'));
-		},
-		
-		getTargetCardImage: function(urlHash) {
-			const target = document.querySelector(urlHash);
-    	if (target.classList.contains('diviners-deck-card')) {
-				return cardImg = target.querySelector('img');
-			}
-			
-			return null;
-		},
-		
-		getRandomCardFront: function() {
-			const cardImages = document.querySelectorAll('.diviners-deck-card img');
-			
-			return cardImages[this.getRandomIntInclusive(1, cardImages.length - 1)].cloneNode(false);
-		},
-		
-		getRandomIntInclusive: function (min, max) {
-			const randomBuffer = new Uint32Array(1);
-			window.crypto.getRandomValues(randomBuffer);
-			
-			const randomNumber = randomBuffer[0] / (0xffffffff + 1); // Convert from a random integer to a floating point number, within the range 0 to 1 inclusive
-			
-			min = Math.ceil(min);
-			max = Math.floor(max);
-			return Math.floor(randomNumber * (max - min + 1)) + min;
-		},
-	});
-	
-	return DivinersDeck;
+    onHashChange: function () {
+      const cardImg = this.getTargetCardImage(document.location.hash);
+      
+      if (cardImg) {
+        this.popupCart(cardImg);
+      }
+    },
+    
+    onCardClick: function (event) {
+      event.preventDefault();
+      
+      this.popupCart(event.target);
+    },
+    
+    onOverlayClick: function (event) {
+      const overlay = document.querySelector('.overlay');
+      const cardWrapper = document.querySelector('.card-wrapper');
+      
+      overlay.addEventListener('transitionend', this.removeOverlay, {passive: true, once: true});
+      overlay.style.opacity = 0;
+      cardWrapper.style.opacity = 0;
+    },
+    
+    popupCart: function (cardImg) {
+      let cardFront;
+      let cardBack = document.getElementById('DivinersDeckCardBackSide');
+      if (cardBack === cardImg) {
+        cardFront = cardBack.cloneNode(false);
+        cardBack = this.getRandomCardFront();
+      } else {
+        cardFront = cardImg.cloneNode(false);
+        cardBack = cardBack.cloneNode(false);
+      }
+      cardFront.classList.add('card-front');
+      cardBack.classList.add('card-back');
+      
+      const cardWrapper = document.createElement('div');
+      cardWrapper.classList.add('card-wrapper');
+      cardWrapper.appendChild(cardBack);
+      cardWrapper.appendChild(cardFront);
+      
+      const overlayCloseBtn = document.createElement('div');
+      overlayCloseBtn.classList.add('overlay--closeBtn');
+      overlayCloseBtn.ariaLabel = 'close';
+      overlayCloseBtn.innerText = '×';
+      
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay');
+      overlay.addEventListener('click', (event) => this.onOverlayClick(event));
+      overlay.appendChild(overlayCloseBtn);
+      overlay.appendChild(cardWrapper);
+      
+      document.body.appendChild(overlay);
+    },
+    
+    removeOverlay: function () {
+      document.body.removeChild(document.querySelector('.overlay'));
+    },
+    
+    getTargetCardImage: function (urlHash) {
+      const target = document.querySelector(urlHash);
+      if (target.classList.contains('diviners-deck-card')) {
+        return cardImg = target.querySelector('img');
+      }
+      
+      return null;
+    },
+    
+    getRandomCardFront: function () {
+      const cardImages = document.querySelectorAll('.diviners-deck-card img');
+      
+      return cardImages[this.getRandomIntInclusive(1, cardImages.length - 1)].cloneNode(false);
+    },
+    
+    getRandomIntInclusive: function (min, max) {
+      const randomBuffer = new Uint32Array(1);
+      window.crypto.getRandomValues(randomBuffer);
+      
+      const randomNumber = randomBuffer[0] / (0xffffffff + 1); // Convert from a random integer to a floating point number, within the range 0 to 1 inclusive
+      
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(randomNumber * (max - min + 1)) + min;
+    },
+  });
+  
+  return DivinersDeck;
 })();
 
 /**
@@ -192,27 +192,27 @@ const DivinersDeck = (function () {
  * @type {ScrollToTop}
  */
 const ScrollToTop = (function () {
-	function ScrollToTop() {
-	  // empty
-	}
-	
-	Object.assign(ScrollToTop.prototype, {
-		init: function () {
-			document.querySelector('.scroll-to-top-link').addEventListener('click', (event) => this.onClick(event));
+  function ScrollToTop() {
+    // empty
+  }
+  
+  Object.assign(ScrollToTop.prototype, {
+    init: function () {
+      document.querySelector('.scroll-to-top-link').addEventListener('click', (event) => this.onClick(event));
     },
     
-    onClick: function(event) {
-			event.preventDefault();
-			history.pushState('', document.title, window.location.pathname + window.location.search);
-    	document.documentElement.scrollTo({top: 0, behavior: 'smooth'});
-		},
-	});
-	
-	return ScrollToTop;
+    onClick: function (event) {
+      event.preventDefault();
+      history.pushState('', document.title, window.location.pathname + window.location.search);
+      document.documentElement.scrollTo({top: 0, behavior: 'smooth'});
+    },
+  });
+  
+  return ScrollToTop;
 })();
 
-document.addEventListener('DOMContentLoaded', function() {
-	(new CopyID()).init();
-	(new DivinersDeck()).init();
-	(new ScrollToTop()).init();
+document.addEventListener('DOMContentLoaded', function () {
+  (new CopyID()).init();
+  (new DivinersDeck()).init();
+  (new ScrollToTop()).init();
 });
