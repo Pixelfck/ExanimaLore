@@ -104,7 +104,7 @@ const DivinersDeck = (function () {
       const cardImg = this.getTargetCardImage(document.location.hash);
       
       if (cardImg) {
-        window.setTimeout(() => this.popupCart(cardImg), 500);
+        window.setTimeout(() => this.popupCart(cardImg), 400);
       }
     },
     
