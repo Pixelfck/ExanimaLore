@@ -7,6 +7,7 @@
 
 .overlay--blur {
   backdrop-filter: blur(16px);
+  z-index: 2;
 }
 
 .spoiler-warning--wrapper {
