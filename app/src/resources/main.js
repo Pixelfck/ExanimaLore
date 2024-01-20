@@ -197,7 +197,7 @@ const SectionHighlight = (function () {
     },
     
     addAnimClass: function (event) {
-      if (event.target.tagName !== 'A' || !event.target.href) {return};
+      if (!event.target.href) return;
 
       const section = document.getElementById(event.target.getAttribute('href').slice(1));
       if (!section.classList.contains('anim-highlight-blink')) {
