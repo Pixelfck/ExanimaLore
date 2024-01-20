@@ -203,8 +203,8 @@ const SectionHighlight = (function () {
       if (!event.target.href) return;
       
       const section = document.getElementById(event.target.getAttribute('href').slice(1));
-      if (!section.classList.contains('anim-highlight-blink')) {
-        section.classList.add('anim-highlight-blink');
+      if (!section.classList.contains('highlight-blink')) {
+        section.classList.add('highlight-blink');
         section.addEventListener('animationend', eventListeners.cleanup);
         section.addEventListener('animationcancel', eventListeners.cleanup);
       }
@@ -212,7 +212,7 @@ const SectionHighlight = (function () {
     
     cleanup: function (event) {
       if (event.animationName === 'highlight-blink') {
-        event.target.classList.remove('anim-highlight-blink');
+        event.target.classList.remove('highlight-blink');
         event.target.removeEventListener('animationend', eventListeners.cleanup);
         event.target.removeEventListener('animationcancel', eventListeners.cleanup);
       }
