@@ -188,7 +188,7 @@ const DivinersDeck = (function () {
 const SectionHighlight = (function () {
 	function SectionHighlight() {
 		// empty
-	};
+	}
 	
 	Object.assign(SectionHighlight.prototype, {
 		init: function () {
@@ -204,7 +204,7 @@ const SectionHighlight = (function () {
 				section.classList.add("anim-highlight-blink");
 				section.addEventListener("animationend", cleanup);
 				section.addEventListener("animationcancel", cleanup);
-			};
+			}
 		},
 		
 		cleanup: function (event) {
@@ -212,7 +212,7 @@ const SectionHighlight = (function () {
 				event.target.classList.remove("anim-highlight-blink");
 				event.target.removeEventListener("animationend", cleanup);
 				event.target.removeEventListener("animationcancel", cleanup);
-			};
+			}
 		}
 	});
 	
