@@ -455,9 +455,9 @@ tr:target {
 section:target,
 section:target th,
 section:target td,
-section.anim-highlight-blink,
-section.anim-highlight-blink th,
-section.anim-highlight-blink td {
+section.highlight-blink,
+section.highlight-blink th,
+section.highlight-blink td {
   scroll-margin-top: 3em;
   animation-name: highlight-blink;
   animation-duration: 1s;
