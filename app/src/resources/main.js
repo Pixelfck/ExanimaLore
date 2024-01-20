@@ -186,6 +186,10 @@ const DivinersDeck = (function () {
 })();
 
 const SectionHighlight = (function () {
+  const eventListeners = {
+    cleanup: SectionHighlight.prototype.cleanup,
+  };
+  
   function SectionHighlight() {
     // empty
   }
@@ -201,21 +205,19 @@ const SectionHighlight = (function () {
       const section = document.getElementById(event.target.getAttribute('href').slice(1));
       if (!section.classList.contains('anim-highlight-blink')) {
         section.classList.add('anim-highlight-blink');
-        section.addEventListener('animationend', cleanup);
-        section.addEventListener('animationcancel', cleanup);
+        section.addEventListener('animationend', eventListeners.cleanup);
+        section.addEventListener('animationcancel', eventListeners.cleanup);
       }
     },
     
     cleanup: function (event) {
       if (event.animationName === 'highlight-blink') {
         event.target.classList.remove('anim-highlight-blink');
-        event.target.removeEventListener('animationend', cleanup);
-        event.target.removeEventListener('animationcancel', cleanup);
+        event.target.removeEventListener('animationend', eventListeners.cleanup);
+        event.target.removeEventListener('animationcancel', eventListeners.cleanup);
       }
     }
   });
-  
-  const cleanup = SectionHighlight.prototype.cleanup;
   
   return SectionHighlight;
 })();

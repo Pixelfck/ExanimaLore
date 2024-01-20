@@ -452,6 +452,9 @@ tr:target {
   scroll-margin-top: 104px;
 }
 
+section:target,
+section:target th,
+section:target td,
 section.anim-highlight-blink,
 section.anim-highlight-blink th,
 section.anim-highlight-blink td {
