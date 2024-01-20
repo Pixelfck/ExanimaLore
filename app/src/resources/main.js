@@ -186,39 +186,39 @@ const DivinersDeck = (function () {
 })();
 
 const SectionHighlight = (function () {
-	function SectionHighlight() {
-		// empty
-	}
-	
-	Object.assign(SectionHighlight.prototype, {
-		init: function () {
-			document.querySelector("#Table_of_Contents > ul").addEventListener("click", this.addAnimClass);
+  function SectionHighlight() {
+    // empty
+  }
+  
+  Object.assign(SectionHighlight.prototype, {
+    init: function () {
+      document.querySelector("#Table_of_Contents > ul").addEventListener("click", this.addAnimClass);
 
-		},
-		
-		addAnimClass: function (event) {
-			if (event.target.tagName !== "A" || !event.target.href) {return};
+    },
+    
+    addAnimClass: function (event) {
+      if (event.target.tagName !== "A" || !event.target.href) {return};
 
-			const section = document.getElementById(event.target.getAttribute("href").slice(1));
-			if (!section.classList.contains("anim-highlight-blink")) {
-				section.classList.add("anim-highlight-blink");
-				section.addEventListener("animationend", cleanup);
-				section.addEventListener("animationcancel", cleanup);
-			}
-		},
-		
-		cleanup: function (event) {
-			if(event.animationName === "highlight-blink") {
-				event.target.classList.remove("anim-highlight-blink");
-				event.target.removeEventListener("animationend", cleanup);
-				event.target.removeEventListener("animationcancel", cleanup);
-			}
-		}
-	});
-	
-	const cleanup = SectionHighlight.prototype.cleanup;
-	
-	return SectionHighlight;
+      const section = document.getElementById(event.target.getAttribute("href").slice(1));
+      if (!section.classList.contains("anim-highlight-blink")) {
+        section.classList.add("anim-highlight-blink");
+        section.addEventListener("animationend", cleanup);
+        section.addEventListener("animationcancel", cleanup);
+      }
+    },
+    
+    cleanup: function (event) {
+      if(event.animationName === "highlight-blink") {
+        event.target.classList.remove("anim-highlight-blink");
+        event.target.removeEventListener("animationend", cleanup);
+        event.target.removeEventListener("animationcancel", cleanup);
+      }
+    }
+  });
+  
+  const cleanup = SectionHighlight.prototype.cleanup;
+  
+  return SectionHighlight;
 })();
 
 /**
