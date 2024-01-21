@@ -5,3 +5,7 @@
 *.html~'
 *.css~'
 *.js~'
+
+# Jekyll
+/app/dist/
+!/app/dist/.gitkeep
