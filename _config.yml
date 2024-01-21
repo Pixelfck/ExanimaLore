@@ -1,4 +1,4 @@
-name: ExanimaTest
+name: ExanimaLore Jekyll configuration
 
 source              : ./app/src
 destination         : ./app/dist
