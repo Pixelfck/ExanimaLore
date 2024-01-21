@@ -1,10 +1,10 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+# Building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll site with minified resources to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,23 +28,43 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Cleanup unneeded files
+        run: |
+          sudo rm -rf ./app/dist/.gitkeep
+          sudo rm -rf ./app/src/resources/*.min.css
+          sudo rm -rf ./app/src/resources/*.min.css.map
+          sudo rm -rf ./app/src/resources/*.min.js
+          sudo rm -rf ./app/src/resources/*.min.js.map
+      - name: Minify .css and .js files
+        run: |
+          npm install -g csso-cli
+          for f in ./app/src/resources/*.css; do csso --source-map file -i $f -o ${f%.*}.min.css; done
+          npm install -g terser
+          for f in ./app/src/resources/*.js; do terser $f --comments false --source-map "filename='${f%.*}.min.js.map',url='${f%.*}.min.js.map'" -c -m -o ${f%.*}.min.js; done
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
-          destination: ./_site
+          source: ./app/src
+          destination: ./app/dist
+      - name: Remove Jekyll assets
+        run: sudo rm -rf ./app/dist/assets
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./app/dist
 
   # Deployment job
   deploy:
+    runs-on: ubuntu-latest
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
