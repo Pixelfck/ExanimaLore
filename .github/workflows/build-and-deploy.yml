@@ -1,5 +1,5 @@
-# Building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll site with minified resources to GitHub Pages
+# Building and deploying a Jekyll site with pre-minified resources to GitHub Pages
+name: Build and Deploy to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
