@@ -1,0 +1,12 @@
+name: ExanimaTest
+
+source              : ./app/src
+destination         : ./app/dist
+layouts_dir         : ./_layouts
+includes_dir        : ./_includes
+
+defaults:
+  - scope:
+      path: "" # all files in project
+    values:
+      layout: default
