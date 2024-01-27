@@ -298,6 +298,23 @@ ul ul {
   }
 }
 
+@media only screen and (min-width: 920px) {
+  .visually-hidden--desktop {
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
 .svg-icon {
   display: inline-block;
   width: 1em;
@@ -587,6 +604,81 @@ section.highlight-blink td {
   --width: 125px;
   --height: 102px;
 }
+
+.item {
+  display: block;
+  margin: 0 auto;
+  pointer-events: none;
+  height: auto;
+}
+
+@media only screen and (max-width: 919px) {
+  .item {
+    display: none;
+  }
+}
+
+.item--bottle {
+  width: 26px;
+}
+.item--bracelet {
+  width: 41px;
+}
+.item--crystal {
+  width: 18px;
+}
+.item--crystal--encased {
+  width: 21px;
+}
+.item--crystal--large {
+  width: 32px;
+}
+.item--dagger--small {
+  width: 30px;
+}
+.item--diviners-deck {
+  width: 69px;
+}
+.item--helmet--corlian {
+  width: 59px;
+}
+.item--helmet--zuiek {
+  width: 51px;
+}
+.item--horn {
+  width: 85px;
+}
+.item--jar--large {
+  width: 46px;
+}
+.item--jar--small {
+  width: 44px;
+}
+.item--map {
+  width: 70px;
+}
+.item--mask {
+  width: 43px;
+}
+.item--orb {
+  width: 44px;
+}
+.item--proctors-seal {
+  width: 55px;
+}
+.item--sceptre--small {
+  width: 32px;
+}
+.item--silver-talin {
+  width: 36px;
+}
+.item--sword--small {
+  width: 34px;
+}
+.item--token {
+  width: 40px;
+}
+
 
 /* diviner's deck */
 .diviners-deck-cards {
