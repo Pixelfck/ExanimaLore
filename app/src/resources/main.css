@@ -274,6 +274,7 @@ ul ul {
   border-top-left-radius: 0;
   background-color: var(--color-bg--light);
   color: var(--color-text);
+  z-index: 2;
 }
 
 .tooltip:hover .tooltip-text,
