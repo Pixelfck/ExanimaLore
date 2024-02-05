@@ -269,11 +269,11 @@ const SpoilerWarning = (function () {
     init: function () {
       const cookie = this.getCookie(settings.cookieName);
       if (!cookie) {
-       this.loadSpoilerWarningStylesheet();
+       this.loadStylesheet();
       }
     },
     
-    loadSpoilerWarningStylesheet: function () {
+    loadStylesheet: function () {
       const stylesheet = document.createElement('link');
       stylesheet.rel = 'stylesheet';
       stylesheet.href = 'resources/spoilerWarning.min.css';
@@ -299,13 +299,8 @@ const SpoilerWarning = (function () {
       warning.innerHTML += '<p>Exploration and stumbling upon things is an important part of Exanima.</p><p>This document spoils that fun.</p>';
       warning.appendChild(warningBtn);
       
-      const closeBtn = document.createElement('button');
-      closeBtn.classList.add('spoiler-warning-close');
-      closeBtn.addEventListener('click', (event) => this.onBtnClick(event), {passive: true, once: true});
-      
       const warningWrapper = document.createElement('div');
-      warningWrapper.classList.add('spoiler-warning--wrapper', 'fancy-border-x');
-      warningWrapper.appendChild(closeBtn);
+      warningWrapper.classList.add('spoiler-warning--wrapper', 'fancy-border');
       warningWrapper.appendChild(warning);
       
       const overlay = document.createElement('div');
