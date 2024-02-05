@@ -406,12 +406,12 @@ ul ul {
   
   .fancy-border tr:first-child th:first-child,
   .fancy-border tr:first-child td:first-child {
-    border-top-left-radius: 47px;
+    border-top-left-radius: 34px;
   }
   
   .fancy-border tr:first-child th:last-child,
   .fancy-border tr:first-child td:last-child {
-    border-top-right-radius: 47px;
+    border-top-right-radius: 34px;
   }
   
   .fancy-border th:last-child,
@@ -434,12 +434,12 @@ ul ul {
   
   .fancy-border tr:last-child th:first-child,
   .fancy-border tr:last-child td:first-child {
-    border-bottom-left-radius: 47px;
+    border-bottom-left-radius: 34px;
   }
   
   .fancy-border tr:last-child th:last-child,
   .fancy-border tr:last-child td:last-child {
-    border-bottom-right-radius: 47px;
+    border-bottom-right-radius: 34px;
   }
   
   .first-column-centered--desktop td:first-child {

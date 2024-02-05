@@ -362,25 +362,23 @@ const ItemDialog = (function () {
     },
     
     addEventListeners: function() {
-      document.querySelectorAll('table[data-item-popup] tr[id] td:first-child').forEach((element) => {
+      document.querySelectorAll('table[data-item-popup] tr[id] td:first-child img').forEach((element) => {
         element.addEventListener('click', (event) => this.onItemClick(event));
+        element.addEventListener('contextmenu', (event) => event.preventDefault());
       });
     },
-    
     onItemClick: function(event) {
-      if (event.target.tagName !== 'TD') return;
-      
       const columnIndices = event.target.closest('table').dataset.itemPopup.split(',');
       const tds = event.target.closest('tr').getElementsByTagName('td');
       
       const title = tds[parseInt(columnIndices[0])].innerText;
       const description = tds[parseInt(columnIndices[1])].innerHTML;
+      const size = columnIndices[2];
       
-      this.showDialog(title, description);
-      
+      this.showDialog(title, description, size);
     },
     
-    showDialog: function(title, description) {
+    showDialog: function(title, description, size) {
       const dialogTitleDecoration = document.createElement('div');
       dialogTitleDecoration.classList.add('item-dialog--title-decoration');
       
@@ -401,6 +399,9 @@ const ItemDialog = (function () {
       
       const dialogWrapper = document.createElement('div');
       dialogWrapper.classList.add('item-dialog--wrapper', 'fancy-border-x');
+      if (size) {
+        dialogWrapper.classList.add('item-dialog--wrapper-' + size);
+      }
       dialogWrapper.appendChild(closeBtn);
       dialogWrapper.appendChild(dialogDescription);
       
@@ -416,8 +417,6 @@ const ItemDialog = (function () {
       overlay.appendChild(dialogWrapper);
       
       document.body.appendChild(overlay);
-      
-      console.log(title, description);
     },
     
     onOverlayClick: function (event) {
