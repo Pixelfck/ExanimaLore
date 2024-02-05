@@ -372,11 +372,15 @@ const ItemDialog = (function () {
       const columnIndices = event.target.closest('table').dataset.itemPopup.split(',');
       const tds = event.target.closest('tr').getElementsByTagName('td');
       
-      const title = tds[parseInt(columnIndices[0])].innerText;
+      const title = tds[parseInt(columnIndices[0])].cloneNode(true);
+      const hiddenText = title.querySelector('.visually-hidden, .visually-hidden--desktop, .visually-hidden--mobile');
+      if (hiddenText) {
+        title.removeChild(hiddenText);
+      }
       const description = tds[parseInt(columnIndices[1])].innerHTML;
       const size = columnIndices[2];
       
-      this.showDialog(title, description, event.target, size);
+      this.showDialog(title.innerText, description, event.target, size);
     },
     
     showDialog: function(title, description, image, size) {
@@ -422,8 +426,6 @@ const ItemDialog = (function () {
       overlay.appendChild(dialogWrapper);
       
       document.body.appendChild(overlay);
-      
-      console.log(image);
     },
     
     onOverlayClick: function (event) {
