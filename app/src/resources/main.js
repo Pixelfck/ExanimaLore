@@ -185,6 +185,10 @@ const DivinersDeck = (function () {
   return DivinersDeck;
 })();
 
+/**
+ * Highlight targeted sections, and re-highlight (nested) targets when targeted again
+ * @type {SectionHighlight}
+ */
 const SectionHighlight = (function () {
   const eventListeners = {
     cleanup: SectionHighlight.prototype.cleanup,
