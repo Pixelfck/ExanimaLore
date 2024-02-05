@@ -381,9 +381,14 @@ const ItemDialog = (function () {
     },
     
     showDialog: function(title, description) {
+      const dialogTitleDecoration = document.createElement('div');
+      dialogTitleDecoration.classList.add('item-dialog--title-decoration');
+      
       const dialogTitle = document.createElement('h1');
       dialogTitle.classList.add('item-dialog--title');
       dialogTitle.innerText = title;
+      dialogTitle.appendChild(dialogTitleDecoration);
+      dialogTitle.appendChild(dialogTitleDecoration.cloneNode());
       
       const dialogDescription = document.createElement('div');
       dialogDescription.classList.add('item-dialog');
