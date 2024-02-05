@@ -386,12 +386,12 @@ ul ul {
     --border-image-padding: 3px;
     margin: 10px var(--border-image-padding) 40px;
     border: 12px solid transparent;
-    border-image: url(sectionCorners_small.png) 42 / 42px / var(--border-image-padding);
+    border-image: url(sectionCorners.png) 42 / 42px / var(--border-image-padding);
     width: calc(100% - var(--border-image-padding) * 2);
   }
   
   .fancy-border-x {
-    border-image: url(sectionCornersX_small.png) 42 / 42px / var(--border-image-padding);
+    border-image: url(sectionCornersX.png) 42 / 42px / var(--border-image-padding);
   }
   
   .fancy-border tr:first-child th {
