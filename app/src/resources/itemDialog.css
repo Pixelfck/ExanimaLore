@@ -20,15 +20,37 @@
 }
 
 .item-dialog--title {
-  font-size: 2.7em;
-  font-style: italic;
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 16px;
+  
+  font-size: 1.2em;
   font-weight: normal;
-  margin: 1.4em 0 1em;
+  color: #847a67;
+  background-color: black;
+}
+
+.item-dialog--title-decoration {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 9px;
+  height: 18px;
+  background-image: url(sectionTitle.png);
+  background-position-x: 0;
+}
+.item-dialog--title-decoration:last-child {
+  left: unset;
+  right: 0;
+  background-position-x: -9px;
 }
 
 .item-dialog {
   width: 100%;
   height: 100%;
+  padding: 1em 1em 0;
   text-align: center;
   background-color: var(--color-bg);
   border-radius: 47px;
