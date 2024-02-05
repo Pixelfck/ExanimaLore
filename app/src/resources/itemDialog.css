@@ -5,18 +5,27 @@
 
 /*================ Classes ================*/
 
+table[data-item-popup] tr[id] td:first-child img {
+  pointer-events: all;
+  cursor: pointer;
+}
+
 .item-dialog--wrapper {
   position: absolute;
   display: flex;
   top: calc(48% - 190px);
   left: calc(50%);
   transform: translateX(-50%);
-  width: 700px;
+  width: 396px;
   max-width: calc(100vw - 1em);
-  height: 380px;
+  height: fit-content;
   transition: opacity .375s ease-in;
   justify-content: center;
   align-items: center;
+}
+
+.item-dialog--wrapper-wide {
+  width: 483px;
 }
 
 .item-dialog--title {
@@ -50,10 +59,9 @@
 .item-dialog {
   width: 100%;
   height: 100%;
-  padding: 1em 1em 0;
-  text-align: center;
+  padding: 1em 1em 1.5em;
   background-color: var(--color-bg);
-  border-radius: 47px;
+  border-radius: 34px;
 }
 
 @media only screen and (max-width: 919px) {
@@ -64,6 +72,16 @@
   .item-dialog {
     border-radius: 10px;
   }
+}
+
+.item-dialog a {
+  color: var(--color-text);
+}
+
+.item-dialog a:hover,
+.item-dialog a:focus,
+.item-dialog a:active {
+  color: var(--color-link--highlight);
 }
 
 .item-dialog-close {
