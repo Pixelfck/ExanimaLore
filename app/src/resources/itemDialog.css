@@ -16,7 +16,7 @@ table[data-item-popup] tr[id] td:first-child img {
   top: calc(48% - 190px);
   left: calc(50%);
   transform: translateX(-50%);
-  width: 396px;
+  width: 370px;
   max-width: calc(100vw - 1em);
   height: fit-content;
   transition: opacity .375s ease-in;
@@ -85,7 +85,7 @@ table[data-item-popup] tr[id] td:first-child img {
 }
 
 .item-dialog--image {
-  margin: 2em auto -2em;
+  margin: 2em auto 0;
 }
 .item-dialog p {
   letter-spacing: 0.05em;
