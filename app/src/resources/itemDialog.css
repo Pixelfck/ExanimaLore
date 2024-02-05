@@ -1,0 +1,56 @@
+/**
+ * Side loaded styles for the ItemDialog functionality.
+ * Note: since the ItemDialog requires javascript functionality, these styles are only side loaded when javascript is supported.
+ */
+
+/*================ Classes ================*/
+
+.item-dialog--wrapper {
+  position: absolute;
+  display: flex;
+  top: calc(48% - 190px);
+  left: calc(50%);
+  transform: translateX(-50%);
+  width: 700px;
+  max-width: calc(100vw - 1em);
+  height: 380px;
+  transition: opacity .375s ease-in;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-dialog--title {
+  font-size: 2.7em;
+  font-style: italic;
+  font-weight: normal;
+  margin: 1.4em 0 1em;
+}
+
+.item-dialog {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: var(--color-bg);
+  border-radius: 47px;
+}
+
+@media only screen and (max-width: 919px) {
+  .item-dialog--wrapper {
+    border: 1px solid var(--color-border--highlight);
+  }
+  
+  .item-dialog {
+    border-radius: 10px;
+  }
+}
+
+.item-dialog-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 21px;
+  height: 21px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

@@ -337,10 +337,111 @@ const SpoilerWarning = (function () {
   return SpoilerWarning;
 })();
 
+/**
+ * Show item info popup dialog
+ * @type {ItemDialog}
+ */
+const ItemDialog = (function () {
+  function ItemDialog() {
+    // empty
+  }
+  
+  Object.assign(ItemDialog.prototype, {
+    init: function () {
+      this.loadStylesheet();
+    },
+    
+    loadStylesheet: function () {
+      const stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = 'resources/itemDialog.min.css';
+      stylesheet.addEventListener('load', () => this.addEventListeners(), {once: true});
+      
+      const linkTags = document.querySelectorAll('link[rel="stylesheet"]');
+      linkTags[linkTags.length - 1].after(stylesheet);
+    },
+    
+    addEventListeners: function() {
+      document.querySelectorAll('table[data-item-popup] tr[id] td:first-child').forEach((element) => {
+        element.addEventListener('click', (event) => this.onItemClick(event));
+      });
+    },
+    
+    onItemClick: function(event) {
+      if (event.target.tagName !== 'TD') return;
+      
+      const columnIndices = event.target.closest('table').dataset.itemPopup.split(',');
+      const tds = event.target.closest('tr').getElementsByTagName('td');
+      
+      const title = tds[parseInt(columnIndices[0])].innerText;
+      const description = tds[parseInt(columnIndices[1])].innerHTML;
+      
+      this.showDialog(title, description);
+      
+    },
+    
+    showDialog: function(title, description) {
+      const dialogTitle = document.createElement('h1');
+      dialogTitle.classList.add('item-dialog--title');
+      dialogTitle.innerText = title;
+      
+      const dialogDescription = document.createElement('div');
+      dialogDescription.classList.add('item-dialog');
+      dialogDescription.appendChild(dialogTitle);
+      dialogDescription.innerHTML += description;
+      
+      const closeBtn = document.createElement('button');
+      closeBtn.classList.add('item-dialog-close');
+      closeBtn.addEventListener('click', (event) => this.onBtnClick(event), {passive: true, once: true});
+      
+      const dialogWrapper = document.createElement('div');
+      dialogWrapper.classList.add('item-dialog--wrapper', 'fancy-border-x');
+      dialogWrapper.appendChild(closeBtn);
+      dialogWrapper.appendChild(dialogDescription);
+      
+      const overlayCloseBtn = document.createElement('div');
+      overlayCloseBtn.classList.add('overlay--close-btn');
+      overlayCloseBtn.ariaLabel = 'close';
+      overlayCloseBtn.innerText = '×';
+      
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay');
+      overlay.addEventListener('click', (event) => this.onOverlayClick(event));
+      overlay.appendChild(overlayCloseBtn);
+      overlay.appendChild(dialogWrapper);
+      
+      document.body.appendChild(overlay);
+      
+      console.log(title, description);
+    },
+    
+    onOverlayClick: function (event) {
+      const overlay = event.target.classList.contains('.overlay') ? event.target : event.target.closest('.overlay');
+      const dialogWrapper = document.querySelector('.item-dialog--wrapper');
+      
+      overlay.addEventListener('transitionend', () => document.body.removeChild(overlay), {passive: true, once: true});
+      overlay.style.opacity = 0;
+      dialogWrapper.style.opacity = 0;
+    },
+    
+    onBtnClick: function (event) {
+      const overlay = event.target.classList.contains('.overlay') ? event.target : event.target.closest('.overlay');
+      const dialogWrapper = document.querySelector('.item-dialog--wrapper');
+      
+      overlay.addEventListener('transitionend', () => document.body.removeChild(overlay), {passive: true, once: true});
+      overlay.style.opacity = 0;
+      dialogWrapper.opacity = 0;
+    },
+  });
+  
+  return ItemDialog;
+})();
+
 document.addEventListener('DOMContentLoaded', function() {;
 	(new SpoilerWarning()).init();
 	(new CopyID()).init();
 	(new ScrollToTop()).init();
 	(new DivinersDeck()).init();
+	(new ItemDialog()).init();
   (new SectionHighlight()).init();
 });
