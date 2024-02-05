@@ -49,6 +49,17 @@
   }
 }
 
+.spoiler-warning-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 21px;
+  height: 21px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .spoiler-warning--btn {
   margin-top: 2em;
   padding: 10px 16px;
