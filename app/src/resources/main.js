@@ -367,6 +367,7 @@ const ItemDialog = (function () {
         element.addEventListener('contextmenu', (event) => event.preventDefault());
       });
     },
+    
     onItemClick: function(event) {
       const columnIndices = event.target.closest('table').dataset.itemPopup.split(',');
       const tds = event.target.closest('tr').getElementsByTagName('td');
@@ -375,10 +376,10 @@ const ItemDialog = (function () {
       const description = tds[parseInt(columnIndices[1])].innerHTML;
       const size = columnIndices[2];
       
-      this.showDialog(title, description, size);
+      this.showDialog(title, description, event.target, size);
     },
     
-    showDialog: function(title, description, size) {
+    showDialog: function(title, description, image, size) {
       const dialogTitleDecoration = document.createElement('div');
       dialogTitleDecoration.classList.add('item-dialog--title-decoration');
       
@@ -388,9 +389,13 @@ const ItemDialog = (function () {
       dialogTitle.appendChild(dialogTitleDecoration);
       dialogTitle.appendChild(dialogTitleDecoration.cloneNode());
       
+      const dialogImage = image.cloneNode();
+      dialogImage.classList.add('item-dialog--image');
+      
       const dialogDescription = document.createElement('div');
       dialogDescription.classList.add('item-dialog');
       dialogDescription.appendChild(dialogTitle);
+      dialogDescription.appendChild(dialogImage);
       dialogDescription.innerHTML += description;
       
       const closeBtn = document.createElement('button');
@@ -417,6 +422,8 @@ const ItemDialog = (function () {
       overlay.appendChild(dialogWrapper);
       
       document.body.appendChild(overlay);
+      
+      console.log(image);
     },
     
     onOverlayClick: function (event) {
