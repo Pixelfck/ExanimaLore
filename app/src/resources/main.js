@@ -264,7 +264,7 @@ const SpoilerWarning = (function () {
   Object.assign(SpoilerWarning.prototype, {
     init: function () {
       const cookie = this.getCookie(settings.cookieName);
-      if (!cookie || true) {
+      if (!cookie) {
        this.loadSpoilerWarningStylesheet();
       }
     },
