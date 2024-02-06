@@ -371,17 +371,20 @@ const ItemDialog = (function () {
     onItemClick: function(event) {
       const columnIndices = event.target.closest('table').dataset.itemDialog.split(',');
       const tds = event.target.closest('tr').getElementsByTagName('td');
+      const td0 = tds[parseInt(columnIndices[0])];
       
-      
-      const title = tds[parseInt(columnIndices[0])].cloneNode(true);
-      const hiddenText = title.querySelector('.visually-hidden, .visually-hidden--desktop, .visually-hidden--mobile');
-      if (hiddenText) {
-        title.removeChild(hiddenText);
+      let title, description;
+      if (td0.dataset.itemTitle) {
+        title = td0.dataset.itemTitle;
+        description = '<p>' + td0.innerText + '</p>' + tds[parseInt(columnIndices[1])].innerHTML;
+      } else {
+        title = this.getTextNodesText(td0);
+        description = tds[parseInt(columnIndices[1])].innerHTML;
       }
-      const description = tds[parseInt(columnIndices[1])].innerHTML;
+      
       const size = columnIndices[2];
       
-      this.showDialog(title.innerText, description, event.target, size);
+      this.showDialog(title, description, event.target, size);
     },
     
     showDialog: function(title, description, image, size) {
@@ -445,6 +448,13 @@ const ItemDialog = (function () {
       overlay.addEventListener('transitionend', () => document.body.removeChild(overlay), {passive: true, once: true});
       overlay.style.opacity = 0;
       dialogWrapper.opacity = 0;
+    },
+    
+    getTextNodesText: function (element) {
+      return Array.from(element.childNodes)
+                  .filter((child) => child.nodeType === Node.TEXT_NODE)
+                  .map((child) => child.textContent)
+                  .join('');
     },
   });
   
