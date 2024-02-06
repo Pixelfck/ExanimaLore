@@ -5,7 +5,7 @@
 
 /*================ Classes ================*/
 
-table[data-item-popup] tr[id] td:first-child img {
+table[data-item-dialog] tr[id] td:first-child img {
   pointer-events: all;
   cursor: pointer;
 }
@@ -16,7 +16,7 @@ table[data-item-popup] tr[id] td:first-child img {
   top: calc(48% - 190px);
   left: calc(50%);
   transform: translateX(-50%);
-  width: 370px;
+  width: 535px;
   max-width: calc(100vw - 1em);
   height: fit-content;
   transition: opacity .375s ease-in;
@@ -24,8 +24,8 @@ table[data-item-popup] tr[id] td:first-child img {
   align-items: center;
 }
 
-.item-dialog--wrapper-wide {
-  width: 535px;
+.item-dialog--wrapper-narrow {
+  width: 370px;
 }
 
 .item-dialog--title {
