@@ -127,11 +127,11 @@ const DivinersDeck = (function () {
       let cardFront;
       let cardBack = document.getElementById('DivinersDeckCardBackSide');
       if (cardBack === cardImg) {
-        cardFront = cardBack.cloneNode(false);
+        cardFront = cardBack.cloneNode();
         cardBack = this.getRandomCardFront();
       } else {
-        cardFront = cardImg.cloneNode(false);
-        cardBack = cardBack.cloneNode(false);
+        cardFront = cardImg.cloneNode();
+        cardBack = cardBack.cloneNode();
       }
       cardFront.classList.add('card-front');
       cardBack.classList.add('card-back');
@@ -167,7 +167,7 @@ const DivinersDeck = (function () {
     getRandomCardFront: function () {
       const cardImages = document.querySelectorAll('.diviners-deck-card img');
       
-      return cardImages[this.getRandomIntInclusive(1, cardImages.length - 1)].cloneNode(false);
+      return cardImages[this.getRandomIntInclusive(1, cardImages.length - 1)].cloneNode();
     },
     
     getRandomIntInclusive: function (min, max) {
@@ -382,9 +382,21 @@ const ItemDialog = (function () {
         description = tds[parseInt(columnIndices[1])].innerHTML;
       }
       
+      let image;
+      if (event.target.dataset.itemImage) {
+        const imageData = event.target.dataset.itemImage.split(',');
+        image = document.createElement('img');
+        image.src = imageData[0];
+        image.width = parseInt(imageData[1]);
+        image.height = parseInt(imageData[2]);
+        image.classList.add('item');
+      } else {
+        image = event.target.cloneNode();
+      }
+      
       const size = columnIndices[2];
       
-      this.showDialog(title, description, event.target, size);
+      this.showDialog(title, description, image, size);
     },
     
     showDialog: function(title, description, image, size) {
@@ -397,7 +409,7 @@ const ItemDialog = (function () {
       dialogTitle.appendChild(dialogTitleDecoration);
       dialogTitle.appendChild(dialogTitleDecoration.cloneNode());
       
-      const dialogImage = image.cloneNode();
+      const dialogImage = image;
       dialogImage.classList.add('item-dialog--image');
       
       const dialogDescription = document.createElement('div');
