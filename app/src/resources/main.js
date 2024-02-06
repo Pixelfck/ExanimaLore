@@ -362,15 +362,16 @@ const ItemDialog = (function () {
     },
     
     addEventListeners: function() {
-      document.querySelectorAll('table[data-item-popup] tr[id] td:first-child img').forEach((element) => {
+      document.querySelectorAll('table[data-item-dialog] tr[id] td:first-child img').forEach((element) => {
         element.addEventListener('click', (event) => this.onItemClick(event));
         element.addEventListener('contextmenu', (event) => event.preventDefault());
       });
     },
     
     onItemClick: function(event) {
-      const columnIndices = event.target.closest('table').dataset.itemPopup.split(',');
+      const columnIndices = event.target.closest('table').dataset.itemDialog.split(',');
       const tds = event.target.closest('tr').getElementsByTagName('td');
+      
       
       const title = tds[parseInt(columnIndices[0])].cloneNode(true);
       const hiddenText = title.querySelector('.visually-hidden, .visually-hidden--desktop, .visually-hidden--mobile');
